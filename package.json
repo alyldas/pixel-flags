@@ -71,7 +71,7 @@
     "@commitlint/cli": "^20.5.3",
     "@commitlint/config-conventional": "^20.5.3",
     "@eslint/js": "^9.38.0",
-    "eslint": "^9.38.0",
+    "eslint": "^10.3.0",
     "github-actionlint": "^1.7.12",
     "globals": "^16.5.0",
     "husky": "^9.1.7",
