@@ -42,14 +42,14 @@ import "./app.css";
 ```
 
 ```html
-<span class="pf pf-br" aria-label="Brazil"></span>
+<span class="pf pf-ru" aria-label="Russia"></span>
 ```
 
 ### Plain HTML
 
 ```html
 <link rel="stylesheet" href="./css/pixel-flags.css" />
-<span class="pf pf-us" role="img" aria-label="United States"></span>
+<span class="pf pf-ru" role="img" aria-label="Russia"></span>
 ```
 
 ### Sizing
@@ -57,8 +57,8 @@ import "./app.css";
 Flags scale with surrounding `font-size`, or you can set an explicit CSS variable:
 
 ```html
-<span class="pf pf-jp" style="font-size: 2rem" role="img" aria-label="Japan"></span>
-<span class="pf pf-jp" style="--pf-height: 2rem" role="img" aria-label="Japan"></span>
+<span class="pf pf-ru" style="font-size: 2rem" role="img" aria-label="Russia"></span>
+<span class="pf pf-ru" style="--pf-height: 2rem" role="img" aria-label="Russia"></span>
 ```
 
 ### Accessibility
@@ -66,13 +66,13 @@ Flags scale with surrounding `font-size`, or you can set an explicit CSS variabl
 If a flag conveys meaning, add `role="img"` and an `aria-label`:
 
 ```html
-<span class="pf pf-jp" role="img" aria-label="Japan"></span>
+<span class="pf pf-ru" role="img" aria-label="Russia"></span>
 ```
 
 If it is decorative only:
 
 ```html
-<span class="pf pf-fr" aria-hidden="true"></span>
+<span class="pf pf-ru" aria-hidden="true"></span>
 ```
 
 ## What's Included
@@ -167,7 +167,7 @@ npm run verify
 1. Make sure `package.json` version is the intended release version.
 2. Update `CHANGELOG.md` for that version.
 3. Run `npm run verify`.
-4. Run `npm run smoke` in an environment where Playwright Chromium can launch.
+4. Run `npm run smoke` in an environment where Playwright Chrome for Testing can launch.
 5. Push the release commit to `main`.
 6. Create and push a matching tag such as `v0.1.0`.
 7. Confirm `.github/workflows/release.yml` completed and, if `NPM_TOKEN` is configured, verify the npm publish result.

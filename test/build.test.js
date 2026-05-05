@@ -39,6 +39,18 @@ test("build generates css and html outputs", async () => {
   }
 });
 
+test("generated brand images use the Russian flag as the representative flag", async () => {
+  await buildProject();
+
+  const favicon = fs.readFileSync(FAVICON_PATH, "utf8");
+  const socialCard = fs.readFileSync(SOCIAL_CARD_SVG_PATH, "utf8");
+
+  assert.match(favicon, /y="17\.33" width="44" height="5\.34" fill="#4f7cff"/);
+  assert.match(favicon, /y="22\.67" width="44" height="5\.33" fill="#f66b4f"/);
+  assert.match(socialCard, /y="60\.67" width="232" height="36\.66" fill="#4f7cff"/);
+  assert.match(socialCard, /y="97\.33" width="232" height="36\.67" fill="#f66b4f"/);
+});
+
 test("generated css includes one rule per flag asset", async () => {
   await buildProject();
 
@@ -91,4 +103,14 @@ test("generated site contains cards and source attribution", async () => {
     html,
     new RegExp(`"softwareVersion": "${PACKAGE_VERSION.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`)
   );
+});
+
+test("generated site uses Russia for representative flag examples", async () => {
+  await buildProject();
+
+  const html = fs.readFileSync(HTML_PATH, "utf8");
+
+  assert.match(html, /<span class="badge"><span class="pf pf-ru"/);
+  assert.match(html, /aria-label="Russia"/);
+  assert.match(html, /like <code>\.pf-ru<\/code>/);
 });

@@ -48,8 +48,8 @@ function buildFavicon() {
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Pixel Flags">
   <rect width="64" height="64" rx="14" fill="#14213d"/>
   <rect x="10" y="12" width="44" height="16" rx="3" fill="#f6f3e8"/>
-  <rect x="10" y="12" width="44" height="5.33" fill="#f66b4f"/>
-  <rect x="10" y="22.67" width="44" height="5.33" fill="#4f7cff"/>
+  <rect x="10" y="17.33" width="44" height="5.34" fill="#4f7cff"/>
+  <rect x="10" y="22.67" width="44" height="5.33" fill="#f66b4f"/>
   <rect x="10" y="34" width="44" height="18" rx="3" fill="#ffcc66"/>
   <path d="M18 46V38h8.4c4.9 0 7.8 1.6 7.8 5.7S31.3 50 26.4 50H22v4h-4zm4-3h4.1c2.7 0 4-.4 4-2.2 0-1.7-1.3-2.1-4-2.1H22v4.3zm14 7V38h7.8c5.8 0 9.2 1.7 9.2 6.1 0 4.6-3.4 6.4-9.2 6.4H36zm4-3.4h3.3c3.6 0 5.7-.7 5.7-3.8 0-3-2.1-3.5-5.7-3.5H40v7.3z" fill="#14213d"/>
 </svg>
@@ -86,8 +86,8 @@ function buildSocialCardSvg(report) {
   <g transform="translate(814 366)">
     <rect x="0" y="0" width="280" height="158" rx="18" fill="#ffffff" stroke="#d5d9e2"/>
     <rect x="24" y="24" width="232" height="110" rx="12" fill="#f6f3e8"/>
-    <rect x="24" y="24" width="232" height="36.67" fill="#f66b4f"/>
-    <rect x="24" y="97.33" width="232" height="36.67" fill="#4f7cff"/>
+    <rect x="24" y="60.67" width="232" height="36.66" fill="#4f7cff"/>
+    <rect x="24" y="97.33" width="232" height="36.67" fill="#f66b4f"/>
   </g>
 </svg>
 `;
@@ -539,13 +539,11 @@ function buildSiteHtml(entries, coverage) {
             </p>
             <div class="sample-row">
               <span class="badge"><span class="pf pf-ru" aria-hidden="true"></span><code>pf pf-ru</code></span>
-              <span class="badge"><span class="pf pf-jp" aria-hidden="true"></span><code>pf pf-jp</code></span>
-              <span class="badge"><span class="pf pf-br" aria-hidden="true"></span><code>pf pf-br</code></span>
             </div>
             <div class="hero__code">
               <pre><code>&lt;link rel="stylesheet" href="./css/pixel-flags.css"&gt;
 &lt;span class="pf pf-ru" role="img" aria-label="Russia"&gt;&lt;/span&gt;
-&lt;span class="pf pf-jp" style="--pf-height: 2rem" aria-label="Japan"&gt;&lt;/span&gt;</code></pre>
+&lt;span class="pf pf-ru" style="--pf-height: 2rem" aria-label="Russia"&gt;&lt;/span&gt;</code></pre>
             </div>
           </div>
           <aside class="hero__stats">
@@ -580,7 +578,7 @@ function buildSiteHtml(entries, coverage) {
           <div class="legend">
             <p>
               Add <code>.pf</code> to create the inline flag box. Then add a country modifier
-              like <code>.pf-us</code> or <code>.pf-ua</code>. The flags use
+              like <code>.pf-ru</code>. The flags use
               <code>background-image</code>, so the HTML stays empty and portable.
             </p>
             <p>
