@@ -1,0 +1,195 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import test from "node:test";
+import { pathToFileURL } from "node:url";
+
+import { chromium } from "playwright";
+import sharp from "sharp";
+
+import { CSS_DIR, FLAGS_DIR, HTML_PATH } from "../scripts/config.js";
+import { buildProject } from "../scripts/project.js";
+
+const CHROME_FOR_TESTING_CHANNEL = "chrome-for-testing";
+const smokeRequested = process.env.PIXEL_FLAGS_SMOKE === "1";
+const smokeArtifactDir = process.env.PIXEL_FLAGS_SMOKE_ARTIFACT_DIR?.trim() || "";
+const skipReason = smokeRequested ? undefined : "Run via `npm run smoke`.";
+
+test(
+  "site smoke test loads and filters flags in a real browser",
+  { skip: skipReason },
+  async () => {
+    await buildProject();
+    assert.ok(fs.existsSync(HTML_PATH));
+    const fixture = stageSmokeFixture();
+
+    const browser = await chromium.launch({
+      channel: CHROME_FOR_TESTING_CHANNEL,
+      headless: true,
+    });
+    const context = await browser.newContext({ deviceScaleFactor: 1 });
+    const page = await context.newPage();
+
+    try {
+      await page.goto(pathToFileURL(fixture.indexPath).href, { waitUntil: "load" });
+
+      await page.waitForSelector("h1");
+      await expectText(page.title(), "Pixel Flags | CSS Pixel-Art Country Flags");
+      await expectText(page.locator("h1").textContent(), "Flags that stay sharp.");
+      await expectText(page.locator("[data-visible-count]").textContent(), "212");
+
+      await page.getByLabel("Search flags").fill("japan");
+      await page.waitForTimeout(100);
+
+      await expectText(page.locator("[data-visible-count]").textContent(), "1");
+      await expectText(page.locator(".flag-card:not([hidden]) strong").textContent(), "JP");
+
+      const screenshot = await renderFlagScreenshot(page, "ru");
+      await expectRussianFlagPixels(screenshot);
+    } catch (error) {
+      await captureSmokeArtifacts({ page, fixture, outputDir: smokeArtifactDir });
+      throw error;
+    } finally {
+      await context.close();
+      await browser.close();
+      fixture.cleanup();
+    }
+  }
+);
+
+async function expectText(promise, expected) {
+  assert.equal(await promise, expected);
+}
+
+async function renderFlagScreenshot(page, code) {
+  await page.evaluate((flagCode) => {
+    const previous = globalThis.document.getElementById("smoke-visual");
+
+    if (previous) {
+      previous.remove();
+    }
+
+    const host = globalThis.document.createElement("div");
+    host.id = "smoke-visual";
+    host.style.position = "fixed";
+    host.style.inset = "24px auto auto 24px";
+    host.style.padding = "12px";
+    host.style.background = "#ffffff";
+    host.style.borderRadius = "8px";
+    host.style.zIndex = "9999";
+    host.innerHTML = `<span class="pf pf-${flagCode}" style="--pf-height: 54px;" aria-hidden="true"></span>`;
+    globalThis.document.body.appendChild(host);
+  }, code);
+
+  const locator = page.locator("#smoke-visual .pf");
+  await locator.waitFor();
+
+  const backgroundImage = await locator.evaluate(
+    (node) => globalThis.getComputedStyle(node).backgroundImage
+  );
+  assert.match(backgroundImage, new RegExp(`${code}\\.png`));
+
+  const screenshot = await locator.screenshot({ type: "png" });
+  writeBinaryArtifact(smokeArtifactDir, `flag-${code}.png`, screenshot);
+  return screenshot;
+}
+
+async function expectRussianFlagPixels(screenshotPromise) {
+  const screenshot = await screenshotPromise;
+  const { data, info } = await sharp(screenshot).raw().toBuffer({ resolveWithObject: true });
+
+  assert.equal(info.width, 96);
+  assert.equal(info.height, 54);
+
+  const top = getPixel(data, info, 48, 9);
+  const middle = getPixel(data, info, 48, 27);
+  const bottom = getPixel(data, info, 48, 45);
+
+  assert.ok(
+    top.r > 220 && top.g > 220 && top.b > 220,
+    `Unexpected top stripe: ${formatPixel(top)}`
+  );
+  assert.ok(
+    middle.b > 150 && middle.b > middle.r + 40 && middle.b > middle.g + 30,
+    `Unexpected middle stripe: ${formatPixel(middle)}`
+  );
+  assert.ok(
+    bottom.r > 150 && bottom.r > bottom.g + 40 && bottom.r > bottom.b + 40,
+    `Unexpected bottom stripe: ${formatPixel(bottom)}`
+  );
+}
+
+function getPixel(data, info, x, y) {
+  const channels = info.channels;
+  const offset = (y * info.width + x) * channels;
+
+  return {
+    r: data[offset],
+    g: data[offset + 1],
+    b: data[offset + 2],
+    a: channels > 3 ? data[offset + 3] : 255,
+  };
+}
+
+function formatPixel(pixel) {
+  return `rgba(${pixel.r}, ${pixel.g}, ${pixel.b}, ${pixel.a})`;
+}
+
+function stageSmokeFixture() {
+  const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "pixel-flags-smoke-"));
+  const siteDir = path.dirname(HTML_PATH);
+
+  for (const entry of fs.readdirSync(siteDir)) {
+    fs.cpSync(path.join(siteDir, entry), path.join(fixtureRoot, entry), { recursive: true });
+  }
+
+  fs.cpSync(CSS_DIR, path.join(fixtureRoot, "css"), { recursive: true });
+  fs.cpSync(FLAGS_DIR, path.join(fixtureRoot, "flags"), { recursive: true });
+
+  return {
+    rootDir: fixtureRoot,
+    indexPath: path.join(fixtureRoot, "index.html"),
+    cleanup() {
+      fs.rmSync(fixtureRoot, { recursive: true, force: true });
+    },
+  };
+}
+
+async function captureSmokeArtifacts({ page, fixture, outputDir }) {
+  if (!outputDir) {
+    return;
+  }
+
+  ensureArtifactDir(outputDir);
+
+  if (page) {
+    await page.screenshot({
+      path: path.join(outputDir, "page.png"),
+      fullPage: true,
+      type: "png",
+    });
+
+    const html = await page.content();
+    fs.writeFileSync(path.join(outputDir, "dom.html"), html, "utf8");
+  }
+
+  if (fixture?.rootDir && fs.existsSync(fixture.rootDir)) {
+    const fixtureCopyPath = path.join(outputDir, "fixture");
+    fs.rmSync(fixtureCopyPath, { recursive: true, force: true });
+    fs.cpSync(fixture.rootDir, fixtureCopyPath, { recursive: true });
+  }
+}
+
+function writeBinaryArtifact(outputDir, fileName, data) {
+  if (!outputDir) {
+    return;
+  }
+
+  ensureArtifactDir(outputDir);
+  fs.writeFileSync(path.join(outputDir, fileName), data);
+}
+
+function ensureArtifactDir(outputDir) {
+  fs.mkdirSync(outputDir, { recursive: true });
+}

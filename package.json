@@ -1,0 +1,83 @@
+{
+  "name": "pixel-flags",
+  "version": "0.1.0",
+  "description": "Pixel-perfect country flags with a flag-icons-like CSS API.",
+  "author": "alyldas",
+  "homepage": "https://alyldas.github.io/pixel-flags/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alyldas/pixel-flags.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alyldas/pixel-flags/issues"
+  },
+  "type": "module",
+  "style": "./css/pixel-flags.css",
+  "sideEffects": [
+    "./css/pixel-flags.css",
+    "./css/pixel-flags.min.css"
+  ],
+  "exports": {
+    "./css/*": "./css/*",
+    "./flags/*": "./flags/*"
+  },
+  "files": [
+    "css",
+    "flags",
+    "CHANGELOG.md",
+    "README.md",
+    "NOTICE.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "node scripts/clean.js",
+    "build": "node scripts/build.js",
+    "coverage": "node scripts/coverage.js",
+    "assemble:pages": "node scripts/assemble-pages.js",
+    "smoke": "node scripts/smoke.js",
+    "docs:check": "node scripts/check-doc-links.js",
+    "validate:assets": "node scripts/validate-assets.js",
+    "lint": "eslint scripts test",
+    "lint:workflows": "node scripts/lint-workflows.js",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "audit:runtime": "npm audit --omit=dev --audit-level=high",
+    "pack:check": "node scripts/pack-check.js",
+    "release:notes": "node scripts/release-notes.js",
+    "github:hardening": "node scripts/github-hardening.js",
+    "hooks:install": "husky",
+    "commitlint": "commitlint --edit",
+    "test": "node --test test/build.test.js test/coverage.test.js test/package.test.js test/release-notes.test.js",
+    "test:all": "npm test && npm run smoke",
+    "verify": "npm run format:check && npm run lint && npm run lint:workflows && npm run docs:check && npm run validate:assets && npm run build && npm run coverage && npm test && npm run pack:check",
+    "prepublishOnly": "npm run verify && npm run smoke"
+  },
+  "keywords": [
+    "css",
+    "flags",
+    "icons",
+    "pixel-art",
+    "png"
+  ],
+  "license": "SEE LICENSE IN NOTICE.md",
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "npm@10.9.7",
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.5.3",
+    "@commitlint/config-conventional": "^20.5.3",
+    "@eslint/js": "^9.38.0",
+    "eslint": "^9.38.0",
+    "github-actionlint": "^1.7.12",
+    "globals": "^16.5.0",
+    "husky": "^9.1.7",
+    "i18n-iso-countries": "^7.14.0",
+    "playwright": "^1.58.2",
+    "prettier": "^3.6.2",
+    "sharp": "^0.34.5"
+  }
+}

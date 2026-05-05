@@ -1,0 +1,10 @@
+node_modules
+.git
+.npm-cache
+flags
+css
+site
+reports
+badges
+_site
+package-lock.json

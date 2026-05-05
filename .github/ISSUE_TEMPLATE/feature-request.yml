@@ -1,0 +1,37 @@
+name: Feature request
+description: Propose a new flag set improvement, package enhancement, or documentation change.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please describe the user-facing outcome you want, not only the implementation idea.
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      placeholder: Add a documented way to consume the minified stylesheet
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What are you trying to do?
+      placeholder: In CDN-style usage, I want a smaller stylesheet entrypoint.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      placeholder: Export and document a minified CSS entrypoint.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      placeholder: I can bundle the readable CSS myself, but it adds extra steps.

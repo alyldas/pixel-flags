@@ -1,0 +1,16 @@
+{
+  "name": "Pixel Flags",
+  "short_name": "Pixel Flags",
+  "start_url": "/pixel-flags/",
+  "scope": "/pixel-flags/",
+  "display": "standalone",
+  "background_color": "#f4efe4",
+  "theme_color": "#14213d",
+  "icons": [
+    {
+      "src": "https://alyldas.github.io/pixel-flags/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

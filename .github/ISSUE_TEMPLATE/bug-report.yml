@@ -1,0 +1,52 @@
+name: Bug report
+description: Report a reproducible problem with the package, generated assets, or demo site.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please include a minimal reproduction when possible.
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: Short description of the problem.
+      placeholder: The generated CSS points to a missing flag asset
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Exact steps, commands, or usage snippet.
+      placeholder: |
+        1. Install the package
+        2. Import pixel-flags/css/pixel-flags.css
+        3. Render <span class="pf pf-ru"></span>
+        4. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: The Russia flag should render as a rectangular pixel-art flag.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      placeholder: The element renders empty or points to a missing URL.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, bundler, package version, OS, and anything else relevant.
+      placeholder: npm 11, Vite 7, Chrome 134, macOS 15.3
+    validations:
+      required: true

@@ -1,0 +1,30 @@
+name: Security note
+description: Read this before reporting security-sensitive behavior.
+title: "security: "
+labels:
+  - security
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not disclose vulnerabilities publicly.
+
+        Do not include bypass steps, exploit payloads, private logs, secrets, tokens, or reproduction details for security bugs in a public issue.
+
+        Follow `SECURITY.md` for private vulnerability reporting.
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public disclosure check
+      options:
+        - label: This public issue will not include vulnerability details, exploit steps, secrets, tokens, or private logs.
+          required: true
+
+  - type: textarea
+    id: non-sensitive-context
+    attributes:
+      label: Non-sensitive context
+      description: If this is not a vulnerability disclosure, describe the documentation, policy, or coordination question.
+    validations:
+      required: true
