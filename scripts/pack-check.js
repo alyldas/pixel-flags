@@ -34,6 +34,7 @@ const requiredExact = [
   "README.md",
   "css/pixel-flags.css",
   "css/pixel-flags.min.css",
+  "flags/provenance.json",
   "package.json",
 ];
 const forbiddenPrefixes = [".github/", "badges/", "reports/", "scripts/", "site/", "test/"];
@@ -61,7 +62,7 @@ for (const filePath of files) {
     requiredExact.includes(filePath) ||
     expectedFlags.includes(filePath) ||
     /^css\/pixel-flags(?:\.min)?\.css$/.test(filePath) ||
-    /^flags\/[a-z]{2}\.png$/.test(filePath);
+    /^flags\/(?:[a-z]{2}\.png|provenance\.json)$/.test(filePath);
 
   assert.ok(allowed, `Unexpected packed file: ${filePath}`);
   assert.ok(!forbiddenExact.includes(filePath), `Forbidden packed file: ${filePath}`);

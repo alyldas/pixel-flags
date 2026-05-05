@@ -10,6 +10,7 @@ import sharp from "sharp";
 
 import { CSS_DIR, FLAGS_DIR, HTML_PATH } from "../scripts/config.js";
 import { buildProject } from "../scripts/project.js";
+import { removeOwnedTree } from "../scripts/safe-fs.js";
 
 const CHROME_FOR_TESTING_CHANNEL = "chrome-for-testing";
 const smokeRequested = process.env.PIXEL_FLAGS_SMOKE === "1";
@@ -40,8 +41,7 @@ test(
       await expectText(page.locator("[data-visible-count]").textContent(), "212");
 
       await page.getByLabel("Search flags").fill("japan");
-      await page.waitForTimeout(100);
-
+      await waitForVisibleFlagCount(page, "1");
       await expectText(page.locator("[data-visible-count]").textContent(), "1");
       await expectText(page.locator(".flag-card:not([hidden]) strong").textContent(), "JP");
 
@@ -60,6 +60,14 @@ test(
 
 async function expectText(promise, expected) {
   assert.equal(await promise, expected);
+}
+
+async function waitForVisibleFlagCount(page, expected) {
+  await page.waitForFunction(
+    (expectedValue) =>
+      globalThis.document.querySelector("[data-visible-count]")?.textContent === expectedValue,
+    expected
+  );
 }
 
 async function renderFlagScreenshot(page, code) {
@@ -151,7 +159,7 @@ function stageSmokeFixture() {
     rootDir: fixtureRoot,
     indexPath: path.join(fixtureRoot, "index.html"),
     cleanup() {
-      fs.rmSync(fixtureRoot, { recursive: true, force: true });
+      removeOwnedTree(fixtureRoot);
     },
   };
 }
@@ -176,7 +184,9 @@ async function captureSmokeArtifacts({ page, fixture, outputDir }) {
 
   if (fixture?.rootDir && fs.existsSync(fixture.rootDir)) {
     const fixtureCopyPath = path.join(outputDir, "fixture");
-    fs.rmSync(fixtureCopyPath, { recursive: true, force: true });
+    if (fs.existsSync(fixtureCopyPath)) {
+      removeOwnedTree(fixtureCopyPath);
+    }
     fs.cpSync(fixture.rootDir, fixtureCopyPath, { recursive: true });
   }
 }

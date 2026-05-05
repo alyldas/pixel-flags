@@ -12,8 +12,9 @@ if (!repoSlug) {
 }
 
 ensureRepositoryExists(repoSlug);
+applyWorkflowPermissions(repoSlug);
 applyMainBranchProtection(repoSlug);
-ensureTagProtection(repoSlug, "v*");
+ensureTagRuleset(repoSlug);
 
 console.log(`GitHub hardening applied for ${repoSlug}.`);
 
@@ -81,6 +82,13 @@ function ensureRepositoryExists(repo) {
   runGh(["repo", "view", repo, "--json", "nameWithOwner"]);
 }
 
+function applyWorkflowPermissions(repo) {
+  ghApi(repo, "actions/permissions/workflow", "PUT", {
+    default_workflow_permissions: "write",
+    can_approve_pull_request_reviews: true,
+  });
+}
+
 function applyMainBranchProtection(repo) {
   const payload = {
     required_status_checks: {
@@ -107,13 +115,29 @@ function applyMainBranchProtection(repo) {
   ghApi(repo, "branches/main/protection", "PUT", payload);
 }
 
-function ensureTagProtection(repo, pattern) {
-  const existing = ghApi(repo, "tags/protection", "GET");
-  const found = Array.isArray(existing) && existing.some((item) => item.pattern === pattern);
+function ensureTagRuleset(repo) {
+  const name = "Protect release tags";
+  const payload = {
+    name,
+    target: "tag",
+    enforcement: "active",
+    conditions: {
+      ref_name: {
+        include: ["refs/tags/v*"],
+        exclude: [],
+      },
+    },
+    rules: [{ type: "deletion" }, { type: "non_fast_forward" }],
+    bypass_actors: [],
+  };
+  const rulesets = ghApi(repo, "rulesets", "GET");
+  const existing = Array.isArray(rulesets)
+    ? rulesets.find((ruleset) => ruleset.name === name)
+    : null;
 
-  if (found) {
-    return;
+  if (existing?.id) {
+    ghApi(repo, `rulesets/${existing.id}`, "PUT", payload);
+  } else {
+    ghApi(repo, "rulesets", "POST", payload);
   }
-
-  ghApi(repo, "tags/protection", "POST", { pattern });
 }

@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 import { CSS_DIR, FLAGS_DIR, PROJECT_ROOT, SITE_DIR } from "./config.js";
+import { removeOwnedTree } from "./safe-fs.js";
 
 const pagesDir = path.join(PROJECT_ROOT, "_site");
 
@@ -9,7 +10,9 @@ if (!fs.existsSync(SITE_DIR)) {
   throw new Error(`Site directory not found: ${SITE_DIR}. Run \`npm run build\` first.`);
 }
 
-fs.rmSync(pagesDir, { recursive: true, force: true });
+if (fs.existsSync(pagesDir)) {
+  removeOwnedTree(pagesDir);
+}
 fs.mkdirSync(pagesDir, { recursive: true });
 
 fs.cpSync(SITE_DIR, pagesDir, { recursive: true });

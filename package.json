@@ -37,6 +37,7 @@
     "smoke": "node scripts/smoke.js",
     "docs:check": "node scripts/check-doc-links.js",
     "validate:assets": "node scripts/validate-assets.js",
+    "validate:provenance": "node scripts/asset-provenance.js --check",
     "lint": "eslint scripts test",
     "lint:workflows": "node scripts/lint-workflows.js",
     "format": "prettier --write .",
@@ -49,8 +50,8 @@
     "commitlint": "commitlint --edit",
     "test": "node --test test/build.test.js test/coverage.test.js test/package.test.js test/release-notes.test.js",
     "test:all": "npm test && npm run smoke",
-    "verify": "npm run format:check && npm run lint && npm run lint:workflows && npm run docs:check && npm run validate:assets && npm run build && npm run coverage && npm test && npm run pack:check",
-    "prepublishOnly": "npm run verify && npm run smoke"
+    "verify": "npm run format:check && npm run lint && npm run lint:workflows && npm run docs:check && npm run validate:assets && npm run validate:provenance && npm run build && npm run coverage && npm test && npm run pack:check",
+    "prepublishOnly": "node scripts/check-publish-license.js && npm run verify && npm run smoke"
   },
   "keywords": [
     "css",

@@ -8,6 +8,7 @@ The flag PNG assets are not covered by MIT. They remain subject to the upstream 
 
 - Official project page: [r74n.com/pixelflags](https://r74n.com/pixelflags/)
 - Official license text: [r74n.com/license.txt](https://r74n.com/license.txt)
+- Local asset provenance: [flags/provenance.json](flags/provenance.json)
 
 Practical summary for this repository:
 
@@ -16,4 +17,4 @@ Practical summary for this repository:
 - Redistribution should continue to point back to the original project and license text.
 - If you need commercial usage rights or clearer redistribution terms, contact the upstream author before publishing derivative asset sets.
 
-This notice documents the current upstream licensing information as of March 4, 2026. If the upstream license changes, update this file and the related README references.
+This notice documents the current upstream licensing information as of May 5, 2026. If the upstream license changes, update this file and the related README references.

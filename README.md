@@ -80,6 +80,7 @@ If it is decorative only:
 - `css/pixel-flags.css` for readable production usage
 - `css/pixel-flags.min.css` for compact delivery
 - `flags/*.png` for direct asset access
+- `flags/provenance.json` for bundled asset hashes and upstream provenance
 - generated demo site files in `site/` (deployed to [alyldas.github.io/pixel-flags](https://alyldas.github.io/pixel-flags/))
 
 ## What It Does Not Include
@@ -119,8 +120,10 @@ Repository code, build scripts, generated CSS, tests, and documentation are MIT-
 Bundled PNG assets are derived from R74n Pixel Flags and use separate upstream terms.
 
 - Asset notice: [NOTICE.md](NOTICE.md)
+- Local asset provenance: [flags/provenance.json](flags/provenance.json)
 - Upstream asset source: [R74n Pixel Flags](https://r74n.com/pixelflags/)
 - Upstream content license: [R74n Content License 1.1](https://r74n.com/license.txt)
+- Real npm publishing is gated by `PIXEL_FLAGS_R74N_COMMERCIAL_PERMISSION=1` because the upstream license requires explicit permission for commercial use.
 
 ## Development
 
@@ -134,6 +137,7 @@ npm run lint
 npm run lint:workflows
 npm run docs:check
 npm run validate:assets
+npm run validate:provenance
 npm run build
 npm run coverage
 npm test

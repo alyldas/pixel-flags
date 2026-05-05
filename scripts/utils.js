@@ -1,5 +1,7 @@
 import fs from "node:fs";
 
+export { removeFileIfExists } from "./safe-fs.js";
+
 export function ensureDir(directoryPath) {
   fs.mkdirSync(directoryPath, { recursive: true });
 }
@@ -10,12 +12,6 @@ export function readText(filePath) {
 
 export function writeText(filePath, content) {
   fs.writeFileSync(filePath, content);
-}
-
-export function removeFileIfExists(filePath) {
-  if (fs.existsSync(filePath)) {
-    fs.rmSync(filePath);
-  }
 }
 
 export function escapeHtml(value) {

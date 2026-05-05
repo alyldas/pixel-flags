@@ -7,6 +7,7 @@ import test from "node:test";
 
 import { PROJECT_ROOT } from "../scripts/config.js";
 import { buildProject } from "../scripts/project.js";
+import { removeOwnedTree } from "../scripts/safe-fs.js";
 
 const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
 
@@ -99,7 +100,7 @@ test("packed package installs cleanly and exposes documented subpath exports", a
 
     assert.equal(resolveResult.status, 0, resolveResult.stderr || resolveResult.stdout);
   } finally {
-    fs.rmSync(packDir, { recursive: true, force: true });
-    fs.rmSync(consumerDir, { recursive: true, force: true });
+    removeOwnedTree(packDir);
+    removeOwnedTree(consumerDir);
   }
 });

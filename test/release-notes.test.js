@@ -6,6 +6,7 @@ import { spawnSync } from "node:child_process";
 import test from "node:test";
 
 import { PACKAGE_VERSION, PROJECT_ROOT } from "../scripts/config.js";
+import { removeOwnedTree } from "../scripts/safe-fs.js";
 
 test("release notes script extracts the current version section from CHANGELOG", () => {
   const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), "pixel-flags-release-notes-"));
@@ -28,6 +29,6 @@ test("release notes script extracts the current version section from CHANGELOG",
     assert.match(notes, new RegExp(`^## ${PACKAGE_VERSION}\\n`, "m"));
     assert.match(notes, /^### Added$/m);
   } finally {
-    fs.rmSync(outputDir, { recursive: true, force: true });
+    removeOwnedTree(outputDir);
   }
 });

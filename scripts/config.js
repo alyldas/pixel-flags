@@ -31,6 +31,7 @@ export const FAVICON_PATH = path.join(SITE_DIR, "favicon.svg");
 export const SOCIAL_CARD_SVG_PATH = path.join(SITE_DIR, "social-card.svg");
 export const SOCIAL_CARD_PNG_PATH = path.join(SITE_DIR, "social-card.png");
 export const MANIFEST_PATH = path.join(SITE_DIR, "site.webmanifest");
+export const ASSET_PROVENANCE_PATH = path.join(FLAGS_DIR, "provenance.json");
 export const COVERAGE_PATH = path.join(REPORTS_DIR, "coverage.md");
 export const COVERAGE_BADGE_PATH = path.join(BADGES_DIR, "coverage.svg");
 export const ROOT_LEGACY_ARTIFACT_PATHS = [

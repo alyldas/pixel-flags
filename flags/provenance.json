@@ -1,0 +1,1709 @@
+{
+  "schemaVersion": 1,
+  "upstream": {
+    "name": "R74n Pixel Flags",
+    "sourceUrl": "https://r74n.com/pixelflags/",
+    "licenseName": "R74n Content License 1.1",
+    "licenseUrl": "https://r74n.com/license.txt",
+    "upstreamAdvertisedFlagCount": 634,
+    "commercialUseRequiresPermission": true
+  },
+  "assets": [
+    {
+      "code": "AD",
+      "name": "Andorra",
+      "path": "flags/ad.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "6bca597cdeb7388bd24cc83b6435b454420363993c30d810586a1394670ccd72"
+    },
+    {
+      "code": "AE",
+      "name": "United Arab Emirates",
+      "path": "flags/ae.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "7fa5d20d76c9c57e453068a550da6955acf92be2c07eef34bec28c9afb40bb51"
+    },
+    {
+      "code": "AF",
+      "name": "Afghanistan",
+      "path": "flags/af.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "0739029597cddc8aaa304e65f1f86f64b25332ac68e5d5c0d866e582c83ca63b"
+    },
+    {
+      "code": "AG",
+      "name": "Antigua and Barbuda",
+      "path": "flags/ag.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "e5fe33a109fd1c937a7e78d3c0517e47941d9d151c6870e05219efbb26b0eb34"
+    },
+    {
+      "code": "AL",
+      "name": "Albania",
+      "path": "flags/al.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "d1b3bb559119945aa1f2056730b75d7fcca6c3f763b16c7aa091e7e13c3c78bc"
+    },
+    {
+      "code": "AM",
+      "name": "Armenia",
+      "path": "flags/am.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "2d1aabdb8e1b83ae85d93d4ffb607e4317da93978be04568fd2d856cc112ab2a"
+    },
+    {
+      "code": "AO",
+      "name": "Angola",
+      "path": "flags/ao.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "ef2abbae71a3b60fb925cd3b22b8a49326f9ebabfb382a9f924591c45ccd3a53"
+    },
+    {
+      "code": "AR",
+      "name": "Argentina",
+      "path": "flags/ar.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "0f11a1132f02755cfea378562ae753d5b192774e8830364041583e6e1e1a9707"
+    },
+    {
+      "code": "AT",
+      "name": "Austria",
+      "path": "flags/at.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "682ec8ebe2701d4efd8af6987929785b269c9a13bea35c92b92597e49de63580"
+    },
+    {
+      "code": "AU",
+      "name": "Australia",
+      "path": "flags/au.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "afa1290389ab1cae8e81763a4d5b684e98083cb82fde4a8351be3840ba722631"
+    },
+    {
+      "code": "AW",
+      "name": "Aruba",
+      "path": "flags/aw.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "bb65cb6563c574e7ef5a836197169fc4e899fdbf40510151ee3eff1f4a9e5493"
+    },
+    {
+      "code": "AX",
+      "name": "Åland Islands",
+      "path": "flags/ax.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "8ff254ad828accbc7c1a530a22d5e021785aad3074ae831fe6772e8318b1f73f"
+    },
+    {
+      "code": "AZ",
+      "name": "Azerbaijan",
+      "path": "flags/az.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "c18e9baea20764aaef48b472ef937ec12e08d831c8709aae0663cd17487a1147"
+    },
+    {
+      "code": "BA",
+      "name": "Bosnia and Herzegovina",
+      "path": "flags/ba.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "8c9218be221420610ef1f0f9444ec4379dc3012bacb39a926ca160ffe2491bf8"
+    },
+    {
+      "code": "BB",
+      "name": "Barbados",
+      "path": "flags/bb.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "6238dc00d87ef88ddd0a0e21e96fe68e0694eb9377130dae4306b2da4b5d01c7"
+    },
+    {
+      "code": "BD",
+      "name": "Bangladesh",
+      "path": "flags/bd.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "7b4e17e138ce69c08275fd9118e2830ab0ffbd81a42bc1f6001ec1421bff9363"
+    },
+    {
+      "code": "BE",
+      "name": "Belgium",
+      "path": "flags/be.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "d0f1ae9543b61172381a1339faddf14b1e5a5c1c6bde983e6b057709d68ffe91"
+    },
+    {
+      "code": "BF",
+      "name": "Burkina Faso",
+      "path": "flags/bf.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "a7f55344514108212238dc9afe4c41bedf69e90f9c7656139afebbd20f946792"
+    },
+    {
+      "code": "BG",
+      "name": "Bulgaria",
+      "path": "flags/bg.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "1a74c2824a7333b6ea5693215b5cfe942b4152f19876a1e6695f11c3b5e39c61"
+    },
+    {
+      "code": "BH",
+      "name": "Bahrain",
+      "path": "flags/bh.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "0e19c9e084e35d0207a74ea5e84564843cb9dfc1297b4a1c69a249db9c48a3c4"
+    },
+    {
+      "code": "BI",
+      "name": "Burundi",
+      "path": "flags/bi.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "d50aae94ce27ec77b1366c1a4764a18905a15f33d052e93be988c8d40969912c"
+    },
+    {
+      "code": "BJ",
+      "name": "Benin",
+      "path": "flags/bj.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "7a8aaed2de315c8c0f7148ff87eb0744da426a5b94db22865325f9bf72db94e0"
+    },
+    {
+      "code": "BN",
+      "name": "Brunei Darussalam",
+      "path": "flags/bn.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "8672d4d187e10731c5db13db16db305f1de6b96b1419ff1dd5fa9aa5855af537"
+    },
+    {
+      "code": "BO",
+      "name": "Bolivia",
+      "path": "flags/bo.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "acba605312f04125baef2374a8efb5aaaa1414d07daf10b857b37d21e09b7bb7"
+    },
+    {
+      "code": "BR",
+      "name": "Brazil",
+      "path": "flags/br.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "1da31b81829735375477a3f52e5540cc5583af0b47ae92e717bfbae92274314b"
+    },
+    {
+      "code": "BS",
+      "name": "Bahamas",
+      "path": "flags/bs.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "c638e5fbe933f2b455107cc535eeed85f4fe7e74938f3c2f7c83ae6cde1cd7f5"
+    },
+    {
+      "code": "BT",
+      "name": "Bhutan",
+      "path": "flags/bt.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "ff76c75e644604d7a295dace60902d85c3c6cb5109998873cdd0f1f13327a0db"
+    },
+    {
+      "code": "BW",
+      "name": "Botswana",
+      "path": "flags/bw.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "0ee9ec745c6af900bb2f6cd8f850192601c9aca68e235db65272c315efff155d"
+    },
+    {
+      "code": "BY",
+      "name": "Belarus",
+      "path": "flags/by.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "85b1c00413b3ba1fb296152d3f310ea3905400358e827485c84ec3e879be70e4"
+    },
+    {
+      "code": "BZ",
+      "name": "Belize",
+      "path": "flags/bz.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "50efd1372cf5fa80f9c3ab4a3f005bfcf6fede9d246b5b37af3d3002bd71dfec"
+    },
+    {
+      "code": "CA",
+      "name": "Canada",
+      "path": "flags/ca.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "0dd1c12be890271ba5675714ed16249f3c27b2655b89073435b246db5b5a6ed8"
+    },
+    {
+      "code": "CD",
+      "name": "Democratic Republic of the Congo",
+      "path": "flags/cd.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "2b15f8f609b7fdca31b5fd6aae6205ff9b6e31b1e19a4792a1ce1a99d8765e27"
+    },
+    {
+      "code": "CF",
+      "name": "Central African Republic",
+      "path": "flags/cf.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "22ced90c21084ee4a81195b9f3f620400d05638829954c84eb3399a28ba07dff"
+    },
+    {
+      "code": "CG",
+      "name": "Republic of the Congo",
+      "path": "flags/cg.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "19ba1944ae8632eae4e8b12557c299e59b96e4added86875917df6b7e6340a17"
+    },
+    {
+      "code": "CH",
+      "name": "Switzerland",
+      "path": "flags/ch.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "6f7405f80258d7db52239cad86124274e11702c756c5e71b6f0ec0c178227853"
+    },
+    {
+      "code": "CI",
+      "name": "Cote d'Ivoire",
+      "path": "flags/ci.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "9af4fbcbee41fad191a7b65beaddf290abf346683ba22f193a62b9b9ed283ea3"
+    },
+    {
+      "code": "CK",
+      "name": "Cook Islands",
+      "path": "flags/ck.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "b0faa8d388ce06691dbe8cf6b75cf29491af6a231acc5e47f337a63d53a972bd"
+    },
+    {
+      "code": "CL",
+      "name": "Chile",
+      "path": "flags/cl.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "90f8d1bf88679a02d4b0fc9a5ee7a621fbcfa61049b312c29137293603e166b1"
+    },
+    {
+      "code": "CM",
+      "name": "Cameroon",
+      "path": "flags/cm.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "87495090e30dd4440f368e5a6f3cdb3a7a7cb5d175b042663ff57347c16d416a"
+    },
+    {
+      "code": "CN",
+      "name": "People's Republic of China",
+      "path": "flags/cn.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "6ae2312404e9911f4d30ec24cc528b7b9453c4016380f9219b4baaf30c45b065"
+    },
+    {
+      "code": "CO",
+      "name": "Colombia",
+      "path": "flags/co.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "33812230256a0b6644155492b2ee7c68faabe46044b7123d1b19d959965f3e18"
+    },
+    {
+      "code": "CR",
+      "name": "Costa Rica",
+      "path": "flags/cr.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "f24dcb5de394c3cc970dc88565bd0a850438cc39d53c2a0131ce46f360c1f0ee"
+    },
+    {
+      "code": "CU",
+      "name": "Cuba",
+      "path": "flags/cu.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "43ed322a4c12a5d6ac81505e2cbe81190e6761e37beab2b9be5155e8edf7d502"
+    },
+    {
+      "code": "CV",
+      "name": "Cape Verde",
+      "path": "flags/cv.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "6996ed3da25f6792cdd312b68c3fe5ebe6c1f5225073e81ee1cfdf01d3c03343"
+    },
+    {
+      "code": "CW",
+      "name": "Curaçao",
+      "path": "flags/cw.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "184bce086fbf4ff87bd4fa253b15cf7ac506e05e0042848f8dc374223f7ed6aa"
+    },
+    {
+      "code": "CY",
+      "name": "Cyprus",
+      "path": "flags/cy.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "3a9d1cfd0b0fcb09bc93d4dec87b69a337c97048c0c95aa8f3b59b662a131f2e"
+    },
+    {
+      "code": "CZ",
+      "name": "Czech Republic",
+      "path": "flags/cz.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "4fb80c137a78f9fe84ca039df1719a521ad8be80ff062b3ac63838052802d80b"
+    },
+    {
+      "code": "DE",
+      "name": "Germany",
+      "path": "flags/de.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "fda0dce8df52dbff664d8af025a8b3ff2a5862d6104447d60d4c9db1f5bcae3a"
+    },
+    {
+      "code": "DJ",
+      "name": "Djibouti",
+      "path": "flags/dj.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "f901eac1e36b001eaf7b965765485ee4eb959d9cd03bf5eab0816a05cecd8cc6"
+    },
+    {
+      "code": "DK",
+      "name": "Denmark",
+      "path": "flags/dk.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "f5e6e6a63616d9ec0964f045ae4a4286844afb60dd88ee21d38d771400fbf214"
+    },
+    {
+      "code": "DM",
+      "name": "Dominica",
+      "path": "flags/dm.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "ad6469d81579b131d263f3f8dd0bd08c0a4431a1c10279db920917de719d201c"
+    },
+    {
+      "code": "DO",
+      "name": "Dominican Republic",
+      "path": "flags/do.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "cbf6d3a969a73c7845b4c3fd932dd93ceacb61c32e2839f02f390cfee4b490d2"
+    },
+    {
+      "code": "DZ",
+      "name": "Algeria",
+      "path": "flags/dz.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "dda131bc894e18eeb11c02ba6d7969f5a85d1b3f1ef7e6bc64369e04727ecb33"
+    },
+    {
+      "code": "EC",
+      "name": "Ecuador",
+      "path": "flags/ec.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "7a1d2d169d194ab354a29c2a6aaf251599a83f435e3c378899c278110f11caec"
+    },
+    {
+      "code": "EE",
+      "name": "Estonia",
+      "path": "flags/ee.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "a6294a3e7d1122ca4f7015c103d0735338dd5c457a8d665dc92975d425c61c9b"
+    },
+    {
+      "code": "EG",
+      "name": "Egypt",
+      "path": "flags/eg.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "0c7f32c330d14221c835640d04725c55b6aabe30f675f7a7713a5d2971204505"
+    },
+    {
+      "code": "ER",
+      "name": "Eritrea",
+      "path": "flags/er.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "8675f220fab1d7d0a65b3bdbb23ddd05e64241c2b977f33ab563db334f2e7286"
+    },
+    {
+      "code": "ES",
+      "name": "Spain",
+      "path": "flags/es.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "6cc8e46d96b847f99360c9c89d3402ffda568de4cf2d559a55fecf81216ae29e"
+    },
+    {
+      "code": "ET",
+      "name": "Ethiopia",
+      "path": "flags/et.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "e57af5b760949f5b174e983d651975a3048fb7eef769c5cf6053c8c98ef7c107"
+    },
+    {
+      "code": "FI",
+      "name": "Finland",
+      "path": "flags/fi.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "02fa4511c716a7eccf614cdebed29554d8811bd34865363c38a8e5c9ebebe794"
+    },
+    {
+      "code": "FJ",
+      "name": "Fiji",
+      "path": "flags/fj.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "82567d6c648b987d7cff454ba1284a76f4d445581b72d40604ddb68284bb55a4"
+    },
+    {
+      "code": "FM",
+      "name": "Micronesia, Federated States of",
+      "path": "flags/fm.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "7cf9d25fb9a5223410bba8a8dbf024bda620aa4afdc750c203af0bb23807eaaa"
+    },
+    {
+      "code": "FO",
+      "name": "Faroe Islands",
+      "path": "flags/fo.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "2d70e9adaf4c2fff4bfa02d3b171504812fe54508561dd9c9f947af2f6d39592"
+    },
+    {
+      "code": "FR",
+      "name": "France",
+      "path": "flags/fr.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "c114c490ec3daa75a5d8ec1e8241ae7ea2a96f59c4aae172e3cdedf5c67c2463"
+    },
+    {
+      "code": "GA",
+      "name": "Gabon",
+      "path": "flags/ga.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "8345f2a8d06fc935fcc8241c845f9ba0ab32745d9814ab8cc6e46c90526a21c4"
+    },
+    {
+      "code": "GB",
+      "name": "United Kingdom",
+      "path": "flags/gb.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "082342b7ee7bd565e557dff66cfa9fe859613ce45823d3406f89caac8c865a87"
+    },
+    {
+      "code": "GD",
+      "name": "Grenada",
+      "path": "flags/gd.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "075326572d8161059e1225386a0f8141f4fc1a5ce9f0347f6886a3783aefb556"
+    },
+    {
+      "code": "GE",
+      "name": "Georgia",
+      "path": "flags/ge.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "911ebd994e1d67c77063af2eac07d0d55b199067a12efe682015c59ffb873eff"
+    },
+    {
+      "code": "GG",
+      "name": "Guernsey",
+      "path": "flags/gg.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "af8490a424ba21f6d68b59ff7f3c494460b9d3497389913a84320dd360b7a115"
+    },
+    {
+      "code": "GH",
+      "name": "Ghana",
+      "path": "flags/gh.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "7b661b1aef5faee906c77fcec94a6c9307932ef445ef85d9799f8634835391f7"
+    },
+    {
+      "code": "GL",
+      "name": "Greenland",
+      "path": "flags/gl.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "4de3525aa6e689f6e0feccb79fc2af9446bd91d14e1cbc8c876a9be199f57f93"
+    },
+    {
+      "code": "GM",
+      "name": "Republic of The Gambia",
+      "path": "flags/gm.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "ba231f539f3b20050028dda36600b0fddfb13df5854619aab3a7d810f74b932f"
+    },
+    {
+      "code": "GN",
+      "name": "Guinea",
+      "path": "flags/gn.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "5bfcce96efa39d87aa285a05cf0a486945263922a26b549b85745b9284cdb87f"
+    },
+    {
+      "code": "GQ",
+      "name": "Equatorial Guinea",
+      "path": "flags/gq.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "7b90c8b627ca25c45baeadd0a4a5372590356c3cea3e2ccf53f9c1a79c8fe171"
+    },
+    {
+      "code": "GR",
+      "name": "Greece",
+      "path": "flags/gr.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "0c704638b3f10b9dc344b14f08b3c5084b862687fcc891276100b4c6ea8ba4dc"
+    },
+    {
+      "code": "GT",
+      "name": "Guatemala",
+      "path": "flags/gt.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "f0ee80b24ec730a72a3c7633adda981aec762030ad18dc096cacc062a67ad998"
+    },
+    {
+      "code": "GW",
+      "name": "Guinea-Bissau",
+      "path": "flags/gw.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "b636f18688485694a9535d8d0b0b35126c27687c1b64450aaddd156d08c60576"
+    },
+    {
+      "code": "GY",
+      "name": "Guyana",
+      "path": "flags/gy.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "953c87ff2c2de8e13be76c15846d25bc013102d9f762dacf7e93ed8397456a2b"
+    },
+    {
+      "code": "HK",
+      "name": "Hong Kong",
+      "path": "flags/hk.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "d52fe0820b6a95ff65136d8d26e4cdab2a60c1d4a27cc3ecfe4050dba57aee5c"
+    },
+    {
+      "code": "HN",
+      "name": "Honduras",
+      "path": "flags/hn.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "6c8aca4c273487d0d7b10d40c7b87ffdc193a8ca63dccb45f221c85d032eab8f"
+    },
+    {
+      "code": "HR",
+      "name": "Croatia",
+      "path": "flags/hr.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "176c13297df09695f4074adf87da404093dba66ce396c4cc49b3d92a53628f18"
+    },
+    {
+      "code": "HT",
+      "name": "Haiti",
+      "path": "flags/ht.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "c477f991494595c1b525130cb846497846d109d94b6fa85c4fed31bcf488d9b7"
+    },
+    {
+      "code": "HU",
+      "name": "Hungary",
+      "path": "flags/hu.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "b90dc182f06fdd8489436cd93c7788451528c183ae3cd8ebe1877a2c2526a80e"
+    },
+    {
+      "code": "ID",
+      "name": "Indonesia",
+      "path": "flags/id.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "7951d514bdb7ee083cd2937f228a9ec4bce5fe006ad32b3e0be3289f71f34709"
+    },
+    {
+      "code": "IE",
+      "name": "Ireland",
+      "path": "flags/ie.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "d201f07512ad2ec6e4e3d6cea8c65a255c3ef60690e9a0cbadb5782dbd9fdb17"
+    },
+    {
+      "code": "IL",
+      "name": "Israel",
+      "path": "flags/il.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "74e3d8eb8e89348707677ec49a88baf7663e3463de590745dd4dadd8bb861dce"
+    },
+    {
+      "code": "IM",
+      "name": "Isle of Man",
+      "path": "flags/im.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "577a80c90c7c13802fe3ef1fa43b3d88755e0c2cd5f6eda344a43c0bae8f7338"
+    },
+    {
+      "code": "IN",
+      "name": "India",
+      "path": "flags/in.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "7afb07473bdbb592a4b49cc292ec0306384fc52e44b68bfe7c017ab43219b367"
+    },
+    {
+      "code": "IQ",
+      "name": "Iraq",
+      "path": "flags/iq.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "8de925368c418282b0c2c62469dffb701178c80ce082a40280e8ce35b9606e1e"
+    },
+    {
+      "code": "IR",
+      "name": "Islamic Republic of Iran",
+      "path": "flags/ir.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "d4a644f90a3fc62267d2d47bbb3b055431e3473a84d8b9b1819db4cd52a8f4d6"
+    },
+    {
+      "code": "IS",
+      "name": "Iceland",
+      "path": "flags/is.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "7fd9fb0f8529a8bcf2474f1a97925e6ec8fd25cd81d38fcb9d88aae70bfe2853"
+    },
+    {
+      "code": "IT",
+      "name": "Italy",
+      "path": "flags/it.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "67f4608b4c55d3d67c0872baab7750be2e431c8513f06aa97a55c6fd1f9842bd"
+    },
+    {
+      "code": "JE",
+      "name": "Jersey",
+      "path": "flags/je.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "55f5a36c968826b195f502c73174e3212f4dc96c64393ceed1e40f93af9fcab2"
+    },
+    {
+      "code": "JM",
+      "name": "Jamaica",
+      "path": "flags/jm.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "527796516b545c8b36dcb7cc6c8e2668bdd9fc4a1b22634b4589e70129f25a08"
+    },
+    {
+      "code": "JO",
+      "name": "Jordan",
+      "path": "flags/jo.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "43a695894319bd8ac75be7542d31f7d7fc3012b5641ec832d47b0a04556e4d9b"
+    },
+    {
+      "code": "JP",
+      "name": "Japan",
+      "path": "flags/jp.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "04bed0f4b118c4ddc96dd6baf46d9d8558b00bac2bd15d876c6cf98a8d724929"
+    },
+    {
+      "code": "KE",
+      "name": "Kenya",
+      "path": "flags/ke.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "d12c6ba37411c5bb39af2edc44bd6cea508a21070b90fbae07b19d05a8257d64"
+    },
+    {
+      "code": "KG",
+      "name": "Kyrgyzstan",
+      "path": "flags/kg.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "26555d2f22d6c372660b6ed5b298872b4022a4609bede46e445fef1159a35799"
+    },
+    {
+      "code": "KH",
+      "name": "Cambodia",
+      "path": "flags/kh.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "da9afd55b31c7adadc167629a9b1ecf1684c265f4f20cb4c845b19a00b7abbba"
+    },
+    {
+      "code": "KI",
+      "name": "Kiribati",
+      "path": "flags/ki.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "76a103c0574e90c9101f7556232724f834eca8120f86f53e245a66ae179dc2e1"
+    },
+    {
+      "code": "KM",
+      "name": "Comoros",
+      "path": "flags/km.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "d86edf54986dec4b4cf343af417f369d78181f999096b5c707e6ed6f93c0d05e"
+    },
+    {
+      "code": "KN",
+      "name": "Saint Kitts and Nevis",
+      "path": "flags/kn.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "c47bd76ac994427e59c2f7a0103648c91c5b34c740d72354f174959cbe690a53"
+    },
+    {
+      "code": "KP",
+      "name": "North Korea",
+      "path": "flags/kp.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "0477e233b2a503ddae861b2a9a7e93f9da6498555480bc9e5d116cf8ee3cee4d"
+    },
+    {
+      "code": "KR",
+      "name": "South Korea",
+      "path": "flags/kr.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "56146eb916c0228234113c00889ec51114eb7698fd78d844aa7d38ec23371109"
+    },
+    {
+      "code": "KW",
+      "name": "Kuwait",
+      "path": "flags/kw.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "fca4e989d133fcd075ca8702925e1840ed809740e88aeb528e5499d94bf2fb8e"
+    },
+    {
+      "code": "KZ",
+      "name": "Kazakhstan",
+      "path": "flags/kz.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "c7fc4786f31d8c121fe8d94c07b6aeba76f8e45059e02e771520b4a1a8c549c8"
+    },
+    {
+      "code": "LA",
+      "name": "Lao People's Democratic Republic",
+      "path": "flags/la.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "006cdce54659413c61d7bce876c590aaf7f4a03d794ea2e5488337fda801ad50"
+    },
+    {
+      "code": "LB",
+      "name": "Lebanon",
+      "path": "flags/lb.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "40332c2239facf64fad30ef2166479bdd832abd7cf6ad3a5d78609526c74c9b5"
+    },
+    {
+      "code": "LC",
+      "name": "Saint Lucia",
+      "path": "flags/lc.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "58e5fc190cd00112e425ae040c7e1ee5e54fbfb304d3a199bbbd569868ae68ca"
+    },
+    {
+      "code": "LI",
+      "name": "Liechtenstein",
+      "path": "flags/li.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "946386628a510cb2dea04cb630af9b39f1fdaff2796195c9752cd39b5d93b605"
+    },
+    {
+      "code": "LK",
+      "name": "Sri Lanka",
+      "path": "flags/lk.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "9ebceeb819884445019e4fe0df053a97cfe118815f95d67f2cb3632064e8ade3"
+    },
+    {
+      "code": "LR",
+      "name": "Liberia",
+      "path": "flags/lr.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "65665707fb340238f08d9fabde7d20f55bb22af7b7fcfb6dc3f52df47ae602b8"
+    },
+    {
+      "code": "LS",
+      "name": "Lesotho",
+      "path": "flags/ls.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "be976bcf544340c6b68f1773ce9a944223ff94a09ac28eb9692e66b9ad6e7003"
+    },
+    {
+      "code": "LT",
+      "name": "Lithuania",
+      "path": "flags/lt.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "839efe4ad6da9a9b3891eeb129a7a13e8aaa4340b53ea76e2ffcd6c18382652d"
+    },
+    {
+      "code": "LU",
+      "name": "Luxembourg",
+      "path": "flags/lu.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "33e7104cb9e9bf1d1f77d995d3887112867de374df40bb2ea2a2c30d05dee7f8"
+    },
+    {
+      "code": "LV",
+      "name": "Latvia",
+      "path": "flags/lv.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "4fde7945a33d49d835d19300b874233fe7baf9eea8c5e68f07bfaed2e3d23367"
+    },
+    {
+      "code": "LY",
+      "name": "Libya",
+      "path": "flags/ly.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "397113dd61418cab96a26f58d6f1429b7ee14db710789e83454e5c39f49479b1"
+    },
+    {
+      "code": "MA",
+      "name": "Morocco",
+      "path": "flags/ma.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "0c7e9bb8dad0acd9200325f6bc74b277276e424bdd9521a5a922d88e22db1b69"
+    },
+    {
+      "code": "MC",
+      "name": "Monaco",
+      "path": "flags/mc.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "25b9a3a8fc4a2b37c41c642fd354545ddf532fd7c6585924af1849477414e674"
+    },
+    {
+      "code": "MD",
+      "name": "Moldova, Republic of",
+      "path": "flags/md.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "4566c0c76289e5e8e552cb0697ab7aa28a5dc66cb41e9c4cd365402918bda518"
+    },
+    {
+      "code": "ME",
+      "name": "Montenegro",
+      "path": "flags/me.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "cf249c84ead21c0c1f51eb027010b3bada80ab9e404516bed53dd815730e2630"
+    },
+    {
+      "code": "MF",
+      "name": "Saint Martin (French part)",
+      "path": "flags/mf.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "d088063100fb457d2e8dc5d40aafb0410f9de3c24fd4ac9b0908b708e5c92c89"
+    },
+    {
+      "code": "MG",
+      "name": "Madagascar",
+      "path": "flags/mg.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "a5ea67b8b5c3c26e5d7efb171a4e6e90bcb0d857f951ef173999c80ce7d4dedb"
+    },
+    {
+      "code": "MH",
+      "name": "Marshall Islands",
+      "path": "flags/mh.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "587597bd2295a86a62c95558c70421206e491eda011608b9d1d71933dbc629ba"
+    },
+    {
+      "code": "MK",
+      "name": "The Republic of North Macedonia",
+      "path": "flags/mk.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "505f5b5bb385ee061d3cc46e52b74491883bd9d244bdb269edb34b01b64b1750"
+    },
+    {
+      "code": "ML",
+      "name": "Mali",
+      "path": "flags/ml.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "18354ba89cce72b64bf9f9c368c854c80da1a5082970ac8e9e7cf37fe7a495ac"
+    },
+    {
+      "code": "MM",
+      "name": "Myanmar",
+      "path": "flags/mm.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "c9160590638367a4379f3693ea1fe49e0ad4c5de56e4122cd536c0681cb34ee3"
+    },
+    {
+      "code": "MN",
+      "name": "Mongolia",
+      "path": "flags/mn.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "acff0d16cae6356c28a732dd846ba6217f85566c51e671767eb028d44e951491"
+    },
+    {
+      "code": "MR",
+      "name": "Mauritania",
+      "path": "flags/mr.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "25d65a58c3c002b6b35cf60e256ab5d32eb9428add2ece9be6e70ea0addc1a6f"
+    },
+    {
+      "code": "MT",
+      "name": "Malta",
+      "path": "flags/mt.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "67db08a3c46813bae87a2c09229d8eecd3ba0db662a11563572f7784f0f446a1"
+    },
+    {
+      "code": "MU",
+      "name": "Mauritius",
+      "path": "flags/mu.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "247899589734539b5479051bc17ebf9215437b75c67b3dc7aa5b9cd73531f9cf"
+    },
+    {
+      "code": "MV",
+      "name": "Maldives",
+      "path": "flags/mv.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "a35c605f17a1cf18f201b7827b31b140c815b05e56a3b4377e359802eaa18569"
+    },
+    {
+      "code": "MW",
+      "name": "Malawi",
+      "path": "flags/mw.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "9766cd6fc335232e22fedcd5da13f15e623adbb185c0a83301f5cf0b8191b0ad"
+    },
+    {
+      "code": "MX",
+      "name": "Mexico",
+      "path": "flags/mx.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "4c536dc9cb67341ad7104138b27760b732f0a7ff14bffb2b30385064ee3ea603"
+    },
+    {
+      "code": "MY",
+      "name": "Malaysia",
+      "path": "flags/my.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "997a9a419833a6b7489c5a5500c899f6265ff002768913b03c72299dfa2ef78d"
+    },
+    {
+      "code": "MZ",
+      "name": "Mozambique",
+      "path": "flags/mz.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "cf4551a5f92fec110aa4efed68464e1bd43dc59d445d35080fe280fa0b7f8709"
+    },
+    {
+      "code": "NA",
+      "name": "Namibia",
+      "path": "flags/na.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "d35dc4bbab068e168abe0c2d4a5637ee801557a2e26dd50fbcaf468cf1e1a8bd"
+    },
+    {
+      "code": "NE",
+      "name": "Niger",
+      "path": "flags/ne.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "4a26da1b80bd0b6f42b6425ae24da0d5749ecc8f1299aa86f42aa92529143ce4"
+    },
+    {
+      "code": "NG",
+      "name": "Nigeria",
+      "path": "flags/ng.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "bf23ed59e2b737e6420be8b443e27ceef282349068c8181e60f1669d0248ca0d"
+    },
+    {
+      "code": "NI",
+      "name": "Nicaragua",
+      "path": "flags/ni.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "6d3a11ce3657f74c32d0f676a1b0454596d24bb93c72b59d39b04f46c62b5e78"
+    },
+    {
+      "code": "NL",
+      "name": "Netherlands",
+      "path": "flags/nl.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "1b5740db54c4b9d355c3f27b89976d1b3b4a9b874595f45a9cff974a0e8b13f4"
+    },
+    {
+      "code": "NO",
+      "name": "Norway",
+      "path": "flags/no.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "4dd7b4e588eff562ad8db653fc7eee001e9fa732609bc8d750b941fc3c4e684a"
+    },
+    {
+      "code": "NP",
+      "name": "Nepal",
+      "path": "flags/np.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "ea2fbeb1a2f59c85da7a07fb15c9e6209ffcd4fbf6cb7db26927f6d06e28e487"
+    },
+    {
+      "code": "NR",
+      "name": "Nauru",
+      "path": "flags/nr.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "48799a13eb025f2b383ffb9fd78692ae320cb6fa2f1fea446bb7362a365213d1"
+    },
+    {
+      "code": "NU",
+      "name": "Niue",
+      "path": "flags/nu.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "284c264ccd5710282bdb7bfa5ffd7a4ac00631cef576d0fc66eb0854648c69de"
+    },
+    {
+      "code": "NZ",
+      "name": "New Zealand",
+      "path": "flags/nz.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "0938a20aeebb81f6f621052691656cc0fb4d5056fb217b45ec45369c1faa2c46"
+    },
+    {
+      "code": "OM",
+      "name": "Oman",
+      "path": "flags/om.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "9cac7d068acf145596ae8c6a9057dc2d13bdfb27ad5bf282167a5b353bc4c0dd"
+    },
+    {
+      "code": "PA",
+      "name": "Panama",
+      "path": "flags/pa.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "506bfd89dbe7e9022fa95c0e62a2b458784926c1d7a9d7e9f5702887db677165"
+    },
+    {
+      "code": "PE",
+      "name": "Peru",
+      "path": "flags/pe.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "fb3393b916afa2e26a7739b388a27e623309125a6be2b404332851622dfaa72a"
+    },
+    {
+      "code": "PF",
+      "name": "French Polynesia",
+      "path": "flags/pf.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "ea62224ba763394aa1026290a6d32f3e390850fc3bbb4520a16fc432732e2536"
+    },
+    {
+      "code": "PG",
+      "name": "Papua New Guinea",
+      "path": "flags/pg.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "66cfbf12f79af17b7f790abd0a8175d5386789614d860553218322df3fcc6c97"
+    },
+    {
+      "code": "PH",
+      "name": "Philippines",
+      "path": "flags/ph.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "43d6d01228ca3821d92ddb90fa35cb3561549f83320ea4e809ec1ea62eaac297"
+    },
+    {
+      "code": "PK",
+      "name": "Pakistan",
+      "path": "flags/pk.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "7794666fc6c0f1f1ef05f965df1a03feba41406ea56865e97ed523a7dbec1084"
+    },
+    {
+      "code": "PL",
+      "name": "Poland",
+      "path": "flags/pl.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "11c948800dbc3b96d37599b9dd3f45643e8ac21cefd26e8d84f658b803474494"
+    },
+    {
+      "code": "PS",
+      "name": "State of Palestine",
+      "path": "flags/ps.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "e4f6f67ee52fbc22a37e243bbdc4db39e9ff86b90609721754093be445fadd6c"
+    },
+    {
+      "code": "PT",
+      "name": "Portugal",
+      "path": "flags/pt.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "32ee2cd9d91967a02bc3330ed51739f1b6f7e9b996453154c00a0c035766de4c"
+    },
+    {
+      "code": "PW",
+      "name": "Palau",
+      "path": "flags/pw.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "6d40720094d5d424998e432c21700b57936a485391c4109bd5e43fc196febeb4"
+    },
+    {
+      "code": "PY",
+      "name": "Paraguay",
+      "path": "flags/py.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "354d778ac89b29d6fd1dc1fdd19187c3c7f0845291a3cf65e027de2a58f720f2"
+    },
+    {
+      "code": "QA",
+      "name": "Qatar",
+      "path": "flags/qa.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "5e32b85d79b6a3fe441d307c34c2971529ec38b3a9e374c184b0cfedb123bf19"
+    },
+    {
+      "code": "RO",
+      "name": "Romania",
+      "path": "flags/ro.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "533d0701faf8547c011a7cb5b68f4dd1bca6691fb16d62b6d929e5fdaa67011c"
+    },
+    {
+      "code": "RS",
+      "name": "Serbia",
+      "path": "flags/rs.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "c39e0d358ebc1851c7d3eedad7ea048f11842d983fff2101ddcdacb566755280"
+    },
+    {
+      "code": "RU",
+      "name": "Russian Federation",
+      "path": "flags/ru.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "82c5986a88b9d30d1b728476e9d2ed7a442964a264c6f45c640125fa44793da4"
+    },
+    {
+      "code": "RW",
+      "name": "Rwanda",
+      "path": "flags/rw.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "a4105ecba1a08a3535fabc310e9a8e5f11354ace2bdb73ccf7dc2b786707e765"
+    },
+    {
+      "code": "SA",
+      "name": "Saudi Arabia",
+      "path": "flags/sa.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "06266dedc36207d770075583ec8d684947806bce375ff2956891943af6d9b7ef"
+    },
+    {
+      "code": "SB",
+      "name": "Solomon Islands",
+      "path": "flags/sb.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "f3d0ae2fe6d6d304f131450ca74ffee19ed0c5fbf79a09fcc7d165cf9e74d01e"
+    },
+    {
+      "code": "SC",
+      "name": "Seychelles",
+      "path": "flags/sc.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "754f57792df5ced1dc2278530f751afbe085477d3163c7e4b4c2f9979ec7ac23"
+    },
+    {
+      "code": "SD",
+      "name": "Sudan",
+      "path": "flags/sd.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "12a8126b8c3cf08a73c36c7aa7d31d004e6c01c4ed0674ec0c089774dd897abf"
+    },
+    {
+      "code": "SE",
+      "name": "Sweden",
+      "path": "flags/se.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "e67dee6ae5c67e4e983da88c44f9cac8591c9284bcd7c9a0fc8b2b0ccbbc1cf7"
+    },
+    {
+      "code": "SG",
+      "name": "Singapore",
+      "path": "flags/sg.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "ef4a73c6b134ef164dc95a66ff02f48cdcfcc595d3982e9da69f8e2ae0ddbfea"
+    },
+    {
+      "code": "SI",
+      "name": "Slovenia",
+      "path": "flags/si.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "107ce968293af0cb2fa66f5f434a2285c4407054b3ee838fcd7272223a186c24"
+    },
+    {
+      "code": "SK",
+      "name": "Slovakia",
+      "path": "flags/sk.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "a3d45595e04b7f2a0d13106b4d46394ad0ed7469454c6e2935d96d750c7f1bb8"
+    },
+    {
+      "code": "SL",
+      "name": "Sierra Leone",
+      "path": "flags/sl.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "d5a526d884eef4ad27fb9a3daf5e1f80905b12efee68e84bb7a1da397a773a40"
+    },
+    {
+      "code": "SM",
+      "name": "San Marino",
+      "path": "flags/sm.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "1aa4feb6e79465ec37d8d67c3a248aaf9a161a37d1f0dd37219f19dd527b2c41"
+    },
+    {
+      "code": "SN",
+      "name": "Senegal",
+      "path": "flags/sn.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "1d6ed873250b529fb38510323ce74ab0ca69b49cdb70d8b31869b9146745aa39"
+    },
+    {
+      "code": "SO",
+      "name": "Somalia",
+      "path": "flags/so.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "f939e9220be0dd26df94d54597c2d2087efb05bda3f0a176077d5f69c6842ea5"
+    },
+    {
+      "code": "SR",
+      "name": "Suriname",
+      "path": "flags/sr.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "e0fb3c6d4c0a21da08c36747c7ee74f79b106ed80b10c92722e4e58451c2cdab"
+    },
+    {
+      "code": "SS",
+      "name": "South Sudan",
+      "path": "flags/ss.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "c644ed19c3f135e7750d07a0bc8db79c976f7ca4a0ffc28c6597d47c05afea26"
+    },
+    {
+      "code": "ST",
+      "name": "Sao Tome and Principe",
+      "path": "flags/st.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "de3a9186a46197db8b504ea1973ea4e52682c2e60b1d4a34f19b87d236ce6080"
+    },
+    {
+      "code": "SV",
+      "name": "El Salvador",
+      "path": "flags/sv.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "6f407d86b43b78eddaa50eb5637802e30f13118402807224bd9a0b4c75359beb"
+    },
+    {
+      "code": "SX",
+      "name": "Sint Maarten (Dutch part)",
+      "path": "flags/sx.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "df4f30662fc4e1f9ca4c8111e81bca0b2dc7415d9c29e384800758bd73cff1fc"
+    },
+    {
+      "code": "SY",
+      "name": "Syrian Arab Republic",
+      "path": "flags/sy.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "8679e46ab6c3ab7842293db6060a5151c1365fe9736b2e6907c4e94da4908d8c"
+    },
+    {
+      "code": "SZ",
+      "name": "Eswatini",
+      "path": "flags/sz.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "41e3115755af1658d57c0d41ce295f0a31c7c08ca3ccd5a1c75cfedfb4440995"
+    },
+    {
+      "code": "TD",
+      "name": "Chad",
+      "path": "flags/td.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "bc1933cc6c5b3e960c4912241497507ab01d5fdd38ea38b1f737290912bd58e7"
+    },
+    {
+      "code": "TG",
+      "name": "Togo",
+      "path": "flags/tg.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "222a7db9ba0cd6c839dfc5cf1d9e4419ebb230decc3ce9a429306247443281a0"
+    },
+    {
+      "code": "TH",
+      "name": "Thailand",
+      "path": "flags/th.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "28cd954958fa5d5c0ca6e63eda2623dfb5d7a2ad69499953fa4a389d8a8401f9"
+    },
+    {
+      "code": "TJ",
+      "name": "Tajikistan",
+      "path": "flags/tj.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "3f387546bd2cf381c77fcb0d980a196af04daf992948ed7e5b2bb45ebaa46ebd"
+    },
+    {
+      "code": "TK",
+      "name": "Tokelau",
+      "path": "flags/tk.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "3f5072963f6b5cbf7a56fd68a73c30e4e458d8728b21c0b5265b26a3b1d30b54"
+    },
+    {
+      "code": "TL",
+      "name": "Timor-Leste",
+      "path": "flags/tl.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "6ae4d33ccf963e210f7921d523a3b842978f7dcb851a542f7ae4dc2e8a02b614"
+    },
+    {
+      "code": "TM",
+      "name": "Turkmenistan",
+      "path": "flags/tm.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "a89be8af481b54ca5adc294712d3e02f1b6f63fab0032013dc4379dc73817786"
+    },
+    {
+      "code": "TN",
+      "name": "Tunisia",
+      "path": "flags/tn.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "8ff35f87c6426bc7101f473f4153b7c8f9961d70f4dad0ea726ddf7d70a22c0d"
+    },
+    {
+      "code": "TO",
+      "name": "Tonga",
+      "path": "flags/to.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "b4899585396f063da0b74c2689c3f6fab91cc6c0e7117fdd93d2ec03d43fdcb4"
+    },
+    {
+      "code": "TR",
+      "name": "Türkiye",
+      "path": "flags/tr.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "c4370638a918d4ff70968eb0ee8e6a3851510270d2377c5b16f1dc6431d5370d"
+    },
+    {
+      "code": "TT",
+      "name": "Trinidad and Tobago",
+      "path": "flags/tt.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "6abedb96af80ba1b3984d89dc33a23bcedbe71da27604ab6b780d9ec8bb3f703"
+    },
+    {
+      "code": "TV",
+      "name": "Tuvalu",
+      "path": "flags/tv.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "eb81735aecf3c9351ab1f90a28e347dc0868262055b0f92a9366122074c512e9"
+    },
+    {
+      "code": "TW",
+      "name": "Taiwan, Province of China",
+      "path": "flags/tw.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "859bfbe726c10fcc707e9d52fe924bf592f6e839ad7c64a9b985c0bfc5ea86bf"
+    },
+    {
+      "code": "TZ",
+      "name": "United Republic of Tanzania",
+      "path": "flags/tz.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "02e6a70faeb875ee6c6262a0f6d66c990b62eaaa56a581151361348efcb5973d"
+    },
+    {
+      "code": "UA",
+      "name": "Ukraine",
+      "path": "flags/ua.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "9b265a148b1bdef13c3425004e6ad47b43c1a6aacad2b557d70c2c2e443352a1"
+    },
+    {
+      "code": "UG",
+      "name": "Uganda",
+      "path": "flags/ug.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "0690e4fa53a977fcb7714ca849d9f4c88a5ffe85a6c9e4f59c585534f0c99847"
+    },
+    {
+      "code": "US",
+      "name": "United States of America",
+      "path": "flags/us.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "306da87f9cddf1be321ec5b8a315f5a35273922544888e605c54bd611b9b6f33"
+    },
+    {
+      "code": "UY",
+      "name": "Uruguay",
+      "path": "flags/uy.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "62812c7a260b1097003dd47e2ca9b2ab3e4253d0ed9637e1902ca49fe9181b60"
+    },
+    {
+      "code": "UZ",
+      "name": "Uzbekistan",
+      "path": "flags/uz.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "e76aea5695c0fbb5914b421c05338bc4df77054393e3fa0c5113ac7bc00d86f9"
+    },
+    {
+      "code": "VA",
+      "name": "Holy See (Vatican City State)",
+      "path": "flags/va.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "55456b8978f012b351870e3b232a208a7796e293541469c794fdbbd2c9d06f8a"
+    },
+    {
+      "code": "VC",
+      "name": "Saint Vincent and the Grenadines",
+      "path": "flags/vc.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "92bb405604e4243625b6aa0baae404422944bf96babe03ddea62b2b0454a9cc8"
+    },
+    {
+      "code": "VE",
+      "name": "Venezuela",
+      "path": "flags/ve.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "96cf2aa8bdf59a9d9de11f44fa03261d679af3224583e1dd105968560cfa0f3f"
+    },
+    {
+      "code": "VN",
+      "name": "Vietnam",
+      "path": "flags/vn.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "2a1b6b0462fd84524f312d9225e5d7ebdb303df633a2fc186294413de21c4b30"
+    },
+    {
+      "code": "VU",
+      "name": "Vanuatu",
+      "path": "flags/vu.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "fcedbec777eef1eb36a00ce1d94ca6a19026a827db2af8c47663c8a8420d6298"
+    },
+    {
+      "code": "WS",
+      "name": "Samoa",
+      "path": "flags/ws.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "678d52b0aac6c612644642ca1f4975f633f860075fa8b7c534c53971ea557226"
+    },
+    {
+      "code": "XK",
+      "name": "Kosovo",
+      "path": "flags/xk.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "cb4d6fd2c9cd486d55160eea5aa4385af2764eeafd135bf821e1878ecf1a17dd"
+    },
+    {
+      "code": "YE",
+      "name": "Yemen",
+      "path": "flags/ye.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "0326b31188bcfe8b26e1a1670c625ab088ee8aa32d071ba03884928a81121700"
+    },
+    {
+      "code": "ZA",
+      "name": "South Africa",
+      "path": "flags/za.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "691eb30ddd8f7c4d6977cbc51ac10fad4ec71d2a731efcd49c1e3d01a1513c13"
+    },
+    {
+      "code": "ZM",
+      "name": "Zambia",
+      "path": "flags/zm.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "75ef285e77d4548e4314d8e2fd5b8e9a03468be08bce632b8a58512ad9399ccc"
+    },
+    {
+      "code": "ZW",
+      "name": "Zimbabwe",
+      "path": "flags/zw.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "a14bfb2df661bfe2dcc1bb80eebc1d8f26e56f2cba6121818acd54e9bff3a30c"
+    }
+  ]
+}
