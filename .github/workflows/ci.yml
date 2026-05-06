@@ -34,7 +34,7 @@ jobs:
         uses: ./.github/actions/setup-project
 
       - name: Install Playwright Chrome for Testing
-        run: npx playwright install --with-deps chrome-for-testing
+        run: npx playwright install chrome-for-testing
 
       - name: Run browser smoke test
         env:
