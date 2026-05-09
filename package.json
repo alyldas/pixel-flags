@@ -51,7 +51,7 @@
     "commitlint": "commitlint --edit",
     "test": "npm run test:package && npm run test:site",
     "test:package": "node --test --test-concurrency=1 test/package-build.test.js test/iso-coverage.test.js test/package.test.js",
-    "test:site": "node --test test/site.test.js test/social-card.test.js",
+    "test:site": "node --test --test-concurrency=1 test/site.test.js test/social-card.test.js",
     "test:all": "npm test && npm run smoke",
     "verify:static": "npm run format:check && npm run lint",
     "verify:assets": "npm run check:assets && npm run check:provenance",
