@@ -67,10 +67,18 @@ test("packed package installs cleanly and exposes documented subpath exports", a
     );
 
     assert.equal(installResult.status, 0, installResult.stderr || installResult.stdout);
-    assert.ok(fs.existsSync(path.join(consumerDir, "node_modules", "pixel-flags", "CHANGELOG.md")));
-    assert.ok(fs.existsSync(path.join(consumerDir, "node_modules", "pixel-flags", "NOTICE.md")));
     assert.ok(
-      !fs.existsSync(path.join(consumerDir, "node_modules", "pixel-flags", "CONTRIBUTING.md"))
+      fs.existsSync(
+        path.join(consumerDir, "node_modules", "@alyldas", "pixel-flags", "CHANGELOG.md")
+      )
+    );
+    assert.ok(
+      fs.existsSync(path.join(consumerDir, "node_modules", "@alyldas", "pixel-flags", "NOTICE.md"))
+    );
+    assert.ok(
+      !fs.existsSync(
+        path.join(consumerDir, "node_modules", "@alyldas", "pixel-flags", "CONTRIBUTING.md")
+      )
     );
 
     const resolveResult = spawnSync(
@@ -83,9 +91,9 @@ test("packed package installs cleanly and exposes documented subpath exports", a
           import fs from "node:fs";
           import { fileURLToPath } from "node:url";
 
-          const cssUrl = import.meta.resolve("pixel-flags/css/pixel-flags.css");
-          const minCssUrl = import.meta.resolve("pixel-flags/css/pixel-flags.min.css");
-          const flagUrl = import.meta.resolve("pixel-flags/flags/ru.png");
+          const cssUrl = import.meta.resolve("@alyldas/pixel-flags/css/pixel-flags.css");
+          const minCssUrl = import.meta.resolve("@alyldas/pixel-flags/css/pixel-flags.min.css");
+          const flagUrl = import.meta.resolve("@alyldas/pixel-flags/flags/ru.png");
 
           assert.ok(fs.existsSync(fileURLToPath(cssUrl)));
           assert.ok(fs.existsSync(fileURLToPath(minCssUrl)));

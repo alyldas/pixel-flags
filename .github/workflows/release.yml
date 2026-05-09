@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   id-token: write
+  packages: write
 
 concurrency:
   group: release-${{ github.ref }}
@@ -27,19 +28,8 @@ jobs:
       - name: Set up project
         uses: ./.github/actions/setup-project
         with:
-          registry-url: https://registry.npmjs.org
-
-      - name: Detect npm publish secret
-        id: npm_token
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          if [ -z "${NODE_AUTH_TOKEN}" ]; then
-            echo "available=false" >> "${GITHUB_OUTPUT}"
-            echo "NPM_TOKEN secret is not configured. npm publish will be skipped."
-          else
-            echo "available=true" >> "${GITHUB_OUTPUT}"
-          fi
+          registry-url: https://npm.pkg.github.com
+          scope: "@alyldas"
 
       - name: Validate tag version
         run: |
@@ -83,25 +73,22 @@ jobs:
 
       - name: Check whether version is already published
         id: published
-        if: steps.npm_token.outputs.available == 'true'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PACKAGE_NAME=$(node -p "require('./package.json').name")
           PACKAGE_VERSION=$(node -p "require('./package.json').version")
-          if npm view "${PACKAGE_NAME}@${PACKAGE_VERSION}" version --registry=https://registry.npmjs.org >/dev/null 2>&1; then
+          if npm view "${PACKAGE_NAME}@${PACKAGE_VERSION}" version --registry=https://npm.pkg.github.com >/dev/null 2>&1; then
             echo "already_published=true" >> "${GITHUB_OUTPUT}"
           else
             echo "already_published=false" >> "${GITHUB_OUTPUT}"
           fi
 
-      - name: Publish package to npm
-        if: steps.npm_token.outputs.available == 'true' && steps.published.outputs.already_published != 'true'
+      - name: Publish package to GitHub Packages
+        if: steps.published.outputs.already_published != 'true'
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish --access public --provenance
-
-      - name: Report skipped npm publish
-        if: steps.npm_token.outputs.available != 'true'
-        run: echo "Skipping npm publish because NPM_TOKEN is not configured."
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm publish
 
       - name: Create GitHub release
         env:

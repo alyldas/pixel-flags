@@ -23,7 +23,7 @@ body:
       description: Exact steps, commands, or usage snippet.
       placeholder: |
         1. Install the package
-        2. Import pixel-flags/css/pixel-flags.css
+        2. Import @alyldas/pixel-flags/css/pixel-flags.css
         3. Render <span class="pf pf-ru"></span>
         4. Observe ...
     validations:

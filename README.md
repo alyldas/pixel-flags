@@ -12,7 +12,8 @@ Pixel-art country flags with a `flag-icons`-style CSS API.
 ## Installation
 
 ```bash
-npm install pixel-flags
+npm config set @alyldas:registry https://npm.pkg.github.com
+npm install @alyldas/pixel-flags
 ```
 
 ## Usage
@@ -20,11 +21,11 @@ npm install pixel-flags
 ### CSS Imports
 
 ```js
-import "pixel-flags/css/pixel-flags.css";
+import "@alyldas/pixel-flags/css/pixel-flags.css";
 ```
 
 ```js
-import "pixel-flags/css/pixel-flags.min.css";
+import "@alyldas/pixel-flags/css/pixel-flags.min.css";
 ```
 
 ### Plain HTML

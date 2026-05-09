@@ -1,5 +1,5 @@
 {
-  "name": "pixel-flags",
+  "name": "@alyldas/pixel-flags",
   "version": "1.0.0",
   "description": "Pixel-perfect country flags with a flag-icons-like CSS API.",
   "author": "alyldas",
@@ -69,7 +69,7 @@
   ],
   "license": "MIT",
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   },
   "packageManager": "npm@10.9.7",
   "engines": {

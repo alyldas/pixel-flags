@@ -68,4 +68,4 @@ Before the first public release:
 6. Make sure the release commit is on `main`.
 7. Push a matching semver tag such as `v1.0.0`.
 
-If `NPM_TOKEN` is configured, `.github/workflows/release.yml` will publish to npm. If not, the workflow will still validate the release and create a GitHub release entry.
+`.github/workflows/release.yml` validates the tag, publishes to GitHub Packages with `GITHUB_TOKEN`, and creates the GitHub release entry.
