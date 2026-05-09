@@ -29,4 +29,14 @@ export default [
       "no-console": "off",
     },
   },
+  {
+    files: ["site-src/**/*.js"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "script",
+      globals: {
+        ...globals.browser,
+      },
+    },
+  },
 ];

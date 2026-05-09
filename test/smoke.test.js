@@ -8,55 +8,51 @@ import { pathToFileURL } from "node:url";
 import { chromium } from "playwright";
 import sharp from "sharp";
 
-import { CSS_DIR, FLAGS_DIR, HTML_PATH } from "../scripts/config.js";
-import { buildProject } from "../scripts/project.js";
-import { removeOwnedTree } from "../scripts/safe-fs.js";
+import { CSS_DIR, FLAGS_DIR, HTML_PATH } from "../scripts/lib/config.js";
+import { getBuildEntries } from "../scripts/lib/flag-inventory.js";
+import { buildProject } from "../scripts/lib/build.js";
+import { removeOwnedTree } from "../scripts/lib/safe-fs.js";
 
 const CHROME_FOR_TESTING_CHANNEL = "chrome-for-testing";
-const smokeRequested = process.env.PIXEL_FLAGS_SMOKE === "1";
 const smokeArtifactDir = process.env.PIXEL_FLAGS_SMOKE_ARTIFACT_DIR?.trim() || "";
-const skipReason = smokeRequested ? undefined : "Run via `npm run smoke`.";
 
-test(
-  "site smoke test loads and filters flags in a real browser",
-  { skip: skipReason },
-  async () => {
-    await buildProject();
-    assert.ok(fs.existsSync(HTML_PATH));
-    const fixture = stageSmokeFixture();
+test("site smoke test loads and filters flags in a real browser", async () => {
+  await buildProject();
+  assert.ok(fs.existsSync(HTML_PATH));
+  const fixture = stageSmokeFixture();
+  const expectedTotal = String(getBuildEntries().length);
 
-    const browser = await chromium.launch({
-      channel: CHROME_FOR_TESTING_CHANNEL,
-      headless: true,
-    });
-    const context = await browser.newContext({ deviceScaleFactor: 1 });
-    const page = await context.newPage();
+  const browser = await chromium.launch({
+    channel: CHROME_FOR_TESTING_CHANNEL,
+    headless: true,
+  });
+  const context = await browser.newContext({ deviceScaleFactor: 1 });
+  const page = await context.newPage();
 
-    try {
-      await page.goto(pathToFileURL(fixture.indexPath).href, { waitUntil: "load" });
+  try {
+    await page.goto(pathToFileURL(fixture.indexPath).href, { waitUntil: "load" });
 
-      await page.waitForSelector("h1");
-      await expectText(page.title(), "Pixel Flags | CSS Pixel-Art Country Flags");
-      await expectText(page.locator("h1").textContent(), "Flags that stay sharp.");
-      await expectText(page.locator("[data-visible-count]").textContent(), "212");
+    await page.waitForSelector("h1");
+    await expectText(page.title(), "Pixel Flags | CSS Pixel-Art Country Flags");
+    await expectText(page.locator("h1").textContent(), "Pixel Flags");
+    await expectText(page.locator("[data-visible-count]").textContent(), expectedTotal);
 
-      await page.getByLabel("Search flags").fill("japan");
-      await waitForVisibleFlagCount(page, "1");
-      await expectText(page.locator("[data-visible-count]").textContent(), "1");
-      await expectText(page.locator(".flag-card:not([hidden]) strong").textContent(), "JP");
+    await page.getByLabel("Search flags").fill("japan");
+    await waitForVisibleFlagCount(page, "1");
+    await expectText(page.locator("[data-visible-count]").textContent(), "1");
+    await expectText(page.locator(".flag-card:not([hidden]) strong").textContent(), "JP");
 
-      const screenshot = await renderFlagScreenshot(page, "ru");
-      await expectRussianFlagPixels(screenshot);
-    } catch (error) {
-      await captureSmokeArtifacts({ page, fixture, outputDir: smokeArtifactDir });
-      throw error;
-    } finally {
-      await context.close();
-      await browser.close();
-      fixture.cleanup();
-    }
+    const screenshot = await renderFlagScreenshot(page, "ru");
+    await expectRussianFlagPixels(screenshot);
+  } catch (error) {
+    await captureSmokeArtifacts({ page, fixture, outputDir: smokeArtifactDir });
+    throw error;
+  } finally {
+    await context.close();
+    await browser.close();
+    fixture.cleanup();
   }
-);
+});
 
 async function expectText(promise, expected) {
   assert.equal(await promise, expected);

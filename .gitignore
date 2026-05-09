@@ -1,7 +1,22 @@
+# Dependencies
 node_modules/
+
+# Local editor and OS files
 .idea/
 .DS_Store
+
+# Package-manager cache
 .npm-cache/
+
+# Generated Pages artifact
 _site/
-release-notes.md
-reports/smoke-*/
+
+# Generated site and coverage artifacts
+badges/
+reports/
+site/
+
+# Generated draft previews
+draft/
+
+# Browser smoke artifacts are covered by reports/

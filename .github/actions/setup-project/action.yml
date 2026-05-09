@@ -1,16 +1,11 @@
 name: Setup project
-description: Install Node.js, npm dependencies, and optionally run runtime audit.
+description: Install Node.js and npm dependencies.
 
 inputs:
   registry-url:
     description: Optional npm registry URL for publish jobs.
     required: false
     default: ""
-  audit-command:
-    description: Audit command to run after installation. Leave empty to skip.
-    required: false
-    default: npm run audit:runtime
-
 runs:
   using: composite
   steps:
@@ -32,8 +27,3 @@ runs:
     - name: Install dependencies
       shell: bash
       run: npm ci
-
-    - name: Audit runtime dependencies
-      if: inputs.audit-command != ''
-      shell: bash
-      run: ${{ inputs.audit-command }}

@@ -1,10 +1,14 @@
-node_modules
+# Dependencies and VCS metadata
+node_modules/
 .git
-.npm-cache
-flags
-css
-site
-reports
-badges
-_site
-package-lock.json
+
+# Package-manager cache
+.npm-cache/
+
+# Generated assets
+badges/
+css/
+flags/
+reports/
+site/
+_site/

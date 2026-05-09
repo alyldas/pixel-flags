@@ -60,8 +60,11 @@ jobs:
       - name: Install Playwright Chrome for Testing
         run: npx playwright install --with-deps chrome-for-testing
 
-      - name: Run verification pipeline
-        run: npm run verify
+      - name: Verify package
+        run: npm run verify:package
+
+      - name: Verify site
+        run: npm run verify:site
 
       - name: Run browser smoke test
         env:
@@ -94,18 +97,14 @@ jobs:
         if: steps.npm_token.outputs.available == 'true' && steps.published.outputs.already_published != 'true'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          PIXEL_FLAGS_R74N_COMMERCIAL_PERMISSION: ${{ secrets.R74N_COMMERCIAL_PERMISSION }}
         run: npm publish --access public --provenance
 
       - name: Report skipped npm publish
         if: steps.npm_token.outputs.available != 'true'
         run: echo "Skipping npm publish because NPM_TOKEN is not configured."
 
-      - name: Generate release notes from CHANGELOG
-        run: node scripts/release-notes.js "${GITHUB_REF_NAME#v}" release-notes.md
-
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release view "${GITHUB_REF_NAME}" >/dev/null 2>&1 || gh release create "${GITHUB_REF_NAME}" --title "${GITHUB_REF_NAME}" --notes-file release-notes.md
+          gh release view "${GITHUB_REF_NAME}" >/dev/null 2>&1 || gh release create "${GITHUB_REF_NAME}" --title "${GITHUB_REF_NAME}" --generate-notes

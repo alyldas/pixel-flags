@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>%%SITE_TITLE%%</title>
+    <meta name="description" content="%%DESCRIPTION%%" />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#f6f7f9" />
+    <link rel="canonical" href="%%SITE_URL%%" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="%%SITE_TITLE%%" />
+    <meta property="og:description" content="%%DESCRIPTION%%" />
+    <meta property="og:url" content="%%SITE_URL%%" />
+    <meta property="og:site_name" content="Pixel Flags" />
+    <meta property="og:image" content="%%SOCIAL_IMAGE%%" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="%%SITE_TITLE%%" />
+    <meta name="twitter:description" content="%%DESCRIPTION%%" />
+    <meta name="twitter:image" content="%%SOCIAL_IMAGE%%" />
+    <script type="application/ld+json">
+      %%STRUCTURED_DATA%%
+    </script>
+    <link rel="stylesheet" href="./css/pixel-flags.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main id="app" class="shell">
+      <header class="masthead">
+        <div>
+          <h1>Pixel Flags</h1>
+          <p class="lead">
+            Native 32x18 pixel-art PNG flags with a compact CSS API inspired by
+            <a href="https://github.com/lipis/flag-icons">flag-icons</a>.
+          </p>
+          <div class="sample-row">
+            <span class="sample">
+              <span class="pf pf-ru" aria-hidden="true"></span>
+              <code>pf pf-ru</code>
+            </span>
+          </div>
+        </div>
+        <aside class="stats" aria-label="Package stats">
+          <div class="metric">
+            <span>Available flags</span>
+            <strong>%%FLAG_COUNT%%</strong>
+          </div>
+          <div class="metric">
+            <span>ISO coverage</span>
+            <strong>%%ISO_COVERAGE%%</strong>
+          </div>
+          <div class="metric">
+            <span>Missing ISO codes</span>
+            <strong>%%MISSING_COUNT%%</strong>
+          </div>
+          <div class="metric">
+            <span>Pixel ratio</span>
+            <strong>%%PIXEL_RATIO%%</strong>
+          </div>
+        </aside>
+      </header>
+
+      <section class="quickstart" aria-label="CSS API example">
+        <pre><code>&lt;link rel="stylesheet" href="./css/pixel-flags.css"&gt;
+&lt;span class="pf pf-ru" role="img" aria-label="Russia"&gt;&lt;/span&gt;
+&lt;span class="pf pf-ru" style="--pf-height: 2rem" aria-label="Russia"&gt;&lt;/span&gt;</code></pre>
+      </section>
+
+      <section aria-labelledby="flag-browser-title">
+        <div class="toolbar">
+          <div>
+            <h2 id="flag-browser-title">Flag Browser</h2>
+            <p><span data-visible-count>%%FLAG_COUNT%%</span> flags visible</p>
+          </div>
+          <input
+            class="search"
+            type="search"
+            placeholder="Search by code or country name"
+            aria-label="Search flags"
+            data-search
+          />
+        </div>
+        <div class="flags-grid">%%FLAGS%%</div>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

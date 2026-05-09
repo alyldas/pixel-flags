@@ -5,9 +5,9 @@ import path from "node:path";
 import { spawnSync } from "node:child_process";
 import test from "node:test";
 
-import { PROJECT_ROOT } from "../scripts/config.js";
-import { buildProject } from "../scripts/project.js";
-import { removeOwnedTree } from "../scripts/safe-fs.js";
+import { PROJECT_ROOT } from "../scripts/lib/config.js";
+import { buildPackageArtifacts } from "../scripts/lib/build.js";
+import { removeOwnedTree } from "../scripts/lib/safe-fs.js";
 
 const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
 
@@ -23,7 +23,7 @@ function createNpmTestEnv(localCache) {
 }
 
 test("packed package installs cleanly and exposes documented subpath exports", async () => {
-  await buildProject();
+  buildPackageArtifacts();
 
   const packDir = fs.mkdtempSync(path.join(os.tmpdir(), "pixel-flags-pack-"));
   const consumerDir = fs.mkdtempSync(path.join(os.tmpdir(), "pixel-flags-consumer-"));

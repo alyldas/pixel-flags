@@ -1,8 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { CSS_DIR, FLAGS_DIR, PROJECT_ROOT, SITE_DIR } from "./config.js";
-import { removeOwnedTree } from "./safe-fs.js";
+import { CSS_DIR, FLAGS_DIR, PROJECT_ROOT, SITE_DIR } from "./lib/config.js";
+import { removeOwnedTree } from "./lib/safe-fs.js";
 
 const pagesDir = path.join(PROJECT_ROOT, "_site");
 

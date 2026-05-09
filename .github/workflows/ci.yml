@@ -18,8 +18,8 @@ jobs:
       - name: Set up project
         uses: ./.github/actions/setup-project
 
-      - name: Run fast verification pipeline
-        run: npm run verify
+      - name: Run package verification
+        run: npm run verify:package
 
   full:
     name: Browser Smoke
@@ -35,6 +35,9 @@ jobs:
 
       - name: Install Playwright Chrome for Testing
         run: npx playwright install chrome-for-testing
+
+      - name: Run site verification
+        run: npm run verify:site
 
       - name: Run browser smoke test
         env:

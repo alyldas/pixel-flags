@@ -14,30 +14,47 @@ npm run verify
 - keep country assets in `flags/` using lower-case ISO2 file names such as `ru.png`
 - keep every flag image at `32x18`
 - do not add square variants
-- regenerate public assets through the build scripts instead of editing generated CSS or site files by hand
+- regenerate package artifacts through the build scripts instead of editing generated CSS by hand
+- edit the demo site in `site-src/`; `site/` is generated
 
 ## Useful Commands
 
 ```bash
 npm run build
+npm run build:package
+npm run build:site
 npm run coverage
-npm run docs:check
-npm run validate:assets
-npm run lint:workflows
+npm run check:assets
+npm run check:docs
+npm run check:package
+npm run check:provenance
+npm run generate:provenance
 npm test
 npm run smoke
 npm run test:all
+npm run verify:package
+npm run verify:site
 npm run verify
-npm run release:notes
 ```
 
 ## Coverage Outputs
 
 `npm run coverage` updates:
 
-- `reports/coverage.md`
-- `badges/coverage.svg`
 - the coverage block inside `README.md`
+
+It also writes ignored local artifacts under `reports/` and `badges/`.
+
+## Command Groups
+
+- `npm run check:assets` validates flag asset names, dimensions, and ISO coverage eligibility.
+- `npm run check:docs` checks repository Markdown links.
+- `npm run check:package` parses `npm pack --json --dry-run` and rejects unexpected packed files.
+- `npm run check:provenance` validates `flags/provenance.json`.
+- `npm run generate:provenance` regenerates `flags/provenance.json`.
+- `npm run verify:package` runs static checks, asset validation, coverage, package tests, and tarball validation.
+- `npm run verify:site` builds and checks generated site artifacts.
+- `npm run smoke` runs the browser smoke test against the generated static site.
 
 ## Release Checklist
 
@@ -52,11 +69,3 @@ Before the first public release:
 7. Push a matching semver tag such as `v1.0.0`.
 
 If `NPM_TOKEN` is configured, `.github/workflows/release.yml` will publish to npm. If not, the workflow will still validate the release and create a GitHub release entry.
-
-## GitHub Hardening
-
-After creating the GitHub repository, apply baseline branch/tag protections:
-
-```bash
-npm run github:hardening -- owner/repo
-```

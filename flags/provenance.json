@@ -1,12 +1,19 @@
 {
   "schemaVersion": 1,
-  "upstream": {
-    "name": "R74n Pixel Flags",
-    "sourceUrl": "https://r74n.com/pixelflags/",
-    "licenseName": "R74n Content License 1.1",
-    "licenseUrl": "https://r74n.com/license.txt",
-    "upstreamAdvertisedFlagCount": 634,
-    "commercialUseRequiresPermission": true
+  "source": {
+    "name": "Pixel Flags native 32x18 drawings",
+    "registryPath": "scripts/flag-art/flags.js",
+    "recipePath": "scripts/flag-art/detailed-flags.js",
+    "rendererPath": "scripts/flag-art/painter.js",
+    "entrypointPath": "scripts/draw-pixel-flags.js",
+    "visualFormatInspiration": {
+      "name": "R74n PixelFlags",
+      "url": "https://r74n.com/pixelflags/",
+      "note": "Referenced as visual format inspiration only; no upstream PNG assets are bundled."
+    },
+    "licenseName": "MIT",
+    "licensePath": "LICENSE",
+    "upstreamAssetsBundled": false
   },
   "assets": [
     {
@@ -15,7 +22,7 @@
       "path": "flags/ad.png",
       "width": 32,
       "height": 18,
-      "sha256": "6bca597cdeb7388bd24cc83b6435b454420363993c30d810586a1394670ccd72"
+      "sha256": "e31cd025a9fc3250241a75b69e03fef5968ba7babe58397fec0ec886cf886d25"
     },
     {
       "code": "AE",
@@ -23,7 +30,7 @@
       "path": "flags/ae.png",
       "width": 32,
       "height": 18,
-      "sha256": "7fa5d20d76c9c57e453068a550da6955acf92be2c07eef34bec28c9afb40bb51"
+      "sha256": "b51a2661dae76836aa3d98de4783db54c291bef5a49126073f9fdfa5db50bb67"
     },
     {
       "code": "AF",
@@ -31,7 +38,7 @@
       "path": "flags/af.png",
       "width": 32,
       "height": 18,
-      "sha256": "0739029597cddc8aaa304e65f1f86f64b25332ac68e5d5c0d866e582c83ca63b"
+      "sha256": "0e357ae90ae1f6dec1f8f31de8d53a8ff667be212aa1513d35d0d79d87255e09"
     },
     {
       "code": "AG",
@@ -39,7 +46,15 @@
       "path": "flags/ag.png",
       "width": 32,
       "height": 18,
-      "sha256": "e5fe33a109fd1c937a7e78d3c0517e47941d9d151c6870e05219efbb26b0eb34"
+      "sha256": "bf340b6b1cdcdacefcff596b4a6f22d6fe6cc3eb6fba7cef2a2b299ae8d6b738"
+    },
+    {
+      "code": "AI",
+      "name": "Anguilla",
+      "path": "flags/ai.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "26253b79de07ff6f9cb7dc7fd48ac6f1413ea952905baf734e37bb38b1126154"
     },
     {
       "code": "AL",
@@ -47,7 +62,7 @@
       "path": "flags/al.png",
       "width": 32,
       "height": 18,
-      "sha256": "d1b3bb559119945aa1f2056730b75d7fcca6c3f763b16c7aa091e7e13c3c78bc"
+      "sha256": "51102973fa23051e211166563d5c5d6100c577f1f695f8669e5c01c92e638dc2"
     },
     {
       "code": "AM",
@@ -55,7 +70,7 @@
       "path": "flags/am.png",
       "width": 32,
       "height": 18,
-      "sha256": "2d1aabdb8e1b83ae85d93d4ffb607e4317da93978be04568fd2d856cc112ab2a"
+      "sha256": "0eb0a7324561843d4ba3e58f78a4e73ea24f644740bd98b6d5a42097f8b72c7b"
     },
     {
       "code": "AO",
@@ -63,7 +78,15 @@
       "path": "flags/ao.png",
       "width": 32,
       "height": 18,
-      "sha256": "ef2abbae71a3b60fb925cd3b22b8a49326f9ebabfb382a9f924591c45ccd3a53"
+      "sha256": "8a23311f19bf5419bd8cb2d8609dce9aaa3003a0e03b7701ef7948bc93d7b088"
+    },
+    {
+      "code": "AQ",
+      "name": "Antarctica",
+      "path": "flags/aq.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "56d89fefe86ff119a3b5953257783ad0f5e348e4294ca5956fb14b1c91ecc6a6"
     },
     {
       "code": "AR",
@@ -71,7 +94,15 @@
       "path": "flags/ar.png",
       "width": 32,
       "height": 18,
-      "sha256": "0f11a1132f02755cfea378562ae753d5b192774e8830364041583e6e1e1a9707"
+      "sha256": "c6195fb2cd360c91034059aef929f29df90fadc153e8788a4a822155033ede5e"
+    },
+    {
+      "code": "AS",
+      "name": "American Samoa",
+      "path": "flags/as.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "70e4d936c3648a9b59dea7d6eaf1131c8b1b10f93a4d66e9a0630f4f0ce152f9"
     },
     {
       "code": "AT",
@@ -79,7 +110,7 @@
       "path": "flags/at.png",
       "width": 32,
       "height": 18,
-      "sha256": "682ec8ebe2701d4efd8af6987929785b269c9a13bea35c92b92597e49de63580"
+      "sha256": "25fd51a6c404c1d5ca274cd63e7e5517db25c01a784c99920ae980d8c6baf543"
     },
     {
       "code": "AU",
@@ -87,7 +118,7 @@
       "path": "flags/au.png",
       "width": 32,
       "height": 18,
-      "sha256": "afa1290389ab1cae8e81763a4d5b684e98083cb82fde4a8351be3840ba722631"
+      "sha256": "5523fc6abd4ccfda0a6668ffd75e83b390e4ab06a4841af9a6267c1454ce7e2f"
     },
     {
       "code": "AW",
@@ -95,7 +126,7 @@
       "path": "flags/aw.png",
       "width": 32,
       "height": 18,
-      "sha256": "bb65cb6563c574e7ef5a836197169fc4e899fdbf40510151ee3eff1f4a9e5493"
+      "sha256": "2a8306032f14043281bd7da27057be52d00cbb37c42d3ca2bcef0de9763ba612"
     },
     {
       "code": "AX",
@@ -103,7 +134,7 @@
       "path": "flags/ax.png",
       "width": 32,
       "height": 18,
-      "sha256": "8ff254ad828accbc7c1a530a22d5e021785aad3074ae831fe6772e8318b1f73f"
+      "sha256": "7c5fc41f5bd6792e6e7bf438699de48b348f0085adca3270683b916cca8fb766"
     },
     {
       "code": "AZ",
@@ -111,7 +142,7 @@
       "path": "flags/az.png",
       "width": 32,
       "height": 18,
-      "sha256": "c18e9baea20764aaef48b472ef937ec12e08d831c8709aae0663cd17487a1147"
+      "sha256": "1cc5bd1e4b242ab3927acc4edd637201032e0a758c634be5c60c2322dfae4340"
     },
     {
       "code": "BA",
@@ -119,7 +150,7 @@
       "path": "flags/ba.png",
       "width": 32,
       "height": 18,
-      "sha256": "8c9218be221420610ef1f0f9444ec4379dc3012bacb39a926ca160ffe2491bf8"
+      "sha256": "ddcc576c16f686294310cab911bfe5999aff3231d4965bbc79bd194431d81bd4"
     },
     {
       "code": "BB",
@@ -127,7 +158,7 @@
       "path": "flags/bb.png",
       "width": 32,
       "height": 18,
-      "sha256": "6238dc00d87ef88ddd0a0e21e96fe68e0694eb9377130dae4306b2da4b5d01c7"
+      "sha256": "1ea7b49bf1620d474486daea4072275ad02d0fd8e4f752bdacc12b68ac049545"
     },
     {
       "code": "BD",
@@ -135,7 +166,7 @@
       "path": "flags/bd.png",
       "width": 32,
       "height": 18,
-      "sha256": "7b4e17e138ce69c08275fd9118e2830ab0ffbd81a42bc1f6001ec1421bff9363"
+      "sha256": "cf9fab2d03533d6a4df550a4335734436c51a9bf174df6746f8f9d8aa51e94ce"
     },
     {
       "code": "BE",
@@ -143,7 +174,7 @@
       "path": "flags/be.png",
       "width": 32,
       "height": 18,
-      "sha256": "d0f1ae9543b61172381a1339faddf14b1e5a5c1c6bde983e6b057709d68ffe91"
+      "sha256": "703aaa0836844c418f7dd4b7a83ef5d152a59b7872ff610e42e24a12de334837"
     },
     {
       "code": "BF",
@@ -151,7 +182,7 @@
       "path": "flags/bf.png",
       "width": 32,
       "height": 18,
-      "sha256": "a7f55344514108212238dc9afe4c41bedf69e90f9c7656139afebbd20f946792"
+      "sha256": "8d39f81b8b87b69a98fb2dbc450ebac5cf6f2cc612ed77d2c5a4f8b90e5f3757"
     },
     {
       "code": "BG",
@@ -159,7 +190,7 @@
       "path": "flags/bg.png",
       "width": 32,
       "height": 18,
-      "sha256": "1a74c2824a7333b6ea5693215b5cfe942b4152f19876a1e6695f11c3b5e39c61"
+      "sha256": "6d8378cc35823e1af1592fd5e354712e01bb8515eb48a9ea0c0165162f79e149"
     },
     {
       "code": "BH",
@@ -167,7 +198,7 @@
       "path": "flags/bh.png",
       "width": 32,
       "height": 18,
-      "sha256": "0e19c9e084e35d0207a74ea5e84564843cb9dfc1297b4a1c69a249db9c48a3c4"
+      "sha256": "495e5be15c9bc38c695702feb9d134d1163f3ddb39f577a467a01c51ff642025"
     },
     {
       "code": "BI",
@@ -175,7 +206,7 @@
       "path": "flags/bi.png",
       "width": 32,
       "height": 18,
-      "sha256": "d50aae94ce27ec77b1366c1a4764a18905a15f33d052e93be988c8d40969912c"
+      "sha256": "b6fd6a3ba53863e11689b83f931294f37f7163416a459d680c4af556f941c268"
     },
     {
       "code": "BJ",
@@ -183,7 +214,23 @@
       "path": "flags/bj.png",
       "width": 32,
       "height": 18,
-      "sha256": "7a8aaed2de315c8c0f7148ff87eb0744da426a5b94db22865325f9bf72db94e0"
+      "sha256": "5ad5ab59f100737f1701a5846fd2c366fb12900c9eba754f2b5a9f8ab7224e15"
+    },
+    {
+      "code": "BL",
+      "name": "Saint Barthélemy",
+      "path": "flags/bl.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "9592f724b77142709f4626f198a65e262c0a5b3cd9e3d6439eca6ecbc9481a18"
+    },
+    {
+      "code": "BM",
+      "name": "Bermuda",
+      "path": "flags/bm.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "8d8269a844bc3420bf12d7da7329ded90cf4135424aba6bce9adfec4a9427f2f"
     },
     {
       "code": "BN",
@@ -191,7 +238,7 @@
       "path": "flags/bn.png",
       "width": 32,
       "height": 18,
-      "sha256": "8672d4d187e10731c5db13db16db305f1de6b96b1419ff1dd5fa9aa5855af537"
+      "sha256": "8930bdbecfaa55384e236e90c86c2ff6757bdda5d1c92740efbf763921aca887"
     },
     {
       "code": "BO",
@@ -199,7 +246,15 @@
       "path": "flags/bo.png",
       "width": 32,
       "height": 18,
-      "sha256": "acba605312f04125baef2374a8efb5aaaa1414d07daf10b857b37d21e09b7bb7"
+      "sha256": "ff924e4d1401a34c559e902111f1e31b2bfd76a41255a3ca710b3d23ee68010b"
+    },
+    {
+      "code": "BQ",
+      "name": "Bonaire, Sint Eustatius and Saba",
+      "path": "flags/bq.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "af11c41e49a9f49e14e1d70e4b8c01398d18b9ba0926b1856b0b72f83c762a8b"
     },
     {
       "code": "BR",
@@ -207,7 +262,7 @@
       "path": "flags/br.png",
       "width": 32,
       "height": 18,
-      "sha256": "1da31b81829735375477a3f52e5540cc5583af0b47ae92e717bfbae92274314b"
+      "sha256": "d6e111868701657609ce536fb2b0983e4ef594f263af859a93c9a646bbb34a61"
     },
     {
       "code": "BS",
@@ -215,7 +270,7 @@
       "path": "flags/bs.png",
       "width": 32,
       "height": 18,
-      "sha256": "c638e5fbe933f2b455107cc535eeed85f4fe7e74938f3c2f7c83ae6cde1cd7f5"
+      "sha256": "1386918e1e88a737a308af3e50656d49db6b3bf37a9ec6ad11ff0f28fa6d05e3"
     },
     {
       "code": "BT",
@@ -223,7 +278,15 @@
       "path": "flags/bt.png",
       "width": 32,
       "height": 18,
-      "sha256": "ff76c75e644604d7a295dace60902d85c3c6cb5109998873cdd0f1f13327a0db"
+      "sha256": "8dc724b75973f94b87e0d6c9ad6053e4f10114c85a5b2712abe47c2dc83982b6"
+    },
+    {
+      "code": "BV",
+      "name": "Bouvet Island",
+      "path": "flags/bv.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "0f6760899430624780ca456df2daa5256bd96a13c3d7fe9460e9163f257b3275"
     },
     {
       "code": "BW",
@@ -231,7 +294,7 @@
       "path": "flags/bw.png",
       "width": 32,
       "height": 18,
-      "sha256": "0ee9ec745c6af900bb2f6cd8f850192601c9aca68e235db65272c315efff155d"
+      "sha256": "842aa2930958ecf95ad651f25d64090f94bddac4061318fb2a5a8af00b6bcfbe"
     },
     {
       "code": "BY",
@@ -239,7 +302,7 @@
       "path": "flags/by.png",
       "width": 32,
       "height": 18,
-      "sha256": "85b1c00413b3ba1fb296152d3f310ea3905400358e827485c84ec3e879be70e4"
+      "sha256": "dff33c8add40b79b00ab5fbe324f0aa9c0fde072d4f4937e22585e9a391774dc"
     },
     {
       "code": "BZ",
@@ -247,7 +310,7 @@
       "path": "flags/bz.png",
       "width": 32,
       "height": 18,
-      "sha256": "50efd1372cf5fa80f9c3ab4a3f005bfcf6fede9d246b5b37af3d3002bd71dfec"
+      "sha256": "0c6dbcdbbeade608ca3d7393556b750a489f50279f782e85977188a48baee86e"
     },
     {
       "code": "CA",
@@ -255,7 +318,15 @@
       "path": "flags/ca.png",
       "width": 32,
       "height": 18,
-      "sha256": "0dd1c12be890271ba5675714ed16249f3c27b2655b89073435b246db5b5a6ed8"
+      "sha256": "60c6f03adefda5445d765a31809b9c211bc9c4029a89a29dabd3473889b9c945"
+    },
+    {
+      "code": "CC",
+      "name": "Cocos (Keeling) Islands",
+      "path": "flags/cc.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "c2d2ed5d51cbf10c93ba5c003ad6be43271c246f1b89bf2cb95f6444646085aa"
     },
     {
       "code": "CD",
@@ -263,7 +334,7 @@
       "path": "flags/cd.png",
       "width": 32,
       "height": 18,
-      "sha256": "2b15f8f609b7fdca31b5fd6aae6205ff9b6e31b1e19a4792a1ce1a99d8765e27"
+      "sha256": "6dd4eccadafdd3349dbac7971072734f0774395962b7a069fb2d4a99d7379913"
     },
     {
       "code": "CF",
@@ -271,7 +342,7 @@
       "path": "flags/cf.png",
       "width": 32,
       "height": 18,
-      "sha256": "22ced90c21084ee4a81195b9f3f620400d05638829954c84eb3399a28ba07dff"
+      "sha256": "271745d09ee14f90758ea0b74c9ce27bc2411d4bb17882862bc9e6083759d861"
     },
     {
       "code": "CG",
@@ -279,7 +350,7 @@
       "path": "flags/cg.png",
       "width": 32,
       "height": 18,
-      "sha256": "19ba1944ae8632eae4e8b12557c299e59b96e4added86875917df6b7e6340a17"
+      "sha256": "e7057c25390336992ab4a30dfd895d162bb46de3b31b6d47d3945fdbd35db0b1"
     },
     {
       "code": "CH",
@@ -287,7 +358,7 @@
       "path": "flags/ch.png",
       "width": 32,
       "height": 18,
-      "sha256": "6f7405f80258d7db52239cad86124274e11702c756c5e71b6f0ec0c178227853"
+      "sha256": "8089b6dcac246d9cc73f06b840e1c5f7aa098827eb91f8e3e8bb511034ac2963"
     },
     {
       "code": "CI",
@@ -295,7 +366,7 @@
       "path": "flags/ci.png",
       "width": 32,
       "height": 18,
-      "sha256": "9af4fbcbee41fad191a7b65beaddf290abf346683ba22f193a62b9b9ed283ea3"
+      "sha256": "b876c6adff8e82e3b2fbc5f781b678e6caaf96a9c7d6eabd603bea537c50f83f"
     },
     {
       "code": "CK",
@@ -303,7 +374,7 @@
       "path": "flags/ck.png",
       "width": 32,
       "height": 18,
-      "sha256": "b0faa8d388ce06691dbe8cf6b75cf29491af6a231acc5e47f337a63d53a972bd"
+      "sha256": "ef0168c0b79eca56ee01f6213218211b6861ac8cd3fba3dcc495e95899f83c03"
     },
     {
       "code": "CL",
@@ -311,7 +382,7 @@
       "path": "flags/cl.png",
       "width": 32,
       "height": 18,
-      "sha256": "90f8d1bf88679a02d4b0fc9a5ee7a621fbcfa61049b312c29137293603e166b1"
+      "sha256": "a1138ccce16eb0bf386c3f7029c3dc984ab3b99ca0eddbb2ad2edf976bd51a30"
     },
     {
       "code": "CM",
@@ -319,7 +390,7 @@
       "path": "flags/cm.png",
       "width": 32,
       "height": 18,
-      "sha256": "87495090e30dd4440f368e5a6f3cdb3a7a7cb5d175b042663ff57347c16d416a"
+      "sha256": "d1df513ddd96ff2724a22390cb6ea8c0c226b445cb89e3ee58fc9bd4dc56068b"
     },
     {
       "code": "CN",
@@ -327,7 +398,7 @@
       "path": "flags/cn.png",
       "width": 32,
       "height": 18,
-      "sha256": "6ae2312404e9911f4d30ec24cc528b7b9453c4016380f9219b4baaf30c45b065"
+      "sha256": "9670e8b8e3dc1d2526b465fe5dbe68f8369c2531d70f8663db1f32a350fe1258"
     },
     {
       "code": "CO",
@@ -335,7 +406,7 @@
       "path": "flags/co.png",
       "width": 32,
       "height": 18,
-      "sha256": "33812230256a0b6644155492b2ee7c68faabe46044b7123d1b19d959965f3e18"
+      "sha256": "415195ff3cf5166ab3f7cbfd670964b76a882cccae8a0067286e81e202b6b0ae"
     },
     {
       "code": "CR",
@@ -343,7 +414,7 @@
       "path": "flags/cr.png",
       "width": 32,
       "height": 18,
-      "sha256": "f24dcb5de394c3cc970dc88565bd0a850438cc39d53c2a0131ce46f360c1f0ee"
+      "sha256": "c975284400c0b74bfd09ab2d0e629fe7d1ac51057419b652c7230c99496a2d45"
     },
     {
       "code": "CU",
@@ -351,7 +422,7 @@
       "path": "flags/cu.png",
       "width": 32,
       "height": 18,
-      "sha256": "43ed322a4c12a5d6ac81505e2cbe81190e6761e37beab2b9be5155e8edf7d502"
+      "sha256": "2e9f3396264827489e8925bb72f74efca6e59fb2f8c4775bff72e9c51f214744"
     },
     {
       "code": "CV",
@@ -359,7 +430,7 @@
       "path": "flags/cv.png",
       "width": 32,
       "height": 18,
-      "sha256": "6996ed3da25f6792cdd312b68c3fe5ebe6c1f5225073e81ee1cfdf01d3c03343"
+      "sha256": "4822f007ce609837b86748aefc221a17aa8396a297641222645740f95de15d23"
     },
     {
       "code": "CW",
@@ -367,7 +438,15 @@
       "path": "flags/cw.png",
       "width": 32,
       "height": 18,
-      "sha256": "184bce086fbf4ff87bd4fa253b15cf7ac506e05e0042848f8dc374223f7ed6aa"
+      "sha256": "2311c660a7e3f7b73fa337999cf94ef8a5bda2a53deb930e323a4b90d94f5626"
+    },
+    {
+      "code": "CX",
+      "name": "Christmas Island",
+      "path": "flags/cx.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "ecbc4420ff95c4587cef0ebcceca7f9f8a7b272ffefdd4ff2a36a5bcab5bdf25"
     },
     {
       "code": "CY",
@@ -375,7 +454,7 @@
       "path": "flags/cy.png",
       "width": 32,
       "height": 18,
-      "sha256": "3a9d1cfd0b0fcb09bc93d4dec87b69a337c97048c0c95aa8f3b59b662a131f2e"
+      "sha256": "52a93f350c8e39ea4d878e6aa94d06f8c3b09be4c749c9efa409520addab4da5"
     },
     {
       "code": "CZ",
@@ -383,7 +462,7 @@
       "path": "flags/cz.png",
       "width": 32,
       "height": 18,
-      "sha256": "4fb80c137a78f9fe84ca039df1719a521ad8be80ff062b3ac63838052802d80b"
+      "sha256": "d1ee18aa2c7f160d11e2eee8aa787318162ba7057d2c9bb2fe62b2547681192e"
     },
     {
       "code": "DE",
@@ -391,7 +470,7 @@
       "path": "flags/de.png",
       "width": 32,
       "height": 18,
-      "sha256": "fda0dce8df52dbff664d8af025a8b3ff2a5862d6104447d60d4c9db1f5bcae3a"
+      "sha256": "fc21a5b37ecbf3d2e0a369d60f98eeebdf51a9f41d4da1cb318a6b05a629959a"
     },
     {
       "code": "DJ",
@@ -399,7 +478,7 @@
       "path": "flags/dj.png",
       "width": 32,
       "height": 18,
-      "sha256": "f901eac1e36b001eaf7b965765485ee4eb959d9cd03bf5eab0816a05cecd8cc6"
+      "sha256": "e7f185875079fc8027dce80b5a396d024d837da512ea6b8bc308696cad125d00"
     },
     {
       "code": "DK",
@@ -407,7 +486,7 @@
       "path": "flags/dk.png",
       "width": 32,
       "height": 18,
-      "sha256": "f5e6e6a63616d9ec0964f045ae4a4286844afb60dd88ee21d38d771400fbf214"
+      "sha256": "c76a924147d7470013238091ad965863524359b8a05700a2ff9ac938781f5bcf"
     },
     {
       "code": "DM",
@@ -415,7 +494,7 @@
       "path": "flags/dm.png",
       "width": 32,
       "height": 18,
-      "sha256": "ad6469d81579b131d263f3f8dd0bd08c0a4431a1c10279db920917de719d201c"
+      "sha256": "21956cfc66cdc5008206642f065d340055071fc6ff3c5e479fee9cde509f29bd"
     },
     {
       "code": "DO",
@@ -423,7 +502,7 @@
       "path": "flags/do.png",
       "width": 32,
       "height": 18,
-      "sha256": "cbf6d3a969a73c7845b4c3fd932dd93ceacb61c32e2839f02f390cfee4b490d2"
+      "sha256": "da4db547d4a583da2b489792abc0cc780fb0488aaa5b7010cffc7053128e02b0"
     },
     {
       "code": "DZ",
@@ -431,7 +510,7 @@
       "path": "flags/dz.png",
       "width": 32,
       "height": 18,
-      "sha256": "dda131bc894e18eeb11c02ba6d7969f5a85d1b3f1ef7e6bc64369e04727ecb33"
+      "sha256": "08285d7ed2d652e18e94804c7bb69572918a1262609cdf1b301678557bca1163"
     },
     {
       "code": "EC",
@@ -439,7 +518,7 @@
       "path": "flags/ec.png",
       "width": 32,
       "height": 18,
-      "sha256": "7a1d2d169d194ab354a29c2a6aaf251599a83f435e3c378899c278110f11caec"
+      "sha256": "7a0809cbdea5aa3fbd826b6e5403ff13d1fff545e63516805e5df1f66521f2be"
     },
     {
       "code": "EE",
@@ -447,7 +526,7 @@
       "path": "flags/ee.png",
       "width": 32,
       "height": 18,
-      "sha256": "a6294a3e7d1122ca4f7015c103d0735338dd5c457a8d665dc92975d425c61c9b"
+      "sha256": "62a993473a18bee3eb1d0a2bf282cee5a9f5494541a48175538778606c63f946"
     },
     {
       "code": "EG",
@@ -455,7 +534,15 @@
       "path": "flags/eg.png",
       "width": 32,
       "height": 18,
-      "sha256": "0c7f32c330d14221c835640d04725c55b6aabe30f675f7a7713a5d2971204505"
+      "sha256": "73f18e02870a0ec7a4c6a5f985ff38b9bba124234cb13736145c235477a309fe"
+    },
+    {
+      "code": "EH",
+      "name": "Western Sahara",
+      "path": "flags/eh.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "dedb6a155b5ac73b03e9e3fae0f0be6466f87aef809b27a0244c076c603e3aa4"
     },
     {
       "code": "ER",
@@ -463,7 +550,7 @@
       "path": "flags/er.png",
       "width": 32,
       "height": 18,
-      "sha256": "8675f220fab1d7d0a65b3bdbb23ddd05e64241c2b977f33ab563db334f2e7286"
+      "sha256": "493282e80fc138b0de8c86c97810b91b64b384d1f02fcce75c042a92cc2033c0"
     },
     {
       "code": "ES",
@@ -471,7 +558,7 @@
       "path": "flags/es.png",
       "width": 32,
       "height": 18,
-      "sha256": "6cc8e46d96b847f99360c9c89d3402ffda568de4cf2d559a55fecf81216ae29e"
+      "sha256": "9b6966173e6a24512537731dad71b2b5339b8366d940b3924dc293431b279ded"
     },
     {
       "code": "ET",
@@ -479,7 +566,7 @@
       "path": "flags/et.png",
       "width": 32,
       "height": 18,
-      "sha256": "e57af5b760949f5b174e983d651975a3048fb7eef769c5cf6053c8c98ef7c107"
+      "sha256": "b744c48d38d46cb82090c126dd8297f9ec05acba087356850fcd4a9bdc76ad9b"
     },
     {
       "code": "FI",
@@ -487,7 +574,7 @@
       "path": "flags/fi.png",
       "width": 32,
       "height": 18,
-      "sha256": "02fa4511c716a7eccf614cdebed29554d8811bd34865363c38a8e5c9ebebe794"
+      "sha256": "e1c06e84aeeae8f17648c3bfacb9ae8fea4bf2f3cc177ca092e40da1ac2945d4"
     },
     {
       "code": "FJ",
@@ -495,7 +582,15 @@
       "path": "flags/fj.png",
       "width": 32,
       "height": 18,
-      "sha256": "82567d6c648b987d7cff454ba1284a76f4d445581b72d40604ddb68284bb55a4"
+      "sha256": "08ca0d86be4666b3b9eff7d22deec2b0c9594205bf425c14229fae2088297dc2"
+    },
+    {
+      "code": "FK",
+      "name": "Falkland Islands (Malvinas)",
+      "path": "flags/fk.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "9712430460c0d5ae7078c624a226e56513f7189bf4a7ab259d1847d1484116cb"
     },
     {
       "code": "FM",
@@ -503,7 +598,7 @@
       "path": "flags/fm.png",
       "width": 32,
       "height": 18,
-      "sha256": "7cf9d25fb9a5223410bba8a8dbf024bda620aa4afdc750c203af0bb23807eaaa"
+      "sha256": "5535a15f84fe509cc8a96fdf7ca9bd6fbb82a8be076a69e9c62c0da7a4c01287"
     },
     {
       "code": "FO",
@@ -511,7 +606,7 @@
       "path": "flags/fo.png",
       "width": 32,
       "height": 18,
-      "sha256": "2d70e9adaf4c2fff4bfa02d3b171504812fe54508561dd9c9f947af2f6d39592"
+      "sha256": "be08b19f3529fe3198281169b054c5ebe756949d5da471936c0489584b373bad"
     },
     {
       "code": "FR",
@@ -519,7 +614,7 @@
       "path": "flags/fr.png",
       "width": 32,
       "height": 18,
-      "sha256": "c114c490ec3daa75a5d8ec1e8241ae7ea2a96f59c4aae172e3cdedf5c67c2463"
+      "sha256": "9592f724b77142709f4626f198a65e262c0a5b3cd9e3d6439eca6ecbc9481a18"
     },
     {
       "code": "GA",
@@ -527,7 +622,7 @@
       "path": "flags/ga.png",
       "width": 32,
       "height": 18,
-      "sha256": "8345f2a8d06fc935fcc8241c845f9ba0ab32745d9814ab8cc6e46c90526a21c4"
+      "sha256": "e2a93e31cebc54de05c036e4ffe526f6f52ac3ff66d7fa4efee6880001d8b5fd"
     },
     {
       "code": "GB",
@@ -535,7 +630,7 @@
       "path": "flags/gb.png",
       "width": 32,
       "height": 18,
-      "sha256": "082342b7ee7bd565e557dff66cfa9fe859613ce45823d3406f89caac8c865a87"
+      "sha256": "3bc163daf6b6e3916034bd90b1e813766dab03767cbaf23a66e17ccbcfa1a42c"
     },
     {
       "code": "GD",
@@ -543,7 +638,7 @@
       "path": "flags/gd.png",
       "width": 32,
       "height": 18,
-      "sha256": "075326572d8161059e1225386a0f8141f4fc1a5ce9f0347f6886a3783aefb556"
+      "sha256": "38e08767c92aa68fb1cc36a6f366345dda3405838eda59d37294af648d4b2297"
     },
     {
       "code": "GE",
@@ -551,7 +646,15 @@
       "path": "flags/ge.png",
       "width": 32,
       "height": 18,
-      "sha256": "911ebd994e1d67c77063af2eac07d0d55b199067a12efe682015c59ffb873eff"
+      "sha256": "a63e929eb4d630dbb1c3b7152b26493b7c2f62218a41a72fa750f38c6519ccfd"
+    },
+    {
+      "code": "GF",
+      "name": "French Guiana",
+      "path": "flags/gf.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "5ed80acf40e2638cc9e1ea083a067d6214b103c430c44fa4f6703812ff6abf0a"
     },
     {
       "code": "GG",
@@ -559,7 +662,7 @@
       "path": "flags/gg.png",
       "width": 32,
       "height": 18,
-      "sha256": "af8490a424ba21f6d68b59ff7f3c494460b9d3497389913a84320dd360b7a115"
+      "sha256": "cdb7b7f4f4a7fb4428fa9a53252f52227083edd509639b97183b11cbfaf91661"
     },
     {
       "code": "GH",
@@ -567,7 +670,15 @@
       "path": "flags/gh.png",
       "width": 32,
       "height": 18,
-      "sha256": "7b661b1aef5faee906c77fcec94a6c9307932ef445ef85d9799f8634835391f7"
+      "sha256": "4afc19319e53248076bbca45c4ef4fe2ff717e83cc96e6f55c1826b4400e8c7a"
+    },
+    {
+      "code": "GI",
+      "name": "Gibraltar",
+      "path": "flags/gi.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "6dcb8265f0a9b07e279d934dc765b3ef12635ea9812a61242cdcae548da509f7"
     },
     {
       "code": "GL",
@@ -575,7 +686,7 @@
       "path": "flags/gl.png",
       "width": 32,
       "height": 18,
-      "sha256": "4de3525aa6e689f6e0feccb79fc2af9446bd91d14e1cbc8c876a9be199f57f93"
+      "sha256": "d9ec007f4a0af82cb7bebceea2a9899af899ac5d3b82c3afdba995b74a84cf64"
     },
     {
       "code": "GM",
@@ -583,7 +694,7 @@
       "path": "flags/gm.png",
       "width": 32,
       "height": 18,
-      "sha256": "ba231f539f3b20050028dda36600b0fddfb13df5854619aab3a7d810f74b932f"
+      "sha256": "43edbd1274ad5b0ed3fac3690d38e76cc9608a710e4823e258501980506c7b5a"
     },
     {
       "code": "GN",
@@ -591,7 +702,15 @@
       "path": "flags/gn.png",
       "width": 32,
       "height": 18,
-      "sha256": "5bfcce96efa39d87aa285a05cf0a486945263922a26b549b85745b9284cdb87f"
+      "sha256": "d3f00b80b4d2053fec951c32d562b921561c371ebd791b0db4c58ff271d82273"
+    },
+    {
+      "code": "GP",
+      "name": "Guadeloupe",
+      "path": "flags/gp.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "dbac275a71d77fd313ea265b576ba6355d42b10dd4dc49e3e41d9ee1849c0c40"
     },
     {
       "code": "GQ",
@@ -599,7 +718,7 @@
       "path": "flags/gq.png",
       "width": 32,
       "height": 18,
-      "sha256": "7b90c8b627ca25c45baeadd0a4a5372590356c3cea3e2ccf53f9c1a79c8fe171"
+      "sha256": "2b155e2180f5ba81661313968f0a42cb9c3b4487046ac6d11dbe5dd913fd85ff"
     },
     {
       "code": "GR",
@@ -607,7 +726,15 @@
       "path": "flags/gr.png",
       "width": 32,
       "height": 18,
-      "sha256": "0c704638b3f10b9dc344b14f08b3c5084b862687fcc891276100b4c6ea8ba4dc"
+      "sha256": "22d44cec545e5167f4bfa6a315651786b0f92bfb5f0d69c8b990a02bc73b651b"
+    },
+    {
+      "code": "GS",
+      "name": "South Georgia and the South Sandwich Islands",
+      "path": "flags/gs.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "9712430460c0d5ae7078c624a226e56513f7189bf4a7ab259d1847d1484116cb"
     },
     {
       "code": "GT",
@@ -615,7 +742,15 @@
       "path": "flags/gt.png",
       "width": 32,
       "height": 18,
-      "sha256": "f0ee80b24ec730a72a3c7633adda981aec762030ad18dc096cacc062a67ad998"
+      "sha256": "567b54206257517e3660e895b566498c926ef23214fc02fddb2e4b7a0816b0df"
+    },
+    {
+      "code": "GU",
+      "name": "Guam",
+      "path": "flags/gu.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "42f2fa56a13bd6032f41db9f8b3cdab8a68cb571b4344ee6e8341ebac5947e59"
     },
     {
       "code": "GW",
@@ -623,7 +758,7 @@
       "path": "flags/gw.png",
       "width": 32,
       "height": 18,
-      "sha256": "b636f18688485694a9535d8d0b0b35126c27687c1b64450aaddd156d08c60576"
+      "sha256": "f5844e197f6e41eadd7b060d6356f9718ce8f570637108729b27f39afc65fa02"
     },
     {
       "code": "GY",
@@ -631,7 +766,7 @@
       "path": "flags/gy.png",
       "width": 32,
       "height": 18,
-      "sha256": "953c87ff2c2de8e13be76c15846d25bc013102d9f762dacf7e93ed8397456a2b"
+      "sha256": "9f9fd91773e671d63c635e6dfd6e7a81a345317d9cc0f2114830783b01d85ae3"
     },
     {
       "code": "HK",
@@ -639,7 +774,15 @@
       "path": "flags/hk.png",
       "width": 32,
       "height": 18,
-      "sha256": "d52fe0820b6a95ff65136d8d26e4cdab2a60c1d4a27cc3ecfe4050dba57aee5c"
+      "sha256": "0482f7e226d584319ba27541a9aff03c11ebcbcb9170b49cf6c28d1cb14ef125"
+    },
+    {
+      "code": "HM",
+      "name": "Heard Island and McDonald Islands",
+      "path": "flags/hm.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "5523fc6abd4ccfda0a6668ffd75e83b390e4ab06a4841af9a6267c1454ce7e2f"
     },
     {
       "code": "HN",
@@ -647,7 +790,7 @@
       "path": "flags/hn.png",
       "width": 32,
       "height": 18,
-      "sha256": "6c8aca4c273487d0d7b10d40c7b87ffdc193a8ca63dccb45f221c85d032eab8f"
+      "sha256": "a588c227fc10247b9dfa7929a14f449b8f780e0f5a3104c67cb354b5ba9deae2"
     },
     {
       "code": "HR",
@@ -655,7 +798,7 @@
       "path": "flags/hr.png",
       "width": 32,
       "height": 18,
-      "sha256": "176c13297df09695f4074adf87da404093dba66ce396c4cc49b3d92a53628f18"
+      "sha256": "be85dd142e2eff577e9bea0b32aec052c6b9130f24990c64c7c6b61e31885e56"
     },
     {
       "code": "HT",
@@ -663,7 +806,7 @@
       "path": "flags/ht.png",
       "width": 32,
       "height": 18,
-      "sha256": "c477f991494595c1b525130cb846497846d109d94b6fa85c4fed31bcf488d9b7"
+      "sha256": "ea049c5ff043f1fe55b7d1afcf17587495cb678b8b8c2e67ae094389744ffb51"
     },
     {
       "code": "HU",
@@ -671,7 +814,7 @@
       "path": "flags/hu.png",
       "width": 32,
       "height": 18,
-      "sha256": "b90dc182f06fdd8489436cd93c7788451528c183ae3cd8ebe1877a2c2526a80e"
+      "sha256": "d715d6415afc7b9f934b8e612e4d9266d08b5902b01ea2337c10f9cb191a50db"
     },
     {
       "code": "ID",
@@ -679,7 +822,7 @@
       "path": "flags/id.png",
       "width": 32,
       "height": 18,
-      "sha256": "7951d514bdb7ee083cd2937f228a9ec4bce5fe006ad32b3e0be3289f71f34709"
+      "sha256": "e4a2c47bb64ff84037c43e164fb3ded94ec5b111e8475ee72f428fefb27481b2"
     },
     {
       "code": "IE",
@@ -687,7 +830,7 @@
       "path": "flags/ie.png",
       "width": 32,
       "height": 18,
-      "sha256": "d201f07512ad2ec6e4e3d6cea8c65a255c3ef60690e9a0cbadb5782dbd9fdb17"
+      "sha256": "7dfefb5cf52b92b57bbd649ad9449cda81cde9edb26ccbe76863a89e143f747c"
     },
     {
       "code": "IL",
@@ -695,7 +838,7 @@
       "path": "flags/il.png",
       "width": 32,
       "height": 18,
-      "sha256": "74e3d8eb8e89348707677ec49a88baf7663e3463de590745dd4dadd8bb861dce"
+      "sha256": "fc0992bd4b1e290c0eef69e41ae80e5227b88742c396cb4c935caa6eefc799fb"
     },
     {
       "code": "IM",
@@ -703,7 +846,7 @@
       "path": "flags/im.png",
       "width": 32,
       "height": 18,
-      "sha256": "577a80c90c7c13802fe3ef1fa43b3d88755e0c2cd5f6eda344a43c0bae8f7338"
+      "sha256": "4ad9d45ccc517ce0c47dbf620658f490c3dc0a13c80adbc3126a778cea5a8e6c"
     },
     {
       "code": "IN",
@@ -711,7 +854,15 @@
       "path": "flags/in.png",
       "width": 32,
       "height": 18,
-      "sha256": "7afb07473bdbb592a4b49cc292ec0306384fc52e44b68bfe7c017ab43219b367"
+      "sha256": "1512111934672d4222fc09ab16ee0980980154e0bbcc3584a6f2e7e6e52aff23"
+    },
+    {
+      "code": "IO",
+      "name": "British Indian Ocean Territory",
+      "path": "flags/io.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "5e10b17f380ed59a447a160f547e077620d3947d8675facc49b171946c0da77a"
     },
     {
       "code": "IQ",
@@ -719,7 +870,7 @@
       "path": "flags/iq.png",
       "width": 32,
       "height": 18,
-      "sha256": "8de925368c418282b0c2c62469dffb701178c80ce082a40280e8ce35b9606e1e"
+      "sha256": "21aa0914873d7c992e8f928a652fa59d990d8b52b09455c8768b365d33b32967"
     },
     {
       "code": "IR",
@@ -727,7 +878,7 @@
       "path": "flags/ir.png",
       "width": 32,
       "height": 18,
-      "sha256": "d4a644f90a3fc62267d2d47bbb3b055431e3473a84d8b9b1819db4cd52a8f4d6"
+      "sha256": "2d37b848c6e7e4ec1bf6598dfa940295293f42a30b57b243d9f3b8a0fa8ecdfc"
     },
     {
       "code": "IS",
@@ -735,7 +886,7 @@
       "path": "flags/is.png",
       "width": 32,
       "height": 18,
-      "sha256": "7fd9fb0f8529a8bcf2474f1a97925e6ec8fd25cd81d38fcb9d88aae70bfe2853"
+      "sha256": "1af2bf578f49469919c5611055f9fe4ca2f4a2ff036924f6d9493617d7f1354e"
     },
     {
       "code": "IT",
@@ -743,7 +894,7 @@
       "path": "flags/it.png",
       "width": 32,
       "height": 18,
-      "sha256": "67f4608b4c55d3d67c0872baab7750be2e431c8513f06aa97a55c6fd1f9842bd"
+      "sha256": "e7dfb05c8e3446ddf8a5a462598783e0600c819da2fafdfe35fecb1af2c3196e"
     },
     {
       "code": "JE",
@@ -751,7 +902,7 @@
       "path": "flags/je.png",
       "width": 32,
       "height": 18,
-      "sha256": "55f5a36c968826b195f502c73174e3212f4dc96c64393ceed1e40f93af9fcab2"
+      "sha256": "4af8640f6a4a2ab8cbccf91f97abd1bf6eacd3c2507cf12aaf8fd185197505b6"
     },
     {
       "code": "JM",
@@ -759,7 +910,7 @@
       "path": "flags/jm.png",
       "width": 32,
       "height": 18,
-      "sha256": "527796516b545c8b36dcb7cc6c8e2668bdd9fc4a1b22634b4589e70129f25a08"
+      "sha256": "e5b7231d6e446d46fe22ae081283745798afc20d788245b76ffff6864ba2936f"
     },
     {
       "code": "JO",
@@ -767,7 +918,7 @@
       "path": "flags/jo.png",
       "width": 32,
       "height": 18,
-      "sha256": "43a695894319bd8ac75be7542d31f7d7fc3012b5641ec832d47b0a04556e4d9b"
+      "sha256": "791d5f8132486222b844d2d1100ee187857eb6b7e23b368a7d6497fb9a276e61"
     },
     {
       "code": "JP",
@@ -775,7 +926,7 @@
       "path": "flags/jp.png",
       "width": 32,
       "height": 18,
-      "sha256": "04bed0f4b118c4ddc96dd6baf46d9d8558b00bac2bd15d876c6cf98a8d724929"
+      "sha256": "41d25ab124d90c1dbf53088c513865facdce547c245097ffa374f575c6d3be2e"
     },
     {
       "code": "KE",
@@ -783,7 +934,7 @@
       "path": "flags/ke.png",
       "width": 32,
       "height": 18,
-      "sha256": "d12c6ba37411c5bb39af2edc44bd6cea508a21070b90fbae07b19d05a8257d64"
+      "sha256": "e6cd6d7f6151b2cccc51f3821215573982fa4c3022b7080b2cf1e09cd03d6042"
     },
     {
       "code": "KG",
@@ -791,7 +942,7 @@
       "path": "flags/kg.png",
       "width": 32,
       "height": 18,
-      "sha256": "26555d2f22d6c372660b6ed5b298872b4022a4609bede46e445fef1159a35799"
+      "sha256": "bd047bf888c97627b82825ed93872335058a88796a1290049b3e4a7c347f4da8"
     },
     {
       "code": "KH",
@@ -799,7 +950,7 @@
       "path": "flags/kh.png",
       "width": 32,
       "height": 18,
-      "sha256": "da9afd55b31c7adadc167629a9b1ecf1684c265f4f20cb4c845b19a00b7abbba"
+      "sha256": "de734a9843c47d1d8d21490e2b36b86db93f6aadc32d70edce4d7bfeee38774f"
     },
     {
       "code": "KI",
@@ -807,7 +958,7 @@
       "path": "flags/ki.png",
       "width": 32,
       "height": 18,
-      "sha256": "76a103c0574e90c9101f7556232724f834eca8120f86f53e245a66ae179dc2e1"
+      "sha256": "0b6419461e13d409c485a3bdb6f3a93becfebe7b17bcd3be911f8fb074236fd3"
     },
     {
       "code": "KM",
@@ -815,7 +966,7 @@
       "path": "flags/km.png",
       "width": 32,
       "height": 18,
-      "sha256": "d86edf54986dec4b4cf343af417f369d78181f999096b5c707e6ed6f93c0d05e"
+      "sha256": "2092c9d9aff9e8a1ee2b43add69ca2e506919ea59b9a8641d1ee68faff1356bc"
     },
     {
       "code": "KN",
@@ -823,7 +974,7 @@
       "path": "flags/kn.png",
       "width": 32,
       "height": 18,
-      "sha256": "c47bd76ac994427e59c2f7a0103648c91c5b34c740d72354f174959cbe690a53"
+      "sha256": "f70f72d224dc5057070b17f64bacfe2f056d233cc8b106879e3f3a4cb0293e0d"
     },
     {
       "code": "KP",
@@ -831,7 +982,7 @@
       "path": "flags/kp.png",
       "width": 32,
       "height": 18,
-      "sha256": "0477e233b2a503ddae861b2a9a7e93f9da6498555480bc9e5d116cf8ee3cee4d"
+      "sha256": "9b25ae17f53bd4203f0aeb2b73e27a4346532582c5014495e3b1776e44290829"
     },
     {
       "code": "KR",
@@ -839,7 +990,7 @@
       "path": "flags/kr.png",
       "width": 32,
       "height": 18,
-      "sha256": "56146eb916c0228234113c00889ec51114eb7698fd78d844aa7d38ec23371109"
+      "sha256": "a5c004b9d62b731cdd6fe1b67dfd3167338909a83a20d8ff90c5537299bab5f8"
     },
     {
       "code": "KW",
@@ -847,7 +998,15 @@
       "path": "flags/kw.png",
       "width": 32,
       "height": 18,
-      "sha256": "fca4e989d133fcd075ca8702925e1840ed809740e88aeb528e5499d94bf2fb8e"
+      "sha256": "b104f53bee50dee0313990e19c1007bee85fe5559553145880c40167e70fc171"
+    },
+    {
+      "code": "KY",
+      "name": "Cayman Islands",
+      "path": "flags/ky.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "9712430460c0d5ae7078c624a226e56513f7189bf4a7ab259d1847d1484116cb"
     },
     {
       "code": "KZ",
@@ -855,7 +1014,7 @@
       "path": "flags/kz.png",
       "width": 32,
       "height": 18,
-      "sha256": "c7fc4786f31d8c121fe8d94c07b6aeba76f8e45059e02e771520b4a1a8c549c8"
+      "sha256": "c0f4b0ed2c9da894189fbe087df90c5740d901438d754eee5c7fdf7b50ecac85"
     },
     {
       "code": "LA",
@@ -863,7 +1022,7 @@
       "path": "flags/la.png",
       "width": 32,
       "height": 18,
-      "sha256": "006cdce54659413c61d7bce876c590aaf7f4a03d794ea2e5488337fda801ad50"
+      "sha256": "399fa187e33deded5778743206f53f591b75f7901ce2e1015f7d31850569be8d"
     },
     {
       "code": "LB",
@@ -871,7 +1030,7 @@
       "path": "flags/lb.png",
       "width": 32,
       "height": 18,
-      "sha256": "40332c2239facf64fad30ef2166479bdd832abd7cf6ad3a5d78609526c74c9b5"
+      "sha256": "a5ecb309bb91a0a5b4f72408036fe6ea102627cad8f1a697f8f12c9857552f0d"
     },
     {
       "code": "LC",
@@ -879,7 +1038,7 @@
       "path": "flags/lc.png",
       "width": 32,
       "height": 18,
-      "sha256": "58e5fc190cd00112e425ae040c7e1ee5e54fbfb304d3a199bbbd569868ae68ca"
+      "sha256": "b025b376d1ec0a9c0d91d4f801177376d8469202855534f59d6f1fa16d9a8862"
     },
     {
       "code": "LI",
@@ -887,7 +1046,7 @@
       "path": "flags/li.png",
       "width": 32,
       "height": 18,
-      "sha256": "946386628a510cb2dea04cb630af9b39f1fdaff2796195c9752cd39b5d93b605"
+      "sha256": "93c9770ccd4b812e909f30fcf0637e5b8ee8f40ada92cec99bea6bef6634fc64"
     },
     {
       "code": "LK",
@@ -895,7 +1054,7 @@
       "path": "flags/lk.png",
       "width": 32,
       "height": 18,
-      "sha256": "9ebceeb819884445019e4fe0df053a97cfe118815f95d67f2cb3632064e8ade3"
+      "sha256": "1221dde98a5694fa215ec760937c5042924ef9e8e26638a9d9d88e91fc0b45d6"
     },
     {
       "code": "LR",
@@ -903,7 +1062,7 @@
       "path": "flags/lr.png",
       "width": 32,
       "height": 18,
-      "sha256": "65665707fb340238f08d9fabde7d20f55bb22af7b7fcfb6dc3f52df47ae602b8"
+      "sha256": "5542b8a87598305b1466646518f13a0415991acd37a40248228095bdec80ed68"
     },
     {
       "code": "LS",
@@ -911,7 +1070,7 @@
       "path": "flags/ls.png",
       "width": 32,
       "height": 18,
-      "sha256": "be976bcf544340c6b68f1773ce9a944223ff94a09ac28eb9692e66b9ad6e7003"
+      "sha256": "718e45f1666bd7549cf91796419f92e73b2f2e4ce07359e017f6e20376377b51"
     },
     {
       "code": "LT",
@@ -919,7 +1078,7 @@
       "path": "flags/lt.png",
       "width": 32,
       "height": 18,
-      "sha256": "839efe4ad6da9a9b3891eeb129a7a13e8aaa4340b53ea76e2ffcd6c18382652d"
+      "sha256": "aa7f8daff42dbe8a51858b84303c8878e99efdb0eb515ee2e11f88d4e81a90ff"
     },
     {
       "code": "LU",
@@ -927,7 +1086,7 @@
       "path": "flags/lu.png",
       "width": 32,
       "height": 18,
-      "sha256": "33e7104cb9e9bf1d1f77d995d3887112867de374df40bb2ea2a2c30d05dee7f8"
+      "sha256": "25f283f5e1b774b4af6d06a2a9eb9e8dc7a78dc91bd1c277d90be24e20e0108c"
     },
     {
       "code": "LV",
@@ -935,7 +1094,7 @@
       "path": "flags/lv.png",
       "width": 32,
       "height": 18,
-      "sha256": "4fde7945a33d49d835d19300b874233fe7baf9eea8c5e68f07bfaed2e3d23367"
+      "sha256": "c37b32cbf27ecdb201fd2e2317003b39d31a0e612a09e9d0be088209a6570deb"
     },
     {
       "code": "LY",
@@ -943,7 +1102,7 @@
       "path": "flags/ly.png",
       "width": 32,
       "height": 18,
-      "sha256": "397113dd61418cab96a26f58d6f1429b7ee14db710789e83454e5c39f49479b1"
+      "sha256": "2541e9d3a073e44f75efc6be5ba230948ac5472ad9d3e6503fa4aec97fa3a47f"
     },
     {
       "code": "MA",
@@ -951,7 +1110,7 @@
       "path": "flags/ma.png",
       "width": 32,
       "height": 18,
-      "sha256": "0c7e9bb8dad0acd9200325f6bc74b277276e424bdd9521a5a922d88e22db1b69"
+      "sha256": "91891948efd8340e2c484fd9645f790ca793485a8426831b2b4db40a701af6ae"
     },
     {
       "code": "MC",
@@ -959,7 +1118,7 @@
       "path": "flags/mc.png",
       "width": 32,
       "height": 18,
-      "sha256": "25b9a3a8fc4a2b37c41c642fd354545ddf532fd7c6585924af1849477414e674"
+      "sha256": "e4a2c47bb64ff84037c43e164fb3ded94ec5b111e8475ee72f428fefb27481b2"
     },
     {
       "code": "MD",
@@ -967,7 +1126,7 @@
       "path": "flags/md.png",
       "width": 32,
       "height": 18,
-      "sha256": "4566c0c76289e5e8e552cb0697ab7aa28a5dc66cb41e9c4cd365402918bda518"
+      "sha256": "e31cd025a9fc3250241a75b69e03fef5968ba7babe58397fec0ec886cf886d25"
     },
     {
       "code": "ME",
@@ -975,7 +1134,7 @@
       "path": "flags/me.png",
       "width": 32,
       "height": 18,
-      "sha256": "cf249c84ead21c0c1f51eb027010b3bada80ab9e404516bed53dd815730e2630"
+      "sha256": "6f41c37078b8fe966955b54ab5bcb029083dfe0bccce4ac42e880fec8e1c1266"
     },
     {
       "code": "MF",
@@ -983,7 +1142,7 @@
       "path": "flags/mf.png",
       "width": 32,
       "height": 18,
-      "sha256": "d088063100fb457d2e8dc5d40aafb0410f9de3c24fd4ac9b0908b708e5c92c89"
+      "sha256": "9592f724b77142709f4626f198a65e262c0a5b3cd9e3d6439eca6ecbc9481a18"
     },
     {
       "code": "MG",
@@ -991,7 +1150,7 @@
       "path": "flags/mg.png",
       "width": 32,
       "height": 18,
-      "sha256": "a5ea67b8b5c3c26e5d7efb171a4e6e90bcb0d857f951ef173999c80ce7d4dedb"
+      "sha256": "69a32d6997990d6f39aeaff6d4546e5b8cfeb8efc990639605493b497e6b6a2c"
     },
     {
       "code": "MH",
@@ -999,7 +1158,7 @@
       "path": "flags/mh.png",
       "width": 32,
       "height": 18,
-      "sha256": "587597bd2295a86a62c95558c70421206e491eda011608b9d1d71933dbc629ba"
+      "sha256": "80f0538d55479481eb3b21ca84de7e44e4b88d5c1ccf4b83c6c37bb6f618c70f"
     },
     {
       "code": "MK",
@@ -1007,7 +1166,7 @@
       "path": "flags/mk.png",
       "width": 32,
       "height": 18,
-      "sha256": "505f5b5bb385ee061d3cc46e52b74491883bd9d244bdb269edb34b01b64b1750"
+      "sha256": "a65ecb4c1022bf91c7b46a6e46f73f52db76d6c9b9ab92d15344bba01a2c77dc"
     },
     {
       "code": "ML",
@@ -1015,7 +1174,7 @@
       "path": "flags/ml.png",
       "width": 32,
       "height": 18,
-      "sha256": "18354ba89cce72b64bf9f9c368c854c80da1a5082970ac8e9e7cf37fe7a495ac"
+      "sha256": "dd0a6fc88a59ec3b9e0a8536c6d5d830153bfa6857de89dd64572c36508c2c62"
     },
     {
       "code": "MM",
@@ -1023,7 +1182,7 @@
       "path": "flags/mm.png",
       "width": 32,
       "height": 18,
-      "sha256": "c9160590638367a4379f3693ea1fe49e0ad4c5de56e4122cd536c0681cb34ee3"
+      "sha256": "893aa49a839d40068a5b0cdc3fc0da9472e94102aca04d4c35657f80d1588b62"
     },
     {
       "code": "MN",
@@ -1031,7 +1190,31 @@
       "path": "flags/mn.png",
       "width": 32,
       "height": 18,
-      "sha256": "acff0d16cae6356c28a732dd846ba6217f85566c51e671767eb028d44e951491"
+      "sha256": "8708d2b3a8f1c023818143f715284b5f5725dbe94367d9cab109b797ca87d13b"
+    },
+    {
+      "code": "MO",
+      "name": "Macao",
+      "path": "flags/mo.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "912adbdaa1e81c40aeec3f2aa76f11d1389d1d5580d8920440b10c03c077e181"
+    },
+    {
+      "code": "MP",
+      "name": "Northern Mariana Islands",
+      "path": "flags/mp.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "bc9286c3f933bf1f4a3da276ecf4bae2192a63fc9873740037012d881edb0aab"
+    },
+    {
+      "code": "MQ",
+      "name": "Martinique",
+      "path": "flags/mq.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "5959f51270bf071c88be5bfe3ba10ddb312264ab3c4fe57594d193f8fa9bb50d"
     },
     {
       "code": "MR",
@@ -1039,7 +1222,15 @@
       "path": "flags/mr.png",
       "width": 32,
       "height": 18,
-      "sha256": "25d65a58c3c002b6b35cf60e256ab5d32eb9428add2ece9be6e70ea0addc1a6f"
+      "sha256": "f26f30018314e0424216539e82fcde9e3a7de6193ad1a36d97baf6b5e1ab629a"
+    },
+    {
+      "code": "MS",
+      "name": "Montserrat",
+      "path": "flags/ms.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "9712430460c0d5ae7078c624a226e56513f7189bf4a7ab259d1847d1484116cb"
     },
     {
       "code": "MT",
@@ -1047,7 +1238,7 @@
       "path": "flags/mt.png",
       "width": 32,
       "height": 18,
-      "sha256": "67db08a3c46813bae87a2c09229d8eecd3ba0db662a11563572f7784f0f446a1"
+      "sha256": "e5b64c640fd597bdfe5acb431a5cecd9a840fceae87e3c0922ad0df10a18b8fd"
     },
     {
       "code": "MU",
@@ -1055,7 +1246,7 @@
       "path": "flags/mu.png",
       "width": 32,
       "height": 18,
-      "sha256": "247899589734539b5479051bc17ebf9215437b75c67b3dc7aa5b9cd73531f9cf"
+      "sha256": "cc436f825ce5c0911c82d40a783f715e4d99db19fa954e072d441a2908e3a3d8"
     },
     {
       "code": "MV",
@@ -1063,7 +1254,7 @@
       "path": "flags/mv.png",
       "width": 32,
       "height": 18,
-      "sha256": "a35c605f17a1cf18f201b7827b31b140c815b05e56a3b4377e359802eaa18569"
+      "sha256": "ac4bbe761f6e0ef3206cfdc519240615f24d1123cb26a046c28f8a778f1c12f3"
     },
     {
       "code": "MW",
@@ -1071,7 +1262,7 @@
       "path": "flags/mw.png",
       "width": 32,
       "height": 18,
-      "sha256": "9766cd6fc335232e22fedcd5da13f15e623adbb185c0a83301f5cf0b8191b0ad"
+      "sha256": "8e7cc9b642179f223501b914a21739be8175f4709aff8d48d30d49f8d1df1bd0"
     },
     {
       "code": "MX",
@@ -1079,7 +1270,7 @@
       "path": "flags/mx.png",
       "width": 32,
       "height": 18,
-      "sha256": "4c536dc9cb67341ad7104138b27760b732f0a7ff14bffb2b30385064ee3ea603"
+      "sha256": "97c3b0ac00f7a7bb6d791b6562aa91c7921cbe155e4edd6763600b2ca84e884c"
     },
     {
       "code": "MY",
@@ -1087,7 +1278,7 @@
       "path": "flags/my.png",
       "width": 32,
       "height": 18,
-      "sha256": "997a9a419833a6b7489c5a5500c899f6265ff002768913b03c72299dfa2ef78d"
+      "sha256": "74d751f36ec3e598009a788bc09cd9012e75f52a9c142517700b3035282bb802"
     },
     {
       "code": "MZ",
@@ -1095,7 +1286,7 @@
       "path": "flags/mz.png",
       "width": 32,
       "height": 18,
-      "sha256": "cf4551a5f92fec110aa4efed68464e1bd43dc59d445d35080fe280fa0b7f8709"
+      "sha256": "8492ccf687a24193962431a409945ef23571fc397f97089ea93040bf02685751"
     },
     {
       "code": "NA",
@@ -1103,7 +1294,15 @@
       "path": "flags/na.png",
       "width": 32,
       "height": 18,
-      "sha256": "d35dc4bbab068e168abe0c2d4a5637ee801557a2e26dd50fbcaf468cf1e1a8bd"
+      "sha256": "72355e2085f77fcfbea1cb576e4c023051a5c4c3ebb02a14ce4f168a27efbced"
+    },
+    {
+      "code": "NC",
+      "name": "New Caledonia",
+      "path": "flags/nc.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "7f865ac3b995ae42f6d86b5da0101f766fb07587ae655ea73461c8719bc7a722"
     },
     {
       "code": "NE",
@@ -1111,7 +1310,15 @@
       "path": "flags/ne.png",
       "width": 32,
       "height": 18,
-      "sha256": "4a26da1b80bd0b6f42b6425ae24da0d5749ecc8f1299aa86f42aa92529143ce4"
+      "sha256": "e2b48e43d3301c0cf3485193949269622f214a721f455f6b05e9c322dd8fa28b"
+    },
+    {
+      "code": "NF",
+      "name": "Norfolk Island",
+      "path": "flags/nf.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "16955e5846e06b03c87c958e469416055d5d3e6b9a8f50d867633925591eb06f"
     },
     {
       "code": "NG",
@@ -1119,7 +1326,7 @@
       "path": "flags/ng.png",
       "width": 32,
       "height": 18,
-      "sha256": "bf23ed59e2b737e6420be8b443e27ceef282349068c8181e60f1669d0248ca0d"
+      "sha256": "a450668f0e46882d2c175ce06e80aaa93cdde2619919374bdee5e897b803de26"
     },
     {
       "code": "NI",
@@ -1127,7 +1334,7 @@
       "path": "flags/ni.png",
       "width": 32,
       "height": 18,
-      "sha256": "6d3a11ce3657f74c32d0f676a1b0454596d24bb93c72b59d39b04f46c62b5e78"
+      "sha256": "b495d90eb9bbdeaeab9fd4fd482df706d60748a79541ca89aa918e1b53de75d0"
     },
     {
       "code": "NL",
@@ -1135,7 +1342,7 @@
       "path": "flags/nl.png",
       "width": 32,
       "height": 18,
-      "sha256": "1b5740db54c4b9d355c3f27b89976d1b3b4a9b874595f45a9cff974a0e8b13f4"
+      "sha256": "befbd5551728ce3e3f7e5e94d70349d5256beb5be50f75dcf1c05dcf9d8fb04a"
     },
     {
       "code": "NO",
@@ -1143,7 +1350,7 @@
       "path": "flags/no.png",
       "width": 32,
       "height": 18,
-      "sha256": "4dd7b4e588eff562ad8db653fc7eee001e9fa732609bc8d750b941fc3c4e684a"
+      "sha256": "0f6760899430624780ca456df2daa5256bd96a13c3d7fe9460e9163f257b3275"
     },
     {
       "code": "NP",
@@ -1151,7 +1358,7 @@
       "path": "flags/np.png",
       "width": 32,
       "height": 18,
-      "sha256": "ea2fbeb1a2f59c85da7a07fb15c9e6209ffcd4fbf6cb7db26927f6d06e28e487"
+      "sha256": "c12ebae74b2f4dc7599f123d0f6493df5ec321eab14d45050f883c74b00e91ab"
     },
     {
       "code": "NR",
@@ -1159,7 +1366,7 @@
       "path": "flags/nr.png",
       "width": 32,
       "height": 18,
-      "sha256": "48799a13eb025f2b383ffb9fd78692ae320cb6fa2f1fea446bb7362a365213d1"
+      "sha256": "a783b441c85b59667d06311c05e0c3f1f89fd7e82973e8398eab49638fe6cab5"
     },
     {
       "code": "NU",
@@ -1167,7 +1374,7 @@
       "path": "flags/nu.png",
       "width": 32,
       "height": 18,
-      "sha256": "284c264ccd5710282bdb7bfa5ffd7a4ac00631cef576d0fc66eb0854648c69de"
+      "sha256": "136ee9d98d1e7e3bd32fc912bc6472c3487c71ed91d7316631a2e8bb69fb79ad"
     },
     {
       "code": "NZ",
@@ -1175,7 +1382,7 @@
       "path": "flags/nz.png",
       "width": 32,
       "height": 18,
-      "sha256": "0938a20aeebb81f6f621052691656cc0fb4d5056fb217b45ec45369c1faa2c46"
+      "sha256": "e9a6e12a5418cbd6e2de69c788880c8979de8d629f6fe5b1003fc5d14568fda0"
     },
     {
       "code": "OM",
@@ -1183,7 +1390,7 @@
       "path": "flags/om.png",
       "width": 32,
       "height": 18,
-      "sha256": "9cac7d068acf145596ae8c6a9057dc2d13bdfb27ad5bf282167a5b353bc4c0dd"
+      "sha256": "b9b17dfaad259b00bf98432a97d104ab3c17bb558d6b8bc17df37938a8a63db4"
     },
     {
       "code": "PA",
@@ -1191,7 +1398,7 @@
       "path": "flags/pa.png",
       "width": 32,
       "height": 18,
-      "sha256": "506bfd89dbe7e9022fa95c0e62a2b458784926c1d7a9d7e9f5702887db677165"
+      "sha256": "e719ea991180680acf05803e63dad9374f0032ad6cc81b66e2c9012a753e1dd7"
     },
     {
       "code": "PE",
@@ -1199,7 +1406,7 @@
       "path": "flags/pe.png",
       "width": 32,
       "height": 18,
-      "sha256": "fb3393b916afa2e26a7739b388a27e623309125a6be2b404332851622dfaa72a"
+      "sha256": "ae073ef7ce3d63da74f236b1963f395915f488e81aac2fe83e637be56d9f7605"
     },
     {
       "code": "PF",
@@ -1207,7 +1414,7 @@
       "path": "flags/pf.png",
       "width": 32,
       "height": 18,
-      "sha256": "ea62224ba763394aa1026290a6d32f3e390850fc3bbb4520a16fc432732e2536"
+      "sha256": "e9f298cd10aa533cd265813aca46d593936cf9890b244d92ed19190c35d02693"
     },
     {
       "code": "PG",
@@ -1215,7 +1422,7 @@
       "path": "flags/pg.png",
       "width": 32,
       "height": 18,
-      "sha256": "66cfbf12f79af17b7f790abd0a8175d5386789614d860553218322df3fcc6c97"
+      "sha256": "ed07e93035138a979ef49808714812fa540c2ac534b154951929ed1240ab76fa"
     },
     {
       "code": "PH",
@@ -1223,7 +1430,7 @@
       "path": "flags/ph.png",
       "width": 32,
       "height": 18,
-      "sha256": "43d6d01228ca3821d92ddb90fa35cb3561549f83320ea4e809ec1ea62eaac297"
+      "sha256": "e5166f7dc95cc7e7eff2f11388b756c209ac849e7b40cd36e48eef6395040a97"
     },
     {
       "code": "PK",
@@ -1231,7 +1438,7 @@
       "path": "flags/pk.png",
       "width": 32,
       "height": 18,
-      "sha256": "7794666fc6c0f1f1ef05f965df1a03feba41406ea56865e97ed523a7dbec1084"
+      "sha256": "e5bfa58eaf833eb97fe476e0a614db1e485ad9f922bfb76891ddbacb661be573"
     },
     {
       "code": "PL",
@@ -1239,7 +1446,31 @@
       "path": "flags/pl.png",
       "width": 32,
       "height": 18,
-      "sha256": "11c948800dbc3b96d37599b9dd3f45643e8ac21cefd26e8d84f658b803474494"
+      "sha256": "f62605c59a730ea7b32796be35342d55a3b5c8ab37bc4e1218097c6885858bb9"
+    },
+    {
+      "code": "PM",
+      "name": "Saint Pierre and Miquelon",
+      "path": "flags/pm.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "81d10d830a64e25a7f6fe3f89770872fa9c588946c04fb42ef8bbfd1e46aa65b"
+    },
+    {
+      "code": "PN",
+      "name": "Pitcairn",
+      "path": "flags/pn.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "9712430460c0d5ae7078c624a226e56513f7189bf4a7ab259d1847d1484116cb"
+    },
+    {
+      "code": "PR",
+      "name": "Puerto Rico",
+      "path": "flags/pr.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "7c3d33b46df426acc7425c4cc0aec2d059b94219418a65f0f18ed03e40cb6671"
     },
     {
       "code": "PS",
@@ -1247,7 +1478,7 @@
       "path": "flags/ps.png",
       "width": 32,
       "height": 18,
-      "sha256": "e4f6f67ee52fbc22a37e243bbdc4db39e9ff86b90609721754093be445fadd6c"
+      "sha256": "a71109d17621fd448ac938c4a3ac86cdf73e30f1bbb3c3a580f999f9b3655967"
     },
     {
       "code": "PT",
@@ -1255,7 +1486,7 @@
       "path": "flags/pt.png",
       "width": 32,
       "height": 18,
-      "sha256": "32ee2cd9d91967a02bc3330ed51739f1b6f7e9b996453154c00a0c035766de4c"
+      "sha256": "da10a85c3f51b88c7a473a81c160846f0c17d2ba14c38496809816e447f498af"
     },
     {
       "code": "PW",
@@ -1263,7 +1494,7 @@
       "path": "flags/pw.png",
       "width": 32,
       "height": 18,
-      "sha256": "6d40720094d5d424998e432c21700b57936a485391c4109bd5e43fc196febeb4"
+      "sha256": "ab6ebbd8b7c039d605b673c8efc69377f9ec0e11c67c9d755a017e3d33df94fe"
     },
     {
       "code": "PY",
@@ -1271,7 +1502,7 @@
       "path": "flags/py.png",
       "width": 32,
       "height": 18,
-      "sha256": "354d778ac89b29d6fd1dc1fdd19187c3c7f0845291a3cf65e027de2a58f720f2"
+      "sha256": "6bf501e08ec7eb5f5caca07341c6ce435c8192de51427992d3ae03d614f7806c"
     },
     {
       "code": "QA",
@@ -1279,7 +1510,15 @@
       "path": "flags/qa.png",
       "width": 32,
       "height": 18,
-      "sha256": "5e32b85d79b6a3fe441d307c34c2971529ec38b3a9e374c184b0cfedb123bf19"
+      "sha256": "b3c173e23dcb5be795a6db393d18a45242b1897f4a4179d5931ec7956f07af53"
+    },
+    {
+      "code": "RE",
+      "name": "Reunion",
+      "path": "flags/re.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "04a88d7a5d1ed65fda736cee56adfcdb446613100f9aac379dfd7d2a896e05f1"
     },
     {
       "code": "RO",
@@ -1287,7 +1526,7 @@
       "path": "flags/ro.png",
       "width": 32,
       "height": 18,
-      "sha256": "533d0701faf8547c011a7cb5b68f4dd1bca6691fb16d62b6d929e5fdaa67011c"
+      "sha256": "41ed7a8a40838bff6deb121a2b2f9610fcdaa5334ffb5fd114240661e0d15c2e"
     },
     {
       "code": "RS",
@@ -1295,7 +1534,7 @@
       "path": "flags/rs.png",
       "width": 32,
       "height": 18,
-      "sha256": "c39e0d358ebc1851c7d3eedad7ea048f11842d983fff2101ddcdacb566755280"
+      "sha256": "32e9eb7456987b024d27546e0d34ea4fb20a0f683cf7c93a07c6d3e7905ab4cd"
     },
     {
       "code": "RU",
@@ -1303,7 +1542,7 @@
       "path": "flags/ru.png",
       "width": 32,
       "height": 18,
-      "sha256": "82c5986a88b9d30d1b728476e9d2ed7a442964a264c6f45c640125fa44793da4"
+      "sha256": "573c296a6c3c912e4aa2a59bb37233238b535faf2a8886e63a4b804dbe51b444"
     },
     {
       "code": "RW",
@@ -1311,7 +1550,7 @@
       "path": "flags/rw.png",
       "width": 32,
       "height": 18,
-      "sha256": "a4105ecba1a08a3535fabc310e9a8e5f11354ace2bdb73ccf7dc2b786707e765"
+      "sha256": "b4715f9a3e3574b61ed2975e41445e6a561ab3f7355cac66b2719f93e9e07586"
     },
     {
       "code": "SA",
@@ -1319,7 +1558,7 @@
       "path": "flags/sa.png",
       "width": 32,
       "height": 18,
-      "sha256": "06266dedc36207d770075583ec8d684947806bce375ff2956891943af6d9b7ef"
+      "sha256": "f2794c4fec450eded8e3dc768342b0f4ab017eb886966b8e27eb4d9bf6ccfe4b"
     },
     {
       "code": "SB",
@@ -1327,7 +1566,7 @@
       "path": "flags/sb.png",
       "width": 32,
       "height": 18,
-      "sha256": "f3d0ae2fe6d6d304f131450ca74ffee19ed0c5fbf79a09fcc7d165cf9e74d01e"
+      "sha256": "47c1d4f1ae452f26deb54cbaf0bd9d478c020fb9e81d08824b59cc04db2a95b2"
     },
     {
       "code": "SC",
@@ -1335,7 +1574,7 @@
       "path": "flags/sc.png",
       "width": 32,
       "height": 18,
-      "sha256": "754f57792df5ced1dc2278530f751afbe085477d3163c7e4b4c2f9979ec7ac23"
+      "sha256": "6a02f0ac10718f17ad00e11b2d4ed3430dd0c97609c1af2a6605b3e8eee2a2b2"
     },
     {
       "code": "SD",
@@ -1343,7 +1582,7 @@
       "path": "flags/sd.png",
       "width": 32,
       "height": 18,
-      "sha256": "12a8126b8c3cf08a73c36c7aa7d31d004e6c01c4ed0674ec0c089774dd897abf"
+      "sha256": "e674797dea115438f4f1a1cf32720d75c1b52722925e43aad17707bf81f0e535"
     },
     {
       "code": "SE",
@@ -1351,7 +1590,7 @@
       "path": "flags/se.png",
       "width": 32,
       "height": 18,
-      "sha256": "e67dee6ae5c67e4e983da88c44f9cac8591c9284bcd7c9a0fc8b2b0ccbbc1cf7"
+      "sha256": "05d3c567399bb21dd1246382272c3a91782c725d092176d1d243559ac9cbe5c6"
     },
     {
       "code": "SG",
@@ -1359,7 +1598,15 @@
       "path": "flags/sg.png",
       "width": 32,
       "height": 18,
-      "sha256": "ef4a73c6b134ef164dc95a66ff02f48cdcfcc595d3982e9da69f8e2ae0ddbfea"
+      "sha256": "1175a94b24a1bce92b7c7ebb7becd22a1bd11987f7a74f639ec2ad2929c3d4a1"
+    },
+    {
+      "code": "SH",
+      "name": "Saint Helena",
+      "path": "flags/sh.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "9712430460c0d5ae7078c624a226e56513f7189bf4a7ab259d1847d1484116cb"
     },
     {
       "code": "SI",
@@ -1367,7 +1614,15 @@
       "path": "flags/si.png",
       "width": 32,
       "height": 18,
-      "sha256": "107ce968293af0cb2fa66f5f434a2285c4407054b3ee838fcd7272223a186c24"
+      "sha256": "82b837978e93852cad5ba9cafe80526c0671ebf9f0912f7b99991e8b6f99cf0f"
+    },
+    {
+      "code": "SJ",
+      "name": "Svalbard and Jan Mayen",
+      "path": "flags/sj.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "0f6760899430624780ca456df2daa5256bd96a13c3d7fe9460e9163f257b3275"
     },
     {
       "code": "SK",
@@ -1375,7 +1630,7 @@
       "path": "flags/sk.png",
       "width": 32,
       "height": 18,
-      "sha256": "a3d45595e04b7f2a0d13106b4d46394ad0ed7469454c6e2935d96d750c7f1bb8"
+      "sha256": "26896476d4a3c64232bba7c8cabed523451fb316ffa11eac978f39589aff5458"
     },
     {
       "code": "SL",
@@ -1383,7 +1638,7 @@
       "path": "flags/sl.png",
       "width": 32,
       "height": 18,
-      "sha256": "d5a526d884eef4ad27fb9a3daf5e1f80905b12efee68e84bb7a1da397a773a40"
+      "sha256": "736d7c694aa75f95849335ef2bcdf283400cf83d89208c5e45aed372fe12eac1"
     },
     {
       "code": "SM",
@@ -1391,7 +1646,7 @@
       "path": "flags/sm.png",
       "width": 32,
       "height": 18,
-      "sha256": "1aa4feb6e79465ec37d8d67c3a248aaf9a161a37d1f0dd37219f19dd527b2c41"
+      "sha256": "e1d5b6b3188bcbc2423f5116d976f16d41583f0e3a9e653c3979d9a4300ebaa4"
     },
     {
       "code": "SN",
@@ -1399,7 +1654,7 @@
       "path": "flags/sn.png",
       "width": 32,
       "height": 18,
-      "sha256": "1d6ed873250b529fb38510323ce74ab0ca69b49cdb70d8b31869b9146745aa39"
+      "sha256": "6acf98790e6b4f1461849b960200e56b4f388863038a58226dc55c803dedeebe"
     },
     {
       "code": "SO",
@@ -1407,7 +1662,7 @@
       "path": "flags/so.png",
       "width": 32,
       "height": 18,
-      "sha256": "f939e9220be0dd26df94d54597c2d2087efb05bda3f0a176077d5f69c6842ea5"
+      "sha256": "b1d2522913200f282358fdf1dbb8d1ce34f4066bf29fa5dbb30c4f079ebd1280"
     },
     {
       "code": "SR",
@@ -1415,7 +1670,7 @@
       "path": "flags/sr.png",
       "width": 32,
       "height": 18,
-      "sha256": "e0fb3c6d4c0a21da08c36747c7ee74f79b106ed80b10c92722e4e58451c2cdab"
+      "sha256": "9f057d9602575eb4736770cbdd142f8a252e49b7495b481870157c70af106220"
     },
     {
       "code": "SS",
@@ -1423,7 +1678,7 @@
       "path": "flags/ss.png",
       "width": 32,
       "height": 18,
-      "sha256": "c644ed19c3f135e7750d07a0bc8db79c976f7ca4a0ffc28c6597d47c05afea26"
+      "sha256": "ca96814ed88a055b25c442d91475b198746951b0e1348cc10d3e3c294ef38895"
     },
     {
       "code": "ST",
@@ -1431,7 +1686,7 @@
       "path": "flags/st.png",
       "width": 32,
       "height": 18,
-      "sha256": "de3a9186a46197db8b504ea1973ea4e52682c2e60b1d4a34f19b87d236ce6080"
+      "sha256": "8aff32ed4824fb751e60b1dc11c9ab9a302aa48d176a21fea8d0c1b38fbdf886"
     },
     {
       "code": "SV",
@@ -1439,7 +1694,7 @@
       "path": "flags/sv.png",
       "width": 32,
       "height": 18,
-      "sha256": "6f407d86b43b78eddaa50eb5637802e30f13118402807224bd9a0b4c75359beb"
+      "sha256": "b495d90eb9bbdeaeab9fd4fd482df706d60748a79541ca89aa918e1b53de75d0"
     },
     {
       "code": "SX",
@@ -1447,7 +1702,7 @@
       "path": "flags/sx.png",
       "width": 32,
       "height": 18,
-      "sha256": "df4f30662fc4e1f9ca4c8111e81bca0b2dc7415d9c29e384800758bd73cff1fc"
+      "sha256": "96858b5871211694529c7934b5d4a9c1010b01b4ad59b5979c4f0a9d50a30b3f"
     },
     {
       "code": "SY",
@@ -1455,7 +1710,7 @@
       "path": "flags/sy.png",
       "width": 32,
       "height": 18,
-      "sha256": "8679e46ab6c3ab7842293db6060a5151c1365fe9736b2e6907c4e94da4908d8c"
+      "sha256": "81d2efe4cb8829eafc76ecc91b6df7110b56ddeb3f4ef625a88018dbd3da4437"
     },
     {
       "code": "SZ",
@@ -1463,7 +1718,15 @@
       "path": "flags/sz.png",
       "width": 32,
       "height": 18,
-      "sha256": "41e3115755af1658d57c0d41ce295f0a31c7c08ca3ccd5a1c75cfedfb4440995"
+      "sha256": "fe856f9a02a777d0bae0f8817d0bd5bbaa0a83a9f0061e47da17478ed028fadd"
+    },
+    {
+      "code": "TC",
+      "name": "Turks and Caicos Islands",
+      "path": "flags/tc.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "70794b7944bb7881dfaf5953f8793a10a8dc438d7dbfd8b4fe72a0b222757c98"
     },
     {
       "code": "TD",
@@ -1471,7 +1734,15 @@
       "path": "flags/td.png",
       "width": 32,
       "height": 18,
-      "sha256": "bc1933cc6c5b3e960c4912241497507ab01d5fdd38ea38b1f737290912bd58e7"
+      "sha256": "41ed7a8a40838bff6deb121a2b2f9610fcdaa5334ffb5fd114240661e0d15c2e"
+    },
+    {
+      "code": "TF",
+      "name": "French Southern Territories",
+      "path": "flags/tf.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "0ece04b33d5a245147526b95b57ccec809942526f925565a3a0836a1257d7f1a"
     },
     {
       "code": "TG",
@@ -1479,7 +1750,7 @@
       "path": "flags/tg.png",
       "width": 32,
       "height": 18,
-      "sha256": "222a7db9ba0cd6c839dfc5cf1d9e4419ebb230decc3ce9a429306247443281a0"
+      "sha256": "0be20daceb78e11d64648c053ac84b6e72629765aeb212aecdd5112a99d00e5d"
     },
     {
       "code": "TH",
@@ -1487,7 +1758,7 @@
       "path": "flags/th.png",
       "width": 32,
       "height": 18,
-      "sha256": "28cd954958fa5d5c0ca6e63eda2623dfb5d7a2ad69499953fa4a389d8a8401f9"
+      "sha256": "c45c6fd617a240b4a53bb4dd86a84f6224a428e02c8571ce3351482d6eb4bf45"
     },
     {
       "code": "TJ",
@@ -1495,7 +1766,7 @@
       "path": "flags/tj.png",
       "width": 32,
       "height": 18,
-      "sha256": "3f387546bd2cf381c77fcb0d980a196af04daf992948ed7e5b2bb45ebaa46ebd"
+      "sha256": "80fadd02182c87e5ec03892a896946a47b97803ea3d00ba3758d2196d91b9b5a"
     },
     {
       "code": "TK",
@@ -1503,7 +1774,7 @@
       "path": "flags/tk.png",
       "width": 32,
       "height": 18,
-      "sha256": "3f5072963f6b5cbf7a56fd68a73c30e4e458d8728b21c0b5265b26a3b1d30b54"
+      "sha256": "4189338238e764f3d4d2091746141858ca89f2449f9debb694b668bf6d86bf97"
     },
     {
       "code": "TL",
@@ -1511,7 +1782,7 @@
       "path": "flags/tl.png",
       "width": 32,
       "height": 18,
-      "sha256": "6ae4d33ccf963e210f7921d523a3b842978f7dcb851a542f7ae4dc2e8a02b614"
+      "sha256": "7643a0df14a638268e56318478d8eaebf1e4e46a17b8dde26b72bcf7bcefa642"
     },
     {
       "code": "TM",
@@ -1519,7 +1790,7 @@
       "path": "flags/tm.png",
       "width": 32,
       "height": 18,
-      "sha256": "a89be8af481b54ca5adc294712d3e02f1b6f63fab0032013dc4379dc73817786"
+      "sha256": "172817b877a1f2574532d49b21e5f2c715746f312cdc2f9b649e6a01d2d05d17"
     },
     {
       "code": "TN",
@@ -1527,7 +1798,7 @@
       "path": "flags/tn.png",
       "width": 32,
       "height": 18,
-      "sha256": "8ff35f87c6426bc7101f473f4153b7c8f9961d70f4dad0ea726ddf7d70a22c0d"
+      "sha256": "0559f2a14550836d6a8bbb153ed772c5516c23fcde76845c06d363deb7d4e9eb"
     },
     {
       "code": "TO",
@@ -1535,7 +1806,7 @@
       "path": "flags/to.png",
       "width": 32,
       "height": 18,
-      "sha256": "b4899585396f063da0b74c2689c3f6fab91cc6c0e7117fdd93d2ec03d43fdcb4"
+      "sha256": "adbb6577d79ea739f8f13cde73984284d4f7e813ca4a5150b9fc51d66962e736"
     },
     {
       "code": "TR",
@@ -1543,7 +1814,7 @@
       "path": "flags/tr.png",
       "width": 32,
       "height": 18,
-      "sha256": "c4370638a918d4ff70968eb0ee8e6a3851510270d2377c5b16f1dc6431d5370d"
+      "sha256": "6430a18942f0c10eafdac5df60ee03bf033ef761fbbb4a3026a38d8e26cba4b9"
     },
     {
       "code": "TT",
@@ -1551,7 +1822,7 @@
       "path": "flags/tt.png",
       "width": 32,
       "height": 18,
-      "sha256": "6abedb96af80ba1b3984d89dc33a23bcedbe71da27604ab6b780d9ec8bb3f703"
+      "sha256": "69b9d66debdfcdc2da445494879afc1688388be58fc47a19316b47803790716b"
     },
     {
       "code": "TV",
@@ -1559,7 +1830,7 @@
       "path": "flags/tv.png",
       "width": 32,
       "height": 18,
-      "sha256": "eb81735aecf3c9351ab1f90a28e347dc0868262055b0f92a9366122074c512e9"
+      "sha256": "94bcf51885ef39140f8c72551902077b0dc5331b9eb84aa8324295de1cc14e9d"
     },
     {
       "code": "TW",
@@ -1567,7 +1838,7 @@
       "path": "flags/tw.png",
       "width": 32,
       "height": 18,
-      "sha256": "859bfbe726c10fcc707e9d52fe924bf592f6e839ad7c64a9b985c0bfc5ea86bf"
+      "sha256": "fafcb5282aec51c97ef1e92c1727a89e0458b0da8038c947edf877e264c18b2d"
     },
     {
       "code": "TZ",
@@ -1575,7 +1846,7 @@
       "path": "flags/tz.png",
       "width": 32,
       "height": 18,
-      "sha256": "02e6a70faeb875ee6c6262a0f6d66c990b62eaaa56a581151361348efcb5973d"
+      "sha256": "242668e033fd960141e72edebf0d581210b9b33a4c3ead18cf1cee9a837c0bc2"
     },
     {
       "code": "UA",
@@ -1583,7 +1854,7 @@
       "path": "flags/ua.png",
       "width": 32,
       "height": 18,
-      "sha256": "9b265a148b1bdef13c3425004e6ad47b43c1a6aacad2b557d70c2c2e443352a1"
+      "sha256": "f451b30e9b0e288c91ef2814d7e7521b33e892bb248bd22e87a7a062165eb9fb"
     },
     {
       "code": "UG",
@@ -1591,7 +1862,15 @@
       "path": "flags/ug.png",
       "width": 32,
       "height": 18,
-      "sha256": "0690e4fa53a977fcb7714ca849d9f4c88a5ffe85a6c9e4f59c585534f0c99847"
+      "sha256": "e835fd98c7970f74efe25bbe0388e11dad510f7b348f51d04066bb4d237e397e"
+    },
+    {
+      "code": "UM",
+      "name": "United States Minor Outlying Islands",
+      "path": "flags/um.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "854aab0f734a55e8eb87b60e7e97703cb177bba590b8deb3d37adeb8b12c593d"
     },
     {
       "code": "US",
@@ -1599,7 +1878,7 @@
       "path": "flags/us.png",
       "width": 32,
       "height": 18,
-      "sha256": "306da87f9cddf1be321ec5b8a315f5a35273922544888e605c54bd611b9b6f33"
+      "sha256": "854aab0f734a55e8eb87b60e7e97703cb177bba590b8deb3d37adeb8b12c593d"
     },
     {
       "code": "UY",
@@ -1607,7 +1886,7 @@
       "path": "flags/uy.png",
       "width": 32,
       "height": 18,
-      "sha256": "62812c7a260b1097003dd47e2ca9b2ab3e4253d0ed9637e1902ca49fe9181b60"
+      "sha256": "70658ce553f99c3501850b5c913c4298768fefa815292bba172499411077cc6a"
     },
     {
       "code": "UZ",
@@ -1615,7 +1894,7 @@
       "path": "flags/uz.png",
       "width": 32,
       "height": 18,
-      "sha256": "e76aea5695c0fbb5914b421c05338bc4df77054393e3fa0c5113ac7bc00d86f9"
+      "sha256": "caadf40dcfe62f8b384716ffa1344877c9b2a3fb4abc329426e7ccf010276261"
     },
     {
       "code": "VA",
@@ -1623,7 +1902,7 @@
       "path": "flags/va.png",
       "width": 32,
       "height": 18,
-      "sha256": "55456b8978f012b351870e3b232a208a7796e293541469c794fdbbd2c9d06f8a"
+      "sha256": "dd1c1c888e7a156d78bb1f4e4591571a7d6326b67be3476b99c7e6c29a5b66c6"
     },
     {
       "code": "VC",
@@ -1631,7 +1910,7 @@
       "path": "flags/vc.png",
       "width": 32,
       "height": 18,
-      "sha256": "92bb405604e4243625b6aa0baae404422944bf96babe03ddea62b2b0454a9cc8"
+      "sha256": "227f2d1cc4afc528a581c533e45480077e747e429c1b49791df78addb861015f"
     },
     {
       "code": "VE",
@@ -1639,7 +1918,23 @@
       "path": "flags/ve.png",
       "width": 32,
       "height": 18,
-      "sha256": "96cf2aa8bdf59a9d9de11f44fa03261d679af3224583e1dd105968560cfa0f3f"
+      "sha256": "9338f7b2a6122326c7fe47360f760dad9271177f5ccda2e25f819db8c09f5643"
+    },
+    {
+      "code": "VG",
+      "name": "Virgin Islands, British",
+      "path": "flags/vg.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "2e5d6aa8a92fc71d70a8ca64ff2bd970172c4da73dcdc6a2b4977ddb720a3892"
+    },
+    {
+      "code": "VI",
+      "name": "Virgin Islands, U.S.",
+      "path": "flags/vi.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "e736d80021b1840a7cab721e1650f6c59899d9cf0f54797660cef5d9319f95e4"
     },
     {
       "code": "VN",
@@ -1647,7 +1942,7 @@
       "path": "flags/vn.png",
       "width": 32,
       "height": 18,
-      "sha256": "2a1b6b0462fd84524f312d9225e5d7ebdb303df633a2fc186294413de21c4b30"
+      "sha256": "ed90728e53c04d7b28368127bf0c78c8b0365bf86f9138eecf14dbf6bdc1495a"
     },
     {
       "code": "VU",
@@ -1655,7 +1950,15 @@
       "path": "flags/vu.png",
       "width": 32,
       "height": 18,
-      "sha256": "fcedbec777eef1eb36a00ce1d94ca6a19026a827db2af8c47663c8a8420d6298"
+      "sha256": "3a01ebedec0d78bffef202a9335975cf9b369c8f14e140a2084741b66ada416d"
+    },
+    {
+      "code": "WF",
+      "name": "Wallis and Futuna",
+      "path": "flags/wf.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "0c4540fb54fd613c833e14de870c6a353a6e13508362bba9129cb67f5a78b9e3"
     },
     {
       "code": "WS",
@@ -1663,7 +1966,7 @@
       "path": "flags/ws.png",
       "width": 32,
       "height": 18,
-      "sha256": "678d52b0aac6c612644642ca1f4975f633f860075fa8b7c534c53971ea557226"
+      "sha256": "5898533d96002e49ae188c727ccbcacd553095d62c1cddf0dd6a760fb454a9b3"
     },
     {
       "code": "XK",
@@ -1671,7 +1974,7 @@
       "path": "flags/xk.png",
       "width": 32,
       "height": 18,
-      "sha256": "cb4d6fd2c9cd486d55160eea5aa4385af2764eeafd135bf821e1878ecf1a17dd"
+      "sha256": "36ed3f951432badbff5d4dc7323059ed1441b0aa29489afa714f8d648a74383a"
     },
     {
       "code": "YE",
@@ -1679,7 +1982,15 @@
       "path": "flags/ye.png",
       "width": 32,
       "height": 18,
-      "sha256": "0326b31188bcfe8b26e1a1670c625ab088ee8aa32d071ba03884928a81121700"
+      "sha256": "91c90da4e012d77ab59a17ef561a42b6d6387cd63c30fd955878e5c28b2101d9"
+    },
+    {
+      "code": "YT",
+      "name": "Mayotte",
+      "path": "flags/yt.png",
+      "width": 32,
+      "height": 18,
+      "sha256": "9592f724b77142709f4626f198a65e262c0a5b3cd9e3d6439eca6ecbc9481a18"
     },
     {
       "code": "ZA",
@@ -1687,7 +1998,7 @@
       "path": "flags/za.png",
       "width": 32,
       "height": 18,
-      "sha256": "691eb30ddd8f7c4d6977cbc51ac10fad4ec71d2a731efcd49c1e3d01a1513c13"
+      "sha256": "0c0c33b190cd02cd7ba748cee584c024f54c964de500390bf14ac4d60c56aa9b"
     },
     {
       "code": "ZM",
@@ -1695,7 +2006,7 @@
       "path": "flags/zm.png",
       "width": 32,
       "height": 18,
-      "sha256": "75ef285e77d4548e4314d8e2fd5b8e9a03468be08bce632b8a58512ad9399ccc"
+      "sha256": "4b5c966902d2c857a14f283f133641ea3b8dd0cb535364de0b819637a039dfe3"
     },
     {
       "code": "ZW",
@@ -1703,7 +2014,7 @@
       "path": "flags/zw.png",
       "width": 32,
       "height": 18,
-      "sha256": "a14bfb2df661bfe2dcc1bb80eebc1d8f26e56f2cba6121818acd54e9bff3a30c"
+      "sha256": "5edc6b2a48687716bf2f22fa7c26908276705c21b3d528c2da1d3c1fb48c3c80"
     }
   ]
 }

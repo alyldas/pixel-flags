@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://alyldas.github.io/pixel-flags/sitemap.xml

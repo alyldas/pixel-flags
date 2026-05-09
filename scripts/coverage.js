@@ -1,11 +1,11 @@
-import { createCoverageReport } from "./project.js";
+import { createCoverageReport } from "./lib/build.js";
 
 const report = createCoverageReport();
 
 console.log(`ISO total: ${report.isoTotal}`);
 console.log(`Have: ${report.have}`);
 console.log(`Missing: ${report.missing.length}`);
-console.log(`Coverage: ${report.coverage.toFixed(1)}%`);
+console.log(`ISO coverage: ${report.coverage.toFixed(1)}%`);
 
 if (report.missing.length > 0) {
   console.log("");

@@ -1,20 +1,19 @@
 ## Asset Notice
 
-The PNG flag assets in `flags/` are derived from [R74n Pixel Flags](https://r74n.com/pixelflags/).
+The PNG flag assets in `flags/` are original 32x18 pixel-art drawings generated from
+[scripts/flag-art/flags.js](scripts/flag-art/flags.js) and
+[scripts/flag-art/detailed-flags.js](scripts/flag-art/detailed-flags.js) through the internal draw script.
 
-Repository code, build scripts, generated CSS, tests, and documentation are released under the MIT license in `LICENSE`.
+Repository code, build scripts, generated CSS, tests, documentation, and bundled PNG flag assets are released under the MIT license in [LICENSE](LICENSE).
 
-The flag PNG assets are not covered by MIT. They remain subject to the upstream R74n Content License 1.1:
+The PNG files depict country and territory flag designs as compact pixel-art implementations. No upstream PNG flag files are bundled.
 
-- Official project page: [r74n.com/pixelflags](https://r74n.com/pixelflags/)
-- Official license text: [r74n.com/license.txt](https://r74n.com/license.txt)
-- Local asset provenance: [flags/provenance.json](flags/provenance.json)
+The 32x18 pixel-art flag format was inspired by [R74n PixelFlags](https://r74n.com/pixelflags/). This is an attribution to the visual format inspiration only; the bundled PNG assets are native drawings generated in this repository.
+
+Local asset provenance is recorded in [flags/provenance.json](flags/provenance.json), including the generated asset hashes and source paths.
 
 Practical summary for this repository:
 
-- Keep attribution to R74n Pixel Flags.
-- The upstream license currently requires explicit permission for commercial use.
-- Redistribution should continue to point back to the original project and license text.
-- If you need commercial usage rights or clearer redistribution terms, contact the upstream author before publishing derivative asset sets.
-
-This notice documents the current upstream licensing information as of May 5, 2026. If the upstream license changes, update this file and the related README references.
+- The bundled PNG assets are part of this repository's MIT-licensed work.
+- The assets are generated natively at 32x18; they are not resized from larger flag images.
+- The generated PNGs use a small opaque color palette with no antialiasing or transparency.
