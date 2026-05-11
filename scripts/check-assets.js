@@ -59,7 +59,7 @@ for (const entry of entries) {
   flags[entry.slug](painter);
 
   if (!fs.readFileSync(entry.filePath).equals(await painter.pngBuffer())) {
-    throw new Error(`${entry.fileName} is out of sync with scripts/flag-art/flags.js`);
+    throw new Error(`${entry.fileName} is out of sync with scripts/flag-art/flags`);
   }
 }
 

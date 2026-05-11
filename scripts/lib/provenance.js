@@ -13,7 +13,7 @@ export function buildAssetProvenance() {
     source: {
       name: "Pixel Flags native 32x18 drawings",
       registryPath: "scripts/flag-art/flags.js",
-      recipePath: "scripts/flag-art/detailed-flags.js",
+      recipePath: "scripts/flag-art/flags",
       rendererPath: "scripts/flag-art/painter.js",
       entrypointPath: "scripts/draw-pixel-flags.js",
       visualFormatInspiration: {

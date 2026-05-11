@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "checkJs": false,
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "noEmit": true,
+    "target": "ES2024",
+    "types": ["node"]
+  },
+  "exclude": ["node_modules", "badges", "css", "draft", "flags", "reports", "site", "_site"]
+}

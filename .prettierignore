@@ -1,6 +1,7 @@
 # Dependencies and VCS metadata
 node_modules/
 .git
+.playwright-mcp/
 
 # Package-manager cache
 .npm-cache/
@@ -8,7 +9,7 @@ node_modules/
 # Generated assets
 badges/
 css/
-flags/
+/flags/
 reports/
 site/
 _site/
