@@ -15,9 +15,13 @@ import { removeOwnedTree } from "../scripts/lib/safe-fs.js";
 
 const CHROME_FOR_TESTING_CHANNEL = "chrome-for-testing";
 const smokeArtifactDir = process.env.PIXEL_FLAGS_SMOKE_ARTIFACT_DIR?.trim() || "";
+const shouldBuildProject = process.env.PIXEL_FLAGS_SMOKE_SKIP_BUILD !== "1";
 
 test("site smoke test loads and filters flags in a real browser", async () => {
-  await buildProject();
+  if (shouldBuildProject) {
+    await buildProject();
+  }
+
   assert.ok(fs.existsSync(HTML_PATH));
   const fixture = stageSmokeFixture();
   const expectedTotal = String(getBuildEntries().length);

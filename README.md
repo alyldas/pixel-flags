@@ -1,6 +1,10 @@
 # Pixel Flags
 
-[CI workflow](.github/workflows/ci.yml)
+[![CI](https://github.com/alyldas/pixel-flags/actions/workflows/ci.yml/badge.svg)](.github/workflows/ci.yml)
+[![Deploy Pages](https://github.com/alyldas/pixel-flags/actions/workflows/pages.yml/badge.svg)](.github/workflows/pages.yml)
+[![Release](https://github.com/alyldas/pixel-flags/actions/workflows/release.yml/badge.svg)](.github/workflows/release.yml)
+[![GitHub release](https://img.shields.io/github/v/release/alyldas/pixel-flags?style=flat&logo=github&label=release)](https://github.com/alyldas/pixel-flags/releases)
+[![License](https://img.shields.io/github/license/alyldas/pixel-flags?style=flat&label=license)](LICENSE)
 
 Pixel-art country flags with a `flag-icons`-style CSS API.
 
@@ -11,10 +15,40 @@ Pixel-art country flags with a `flag-icons`-style CSS API.
 
 ## Installation
 
+This package is published to GitHub Packages. GitHub Packages requires an access token for npm installs, including public packages.
+
+Create or edit `.npmrc` in the consuming project:
+
+```ini
+@alyldas:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+```
+
+Then install with a classic personal access token that has `read:packages`:
+
 ```bash
-npm config set @alyldas:registry https://npm.pkg.github.com
+NODE_AUTH_TOKEN=github_pat_... npm install @alyldas/pixel-flags
+```
+
+In GitHub Actions, use `GITHUB_TOKEN` when the workflow repository has package access:
+
+```yaml
+env:
+  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+run: npm install @alyldas/pixel-flags
+```
+
+For an already authenticated npm setup:
+
+```bash
 npm install @alyldas/pixel-flags
 ```
+
+## Package Registry
+
+- Registry: `https://npm.pkg.github.com`
+- Package: `@alyldas/pixel-flags`
+- Access: public GitHub package, authenticated npm install
 
 ## Usage
 

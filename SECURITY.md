@@ -2,9 +2,7 @@
 
 ## Supported Versions
 
-Until the first stable release is published, only the current `main` branch is supported for security fixes.
-
-After `1.0.0`, the latest published release will be the only supported line unless this policy changes.
+The latest published release is the only supported line unless this policy changes.
 
 ## Reporting a Vulnerability
 

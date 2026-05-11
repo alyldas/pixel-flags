@@ -27,6 +27,7 @@ npm run coverage
 npm run check:assets
 npm run check:docs
 npm run check:package
+npm run check:registry
 npm run check:provenance
 npm run generate:provenance
 npm test
@@ -51,6 +52,7 @@ It also writes ignored local artifacts under `reports/` and `badges/`.
 - `npm run check:docs` checks repository Markdown links.
 - `npm run check:package` parses `npm pack --json --dry-run` and rejects unexpected packed files.
 - `npm run check:provenance` validates `flags/provenance.json`.
+- `npm run check:registry` installs the published package from GitHub Packages. It requires `NODE_AUTH_TOKEN` or `GITHUB_TOKEN` with `read:packages`.
 - `npm run generate:provenance` regenerates `flags/provenance.json`.
 - `npm run verify:package` runs static checks, asset validation, coverage, package tests, and tarball validation.
 - `npm run verify:site` builds and checks generated site artifacts.
@@ -67,5 +69,6 @@ Before the first public release:
 5. Review `NOTICE.md`, `README.md`, and `SECURITY.md`.
 6. Make sure the release commit is on `main`.
 7. Push a matching semver tag such as `v1.0.0`.
+8. After the release workflow finishes, run `npm run check:registry` with a package read token.
 
 `.github/workflows/release.yml` validates the tag, publishes to GitHub Packages with `GITHUB_TOKEN`, and creates the GitHub release entry.

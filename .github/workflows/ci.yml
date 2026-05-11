@@ -42,6 +42,7 @@ jobs:
       - name: Run browser smoke test
         env:
           PIXEL_FLAGS_SMOKE_ARTIFACT_DIR: reports/smoke-ci
+          PIXEL_FLAGS_SMOKE_SKIP_BUILD: "1"
         run: npm run smoke
 
       - name: Upload smoke artifacts on failure

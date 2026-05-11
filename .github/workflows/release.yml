@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  id-token: write
   packages: write
 
 concurrency:
@@ -41,7 +40,7 @@ jobs:
 
       - name: Validate tag commit is on main
         run: |
-          git fetch origin main --depth=1
+          git fetch origin main
           if ! git merge-base --is-ancestor "${GITHUB_SHA}" "origin/main"; then
             echo "Tagged commit ${GITHUB_SHA} is not contained in origin/main." >&2
             exit 1
@@ -59,6 +58,7 @@ jobs:
       - name: Run browser smoke test
         env:
           PIXEL_FLAGS_SMOKE_ARTIFACT_DIR: reports/smoke-release
+          PIXEL_FLAGS_SMOKE_SKIP_BUILD: "1"
         run: npm run smoke
 
       - name: Upload smoke artifacts on failure
@@ -89,6 +89,11 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm publish
+
+      - name: Verify GitHub Packages install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run check:registry
 
       - name: Create GitHub release
         env:

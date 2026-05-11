@@ -43,6 +43,7 @@
     "check:docs": "node scripts/check-docs.js",
     "check:package": "node scripts/check-package.js",
     "check:provenance": "node scripts/check-provenance.js",
+    "check:registry": "node scripts/check-registry-package.js",
     "generate:provenance": "node scripts/generate-provenance.js",
     "lint": "eslint scripts test site-src",
     "format": "prettier --write .",
@@ -57,8 +58,7 @@
     "verify:assets": "npm run check:assets && npm run check:provenance",
     "verify:package": "npm run verify:static && npm run verify:assets && npm run coverage && npm run check:docs && npm run test:package && npm run check:package",
     "verify:site": "npm run build:site && npm run test:site",
-    "verify": "npm run verify:package && npm run verify:site",
-    "prepublishOnly": "npm run verify && npm run smoke"
+    "verify": "npm run verify:package && npm run verify:site"
   },
   "keywords": [
     "css",
