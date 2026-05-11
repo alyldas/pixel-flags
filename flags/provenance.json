@@ -3,7 +3,7 @@
   "source": {
     "name": "Pixel Flags native 32x18 drawings",
     "registryPath": "scripts/flag-art/flags.js",
-    "recipePath": "scripts/flag-art/detailed-flags.js",
+    "recipePath": "scripts/flag-art/flags",
     "rendererPath": "scripts/flag-art/painter.js",
     "entrypointPath": "scripts/draw-pixel-flags.js",
     "visualFormatInspiration": {
@@ -102,7 +102,7 @@
       "path": "flags/as.png",
       "width": 32,
       "height": 18,
-      "sha256": "70e4d936c3648a9b59dea7d6eaf1131c8b1b10f93a4d66e9a0630f4f0ce152f9"
+      "sha256": "3971433e9504c1ba63010ed718ac61f5660f49049cc5a11f45161ea1f1da5aa0"
     },
     {
       "code": "AT",
@@ -254,7 +254,7 @@
       "path": "flags/bq.png",
       "width": 32,
       "height": 18,
-      "sha256": "af11c41e49a9f49e14e1d70e4b8c01398d18b9ba0926b1856b0b72f83c762a8b"
+      "sha256": "befbd5551728ce3e3f7e5e94d70349d5256beb5be50f75dcf1c05dcf9d8fb04a"
     },
     {
       "code": "BR",
@@ -654,7 +654,7 @@
       "path": "flags/gf.png",
       "width": 32,
       "height": 18,
-      "sha256": "5ed80acf40e2638cc9e1ea083a067d6214b103c430c44fa4f6703812ff6abf0a"
+      "sha256": "9592f724b77142709f4626f198a65e262c0a5b3cd9e3d6439eca6ecbc9481a18"
     },
     {
       "code": "GG",
@@ -710,7 +710,7 @@
       "path": "flags/gp.png",
       "width": 32,
       "height": 18,
-      "sha256": "dbac275a71d77fd313ea265b576ba6355d42b10dd4dc49e3e41d9ee1849c0c40"
+      "sha256": "9592f724b77142709f4626f198a65e262c0a5b3cd9e3d6439eca6ecbc9481a18"
     },
     {
       "code": "GQ",
@@ -766,7 +766,7 @@
       "path": "flags/gy.png",
       "width": 32,
       "height": 18,
-      "sha256": "9f9fd91773e671d63c635e6dfd6e7a81a345317d9cc0f2114830783b01d85ae3"
+      "sha256": "2ee0bb8f2cf11ce696130fa9e2ff2b5717a7d905dfa134c9096e6fb6517ec4f1"
     },
     {
       "code": "HK",
@@ -1062,7 +1062,7 @@
       "path": "flags/lr.png",
       "width": 32,
       "height": 18,
-      "sha256": "5542b8a87598305b1466646518f13a0415991acd37a40248228095bdec80ed68"
+      "sha256": "5e929a4604f6015d157d8f38ef1070d18d7a9222560516b97fd85e82c9b881e5"
     },
     {
       "code": "LS",
@@ -1214,7 +1214,7 @@
       "path": "flags/mq.png",
       "width": 32,
       "height": 18,
-      "sha256": "5959f51270bf071c88be5bfe3ba10ddb312264ab3c4fe57594d193f8fa9bb50d"
+      "sha256": "214f4582fe27502cb49309df8cbdc66ee50c7fa8df5db3ae9ce8ff72a70e9b2d"
     },
     {
       "code": "MR",
@@ -1454,7 +1454,7 @@
       "path": "flags/pm.png",
       "width": 32,
       "height": 18,
-      "sha256": "81d10d830a64e25a7f6fe3f89770872fa9c588946c04fb42ef8bbfd1e46aa65b"
+      "sha256": "9592f724b77142709f4626f198a65e262c0a5b3cd9e3d6439eca6ecbc9481a18"
     },
     {
       "code": "PN",
@@ -1518,7 +1518,7 @@
       "path": "flags/re.png",
       "width": 32,
       "height": 18,
-      "sha256": "04a88d7a5d1ed65fda736cee56adfcdb446613100f9aac379dfd7d2a896e05f1"
+      "sha256": "9592f724b77142709f4626f198a65e262c0a5b3cd9e3d6439eca6ecbc9481a18"
     },
     {
       "code": "RO",
@@ -1574,7 +1574,7 @@
       "path": "flags/sc.png",
       "width": 32,
       "height": 18,
-      "sha256": "6a02f0ac10718f17ad00e11b2d4ed3430dd0c97609c1af2a6605b3e8eee2a2b2"
+      "sha256": "d3b64767a4eee210168386ca338368b55b97e10243e29135fd2ee1c399c40be4"
     },
     {
       "code": "SD",
@@ -1702,7 +1702,7 @@
       "path": "flags/sx.png",
       "width": 32,
       "height": 18,
-      "sha256": "96858b5871211694529c7934b5d4a9c1010b01b4ad59b5979c4f0a9d50a30b3f"
+      "sha256": "414cbdc887b2792e483fe7dafbf6df79b93258c16c9823ec7828c921e63e5d7c"
     },
     {
       "code": "SY",
@@ -1742,7 +1742,7 @@
       "path": "flags/tf.png",
       "width": 32,
       "height": 18,
-      "sha256": "0ece04b33d5a245147526b95b57ccec809942526f925565a3a0836a1257d7f1a"
+      "sha256": "7e20fba7324ec0acad4ab5564aadec778608ea5b2b8548af8f30c4197654fe3a"
     },
     {
       "code": "TG",
@@ -1774,7 +1774,7 @@
       "path": "flags/tk.png",
       "width": 32,
       "height": 18,
-      "sha256": "4189338238e764f3d4d2091746141858ca89f2449f9debb694b668bf6d86bf97"
+      "sha256": "d48bbce0eb899651c6c7f2e145604d06b665ed4cf4a9612a35de1f50ac007dbc"
     },
     {
       "code": "TL",
@@ -1958,7 +1958,7 @@
       "path": "flags/wf.png",
       "width": 32,
       "height": 18,
-      "sha256": "0c4540fb54fd613c833e14de870c6a353a6e13508362bba9129cb67f5a78b9e3"
+      "sha256": "9592f724b77142709f4626f198a65e262c0a5b3cd9e3d6439eca6ecbc9481a18"
     },
     {
       "code": "WS",

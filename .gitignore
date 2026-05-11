@@ -20,3 +20,4 @@ site/
 draft/
 
 # Browser smoke artifacts are covered by reports/
+.playwright-mcp/

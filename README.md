@@ -128,7 +128,7 @@ Bundled PNG assets are original native 32x18 pixel-art drawings generated from t
 - Asset notice: [NOTICE.md](NOTICE.md)
 - Local asset provenance: [flags/provenance.json](flags/provenance.json)
 - Local asset registry: [scripts/flag-art/flags.js](scripts/flag-art/flags.js)
-- Detailed flag recipes: [scripts/flag-art/detailed-flags.js](scripts/flag-art/detailed-flags.js)
+- Flag recipes: [scripts/flag-art/flags](scripts/flag-art/flags)
 
 ## Development
 
@@ -180,4 +180,4 @@ See [SECURITY.md](SECURITY.md).
 
 - API inspiration: [flag-icons](https://github.com/lipis/flag-icons)
 - Visual format inspiration: [R74n PixelFlags](https://r74n.com/pixelflags/)
-- PNG sources: [scripts/flag-art/flags.js](scripts/flag-art/flags.js) and [scripts/flag-art/detailed-flags.js](scripts/flag-art/detailed-flags.js)
+- PNG sources: [scripts/flag-art/flags](scripts/flag-art/flags)

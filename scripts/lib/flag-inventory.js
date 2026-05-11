@@ -13,6 +13,25 @@ countries.registerLocale(en);
 const ISO_NAMES = countries.getNames("en", { select: "official" });
 const ISO_CODES = Object.keys(ISO_NAMES).sort((left, right) => left.localeCompare(right));
 
+/**
+ * @typedef {object} FlagFileEntry
+ * @property {string} code
+ * @property {string} slug
+ * @property {string | null} name
+ * @property {string} fileName
+ * @property {string} filePath
+ * @property {boolean} knownIso
+ */
+
+/**
+ * @typedef {object} CoverageData
+ * @property {FlagFileEntry[]} entries
+ * @property {{ code: string, name: string }[]} missing
+ * @property {number} have
+ * @property {number} total
+ * @property {number} percent
+ */
+
 function readPngSize(filePath) {
   const buffer = fs.readFileSync(filePath);
 
@@ -26,6 +45,9 @@ function readPngSize(filePath) {
   };
 }
 
+/**
+ * @returns {FlagFileEntry[]}
+ */
 export function scanFlagFiles(rootDir = PROJECT_ROOT) {
   const flagsDir = rootDir === PROJECT_ROOT ? FLAGS_DIR : path.join(rootDir, "flags");
 
@@ -71,6 +93,9 @@ export function scanFlagFiles(rootDir = PROJECT_ROOT) {
   });
 }
 
+/**
+ * @returns {FlagFileEntry[]}
+ */
 export function getBuildEntries(rootDir = PROJECT_ROOT) {
   const entries = scanFlagFiles(rootDir);
   const unknownEntries = entries.filter((entry) => !entry.knownIso);
@@ -83,10 +108,17 @@ export function getBuildEntries(rootDir = PROJECT_ROOT) {
   return entries;
 }
 
+/**
+ * @returns {CoverageData}
+ */
 export function getCoverageData(rootDir = PROJECT_ROOT) {
   return getCoverageDataFromEntries(scanFlagFiles(rootDir));
 }
 
+/**
+ * @param {FlagFileEntry[]} entries
+ * @returns {CoverageData}
+ */
 export function getCoverageDataFromEntries(entries) {
   const knownCodes = new Set(entries.filter((entry) => entry.knownIso).map((entry) => entry.code));
   const missing = ISO_CODES.filter((code) => !knownCodes.has(code)).map((code) => ({
