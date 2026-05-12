@@ -7,6 +7,17 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+### Changed
+
+- consolidated generated-artifact cleanup roots
+- added a single provenance CLI behind npm provenance scripts
+- added a generated flag recipe index check
+- removed legacy provenance and safe-fs script entrypoints
+- removed the legacy flag registry wrapper
+- consolidated browser site verification behind one npm script
+- tightened generated and temporary artifact cleanup guards
+- simplified release documentation around manual tag-based publishing
+
 ## [1.0.0] - 2026-05-10
 
 ### Added

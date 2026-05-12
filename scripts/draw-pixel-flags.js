@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 import { HEIGHT, WIDTH } from "./flag-art/constants.js";
-import { flags } from "./flag-art/flags.js";
+import { flags } from "./flag-art/flags/index.js";
 import { Painter } from "./flag-art/painter.js";
 import { writePreview } from "./flag-art/preview.js";
 

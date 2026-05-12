@@ -7,7 +7,7 @@ import test from "node:test";
 import sharp from "sharp";
 
 import { HEIGHT, WIDTH } from "../scripts/flag-art/constants.js";
-import { flags } from "../scripts/flag-art/flags.js";
+import { flags } from "../scripts/flag-art/flags/index.js";
 import { Painter } from "../scripts/flag-art/painter.js";
 import { writePreview } from "../scripts/flag-art/preview.js";
 import { FAVICON_PATH, SOCIAL_CARD_PNG_PATH } from "../scripts/lib/config.js";

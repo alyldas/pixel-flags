@@ -12,7 +12,7 @@ export function buildAssetProvenance() {
     schemaVersion: 1,
     source: {
       name: "Pixel Flags native 32x18 drawings",
-      registryPath: "scripts/flag-art/flags.js",
+      registryPath: "scripts/flag-art/flags/index.js",
       recipePath: "scripts/flag-art/flags",
       rendererPath: "scripts/flag-art/painter.js",
       entrypointPath: "scripts/draw-pixel-flags.js",

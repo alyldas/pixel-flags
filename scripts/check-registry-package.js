@@ -5,7 +5,7 @@ import path from "node:path";
 import { spawnSync } from "node:child_process";
 
 import { PACKAGE_JSON_PATH } from "./lib/config.js";
-import { removeOwnedTree } from "./lib/safe-fs.js";
+import { removeOwnedTree } from "./lib/utils.js";
 
 const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
 const packageManifest = JSON.parse(fs.readFileSync(PACKAGE_JSON_PATH, "utf8"));

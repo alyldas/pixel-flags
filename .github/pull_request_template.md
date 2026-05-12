@@ -8,7 +8,7 @@
 - [ ] `npm run build`
 - [ ] `npm run coverage`
 - [ ] `npm test`
-- [ ] `npm run smoke` if browser changes or site changes were involved
+- [ ] `npm run verify:site:smoke` if browser changes or site changes were involved
 - [ ] updated docs if the public contract changed
 
 ## Notes

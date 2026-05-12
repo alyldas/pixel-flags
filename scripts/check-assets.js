@@ -2,7 +2,7 @@ import fs from "node:fs";
 
 import sharp from "sharp";
 
-import { flags } from "./flag-art/flags.js";
+import { flags } from "./flag-art/flags/index.js";
 import { Painter } from "./flag-art/painter.js";
 import { getCoverageDataFromEntries, scanFlagFiles } from "./lib/flag-inventory.js";
 

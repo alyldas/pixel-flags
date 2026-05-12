@@ -7,7 +7,7 @@ import test from "node:test";
 
 import { PROJECT_ROOT } from "../scripts/lib/config.js";
 import { buildPackageArtifacts } from "../scripts/lib/build.js";
-import { removeOwnedTree } from "../scripts/lib/safe-fs.js";
+import { removeOwnedTree } from "../scripts/lib/utils.js";
 
 const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
 

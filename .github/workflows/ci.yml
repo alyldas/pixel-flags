@@ -34,16 +34,12 @@ jobs:
         uses: ./.github/actions/setup-project
 
       - name: Install Playwright Chrome for Testing
-        run: npx playwright install chrome-for-testing
+        run: npm run playwright:install
 
-      - name: Run site verification
-        run: npm run verify:site
-
-      - name: Run browser smoke test
+      - name: Run browser site verification
         env:
           PIXEL_FLAGS_SMOKE_ARTIFACT_DIR: reports/smoke-ci
-          PIXEL_FLAGS_SMOKE_SKIP_BUILD: "1"
-        run: npm run smoke
+        run: npm run verify:site:smoke
 
       - name: Upload smoke artifacts on failure
         if: failure()

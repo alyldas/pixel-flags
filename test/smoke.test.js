@@ -11,7 +11,7 @@ import sharp from "sharp";
 import { CSS_DIR, FLAGS_DIR, HTML_PATH } from "../scripts/lib/config.js";
 import { getBuildEntries } from "../scripts/lib/flag-inventory.js";
 import { buildProject } from "../scripts/lib/build.js";
-import { removeOwnedTree } from "../scripts/lib/safe-fs.js";
+import { removeOwnedTree } from "../scripts/lib/utils.js";
 
 const CHROME_FOR_TESTING_CHANNEL = "chrome-for-testing";
 const smokeArtifactDir = process.env.PIXEL_FLAGS_SMOKE_ARTIFACT_DIR?.trim() || "";

@@ -1,22 +1,20 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { CSS_DIR, FLAGS_DIR, PROJECT_ROOT, SITE_DIR } from "./lib/config.js";
-import { removeOwnedTree } from "./lib/safe-fs.js";
-
-const pagesDir = path.join(PROJECT_ROOT, "_site");
+import { CSS_DIR, FLAGS_DIR, PAGES_DIR, SITE_DIR } from "./lib/config.js";
+import { removeOwnedTree } from "./lib/utils.js";
 
 if (!fs.existsSync(SITE_DIR)) {
   throw new Error(`Site directory not found: ${SITE_DIR}. Run \`npm run build\` first.`);
 }
 
-if (fs.existsSync(pagesDir)) {
-  removeOwnedTree(pagesDir);
+if (fs.existsSync(PAGES_DIR)) {
+  removeOwnedTree(PAGES_DIR);
 }
-fs.mkdirSync(pagesDir, { recursive: true });
+fs.mkdirSync(PAGES_DIR, { recursive: true });
 
-fs.cpSync(SITE_DIR, pagesDir, { recursive: true });
-fs.cpSync(CSS_DIR, path.join(pagesDir, "css"), { recursive: true });
-fs.cpSync(FLAGS_DIR, path.join(pagesDir, "flags"), { recursive: true });
+fs.cpSync(SITE_DIR, PAGES_DIR, { recursive: true });
+fs.cpSync(CSS_DIR, path.join(PAGES_DIR, "css"), { recursive: true });
+fs.cpSync(FLAGS_DIR, path.join(PAGES_DIR, "flags"), { recursive: true });
 
-console.log(`Pages artifact assembled at ${pagesDir}`);
+console.log(`Pages artifact assembled at ${PAGES_DIR}`);

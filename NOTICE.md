@@ -1,7 +1,7 @@
 ## Asset Notice
 
 The PNG flag assets in `flags/` are original 32x18 pixel-art drawings generated from
-[scripts/flag-art/flags.js](scripts/flag-art/flags.js) and
+[scripts/flag-art/flags/index.js](scripts/flag-art/flags/index.js) and
 [scripts/flag-art/flags](scripts/flag-art/flags) through the internal draw script.
 
 Repository code, build scripts, generated CSS, tests, documentation, and bundled PNG flag assets are released under the MIT license in [LICENSE](LICENSE).

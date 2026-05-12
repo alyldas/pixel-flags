@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -19,10 +20,31 @@ const packageJson = /** @type {PackageManifest} */ (
   JSON.parse(fs.readFileSync(PACKAGE_JSON_PATH, "utf8"))
 );
 export const FLAGS_DIR = path.join(PROJECT_ROOT, "flags");
+export const FLAG_RECIPE_DIR = path.join(PROJECT_ROOT, "scripts/flag-art/flags");
+export const FLAG_INDEX_PATH = path.join(FLAG_RECIPE_DIR, "index.js");
 export const CSS_DIR = path.join(PROJECT_ROOT, "css");
 export const SITE_DIR = path.join(PROJECT_ROOT, "site");
 export const REPORTS_DIR = path.join(PROJECT_ROOT, "reports");
 export const BADGES_DIR = path.join(PROJECT_ROOT, "badges");
+export const PAGES_DIR = path.join(PROJECT_ROOT, "_site");
+export const DRAFT_DIR = path.join(PROJECT_ROOT, "draft");
+export const NPM_CACHE_DIR = path.join(PROJECT_ROOT, ".npm-cache");
+export const GENERATED_ROOTS = [
+  BADGES_DIR,
+  REPORTS_DIR,
+  SITE_DIR,
+  PAGES_DIR,
+  DRAFT_DIR,
+  NPM_CACHE_DIR,
+];
+export const REMOVABLE_TEMP_ROOT = os.tmpdir();
+export const REMOVABLE_TEMP_PREFIXES = [
+  "pixel-flags-consumer-",
+  "pixel-flags-pack-",
+  "pixel-flags-preview-",
+  "pixel-flags-registry-",
+  "pixel-flags-smoke-",
+];
 export const README_PATH = path.join(PROJECT_ROOT, "README.md");
 export const CSS_PATH = path.join(CSS_DIR, "pixel-flags.css");
 export const MIN_CSS_PATH = path.join(CSS_DIR, "pixel-flags.min.css");

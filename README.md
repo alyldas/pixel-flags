@@ -127,7 +127,7 @@ Bundled PNG assets are original native 32x18 pixel-art drawings generated from t
 
 - Asset notice: [NOTICE.md](NOTICE.md)
 - Local asset provenance: [flags/provenance.json](flags/provenance.json)
-- Local asset registry: [scripts/flag-art/flags.js](scripts/flag-art/flags.js)
+- Local asset registry: [scripts/flag-art/flags/index.js](scripts/flag-art/flags/index.js)
 - Flag recipes: [scripts/flag-art/flags](scripts/flag-art/flags)
 
 ## Development
@@ -152,16 +152,21 @@ Ignored local artifacts:
 - `.npm-cache/`
 
 ```bash
+npm run clean
 npm run draw:flags:preview
 npm run draw:flags
 npm run build:package
 npm run build:site
+npm run build:pages
 npm run verify:package
 npm run verify:site
+npm run verify:site:smoke
 npm run verify
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full development and release command list.
+
+Releases are manual tag pushes. See [CONTRIBUTING.md](CONTRIBUTING.md#release-checklist).
 
 ## Changelog
 
