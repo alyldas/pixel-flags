@@ -1,7 +1,20 @@
 import sharp from "sharp";
 
-export async function readPngRgbaData(filePath) {
+export async function readPngRgbaData(filePath, fileName = filePath) {
+  const metadata = await sharp(filePath, { animated: true }).metadata();
+  assertStaticPngMetadata(fileName, metadata);
+
   return sharp(filePath).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+}
+
+export function assertStaticPngMetadata(fileName, metadata) {
+  if (metadata.format !== "png") {
+    throw new Error(`${fileName} is ${metadata.format || "an unknown format"}; expected png`);
+  }
+
+  if ((metadata.pages ?? 1) > 1 || (metadata.delay?.length ?? 0) > 1) {
+    throw new Error(`${fileName} is an animated PNG; expected a static PNG`);
+  }
 }
 
 export function validateOpaquePalette(fileName, image, maxColors = 256) {

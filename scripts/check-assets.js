@@ -39,7 +39,7 @@ if (JSON.stringify(assetCodes) !== JSON.stringify(recipeCodes)) {
 let maxColors = 0;
 
 for (const entry of entries) {
-  const assetImage = await readPngRgbaData(entry.filePath);
+  const assetImage = await readPngRgbaData(entry.filePath, entry.fileName);
   const colorCount = validateOpaquePalette(entry.fileName, assetImage);
 
   maxColors = Math.max(maxColors, colorCount);

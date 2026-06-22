@@ -12,6 +12,7 @@ import { Painter } from "../scripts/flag-art/painter.js";
 import { writePreview } from "../scripts/flag-art/preview.js";
 import {
   assertSameRgbaPixels,
+  assertStaticPngMetadata,
   readPngRgbaData,
   rgbaImageFromPainter,
 } from "../scripts/lib/asset-validation.js";
@@ -114,6 +115,18 @@ test("asset validation compares pixels instead of PNG encoder bytes", async () =
   } finally {
     fs.rmSync(workspace, { recursive: true, force: true });
   }
+});
+
+test("asset validation rejects animated PNG metadata", () => {
+  assert.throws(
+    () =>
+      assertStaticPngMetadata("ru.png", {
+        format: "png",
+        pages: 2,
+        delay: [100, 100],
+      }),
+    /ru\.png is an animated PNG; expected a static PNG/
+  );
 });
 
 function getPixel(data, info, x, y) {
