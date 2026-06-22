@@ -10,6 +10,12 @@ import { HEIGHT, WIDTH } from "../scripts/flag-art/constants.js";
 import { flags } from "../scripts/flag-art/flags/index.js";
 import { Painter } from "../scripts/flag-art/painter.js";
 import { writePreview } from "../scripts/flag-art/preview.js";
+import {
+  assertSameRgbaPixels,
+  assertStaticPngMetadata,
+  readPngRgbaData,
+  rgbaImageFromPainter,
+} from "../scripts/lib/asset-validation.js";
 import { FAVICON_PATH, SOCIAL_CARD_PNG_PATH } from "../scripts/lib/config.js";
 import { buildProject } from "../scripts/lib/build.js";
 
@@ -71,6 +77,80 @@ test("generated preview sheet keeps labels, scale, and flag pixels stable", asyn
   assertRed(getPixel(data, info, 24, 100), "preview Russian bottom stripe");
 });
 
+test("asset validation compares pixels instead of PNG encoder bytes", async () => {
+  const workspace = fs.mkdtempSync(path.join(os.tmpdir(), "pixel-flags-asset-validation-"));
+  const outputPath = path.join(workspace, "ru.png");
+  const painter = new Painter();
+  flags.ru(painter);
+
+  try {
+    await sharp(painter.data, {
+      raw: {
+        width: WIDTH,
+        height: HEIGHT,
+        channels: 4,
+      },
+    })
+      .png({ compressionLevel: 0, palette: false })
+      .toFile(outputPath);
+
+    const decoded = await readPngRgbaData(outputPath);
+    const expected = rgbaImageFromPainter(painter, WIDTH, HEIGHT);
+
+    assert.notDeepEqual(fs.readFileSync(outputPath), await painter.pngBuffer());
+    assert.doesNotThrow(() =>
+      assertSameRgbaPixels("ru.png", decoded, expected, "scripts/flag-art/flags")
+    );
+
+    const changed = {
+      data: Uint8ClampedArray.from(expected.data),
+      info: expected.info,
+    };
+    changed.data[0] = changed.data[0] === 0 ? 1 : changed.data[0] - 1;
+
+    assert.throws(
+      () => assertSameRgbaPixels("ru.png", decoded, changed, "scripts/flag-art/flags"),
+      /ru\.png is out of sync with scripts\/flag-art\/flags at pixel \(0, 0\), channel 0/
+    );
+  } finally {
+    fs.rmSync(workspace, { recursive: true, force: true });
+  }
+});
+
+test("asset validation rejects animated PNG metadata", () => {
+  assert.throws(
+    () =>
+      assertStaticPngMetadata("ru.png", {
+        format: "png",
+        pages: 2,
+        delay: [100, 100],
+      }),
+    /ru\.png is an animated PNG; expected a static PNG/
+  );
+});
+
+test("asset validation rejects APNG chunks before decoding pixels", async () => {
+  const workspace = fs.mkdtempSync(path.join(os.tmpdir(), "pixel-flags-apng-validation-"));
+  const outputPath = path.join(workspace, "ru.png");
+  const painter = new Painter();
+  flags.ru(painter);
+
+  try {
+    const pngBuffer = await painter.pngBuffer();
+    fs.writeFileSync(
+      outputPath,
+      insertPngChunk(pngBuffer, "acTL", Buffer.from([0, 0, 0, 1, 0, 0, 0, 0]))
+    );
+
+    await assert.rejects(
+      () => readPngRgbaData(outputPath, "ru.png"),
+      /ru\.png is an animated PNG; found acTL chunk/
+    );
+  } finally {
+    fs.rmSync(workspace, { recursive: true, force: true });
+  }
+});
+
 function getPixel(data, info, x, y) {
   const offset = (y * info.width + x) * info.channels;
 
@@ -112,4 +192,17 @@ function assertGold(pixel, label) {
 
 function formatPixel(pixel) {
   return `rgb(${pixel.r}, ${pixel.g}, ${pixel.b})`;
+}
+
+function insertPngChunk(pngBuffer, chunkType, chunkData) {
+  const signatureLength = 8;
+  const ihdrLength = pngBuffer.readUInt32BE(signatureLength);
+  const afterIhdr = signatureLength + 4 + 4 + ihdrLength + 4;
+  const chunk = Buffer.alloc(4 + 4 + chunkData.length + 4);
+
+  chunk.writeUInt32BE(chunkData.length, 0);
+  chunk.write(chunkType, 4, 4, "ascii");
+  chunkData.copy(chunk, 8);
+
+  return Buffer.concat([pngBuffer.subarray(0, afterIhdr), chunk, pngBuffer.subarray(afterIhdr)]);
 }

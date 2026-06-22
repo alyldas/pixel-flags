@@ -1,9 +1,12 @@
-import fs from "node:fs";
-
-import sharp from "sharp";
-
 import { flags } from "./flag-art/flags/index.js";
+import { HEIGHT, WIDTH } from "./flag-art/constants.js";
 import { Painter } from "./flag-art/painter.js";
+import {
+  assertSameRgbaPixels,
+  readPngRgbaData,
+  rgbaImageFromPainter,
+  validateOpaquePalette,
+} from "./lib/asset-validation.js";
 import { getCoverageDataFromEntries, scanFlagFiles } from "./lib/flag-inventory.js";
 
 const entries = scanFlagFiles();
@@ -36,31 +39,20 @@ if (JSON.stringify(assetCodes) !== JSON.stringify(recipeCodes)) {
 let maxColors = 0;
 
 for (const entry of entries) {
-  const { data, info } = await sharp(entry.filePath).raw().toBuffer({ resolveWithObject: true });
-  const colors = new Set();
+  const assetImage = await readPngRgbaData(entry.filePath, entry.fileName);
+  const colorCount = validateOpaquePalette(entry.fileName, assetImage);
 
-  for (let offset = 0; offset < data.length; offset += info.channels) {
-    const alpha = info.channels > 3 ? data[offset + 3] : 255;
-
-    if (alpha !== 255) {
-      throw new Error(`${entry.fileName} has non-opaque alpha value: ${alpha}`);
-    }
-
-    colors.add(`${data[offset]},${data[offset + 1]},${data[offset + 2]}`);
-  }
-
-  if (colors.size > 256) {
-    throw new Error(`${entry.fileName} has ${colors.size} colors; expected <= 256`);
-  }
-
-  maxColors = Math.max(maxColors, colors.size);
+  maxColors = Math.max(maxColors, colorCount);
 
   const painter = new Painter();
   flags[entry.slug](painter);
 
-  if (!fs.readFileSync(entry.filePath).equals(await painter.pngBuffer())) {
-    throw new Error(`${entry.fileName} is out of sync with scripts/flag-art/flags`);
-  }
+  assertSameRgbaPixels(
+    entry.fileName,
+    assetImage,
+    rgbaImageFromPainter(painter, WIDTH, HEIGHT),
+    "scripts/flag-art/flags"
+  );
 }
 
 console.log(`Validated ${entries.length} flag assets; max colors: ${maxColors}.`);
