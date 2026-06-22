@@ -10,6 +10,11 @@ import { HEIGHT, WIDTH } from "../scripts/flag-art/constants.js";
 import { flags } from "../scripts/flag-art/flags/index.js";
 import { Painter } from "../scripts/flag-art/painter.js";
 import { writePreview } from "../scripts/flag-art/preview.js";
+import {
+  assertSameRgbaPixels,
+  readPngRgbaData,
+  rgbaImageFromPainter,
+} from "../scripts/lib/asset-validation.js";
 import { FAVICON_PATH, SOCIAL_CARD_PNG_PATH } from "../scripts/lib/config.js";
 import { buildProject } from "../scripts/lib/build.js";
 
@@ -69,6 +74,46 @@ test("generated preview sheet keeps labels, scale, and flag pixels stable", asyn
   assertLight(getPixel(data, info, 24, 28), "preview Russian top stripe");
   assertBlue(getPixel(data, info, 24, 64), "preview Russian middle stripe");
   assertRed(getPixel(data, info, 24, 100), "preview Russian bottom stripe");
+});
+
+test("asset validation compares pixels instead of PNG encoder bytes", async () => {
+  const workspace = fs.mkdtempSync(path.join(os.tmpdir(), "pixel-flags-asset-validation-"));
+  const outputPath = path.join(workspace, "ru.png");
+  const painter = new Painter();
+  flags.ru(painter);
+
+  try {
+    await sharp(painter.data, {
+      raw: {
+        width: WIDTH,
+        height: HEIGHT,
+        channels: 4,
+      },
+    })
+      .png({ compressionLevel: 0, palette: false })
+      .toFile(outputPath);
+
+    const decoded = await readPngRgbaData(outputPath);
+    const expected = rgbaImageFromPainter(painter, WIDTH, HEIGHT);
+
+    assert.notDeepEqual(fs.readFileSync(outputPath), await painter.pngBuffer());
+    assert.doesNotThrow(() =>
+      assertSameRgbaPixels("ru.png", decoded, expected, "scripts/flag-art/flags")
+    );
+
+    const changed = {
+      data: Uint8ClampedArray.from(expected.data),
+      info: expected.info,
+    };
+    changed.data[0] = changed.data[0] === 0 ? 1 : changed.data[0] - 1;
+
+    assert.throws(
+      () => assertSameRgbaPixels("ru.png", decoded, changed, "scripts/flag-art/flags"),
+      /ru\.png is out of sync with scripts\/flag-art\/flags at pixel \(0, 0\), channel 0/
+    );
+  } finally {
+    fs.rmSync(workspace, { recursive: true, force: true });
+  }
 });
 
 function getPixel(data, info, x, y) {
