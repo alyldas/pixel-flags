@@ -21,6 +21,7 @@ function buildCoverageSummaryBlock(report) {
     `- Available flags: \`${report.have}\``,
     `- Missing ISO codes: \`${report.missing.length}\``,
     `- ISO coverage: \`${formatPercent(report.coverage)}\``,
+    "",
     README_COVERAGE_END,
   ].join("\n");
 }
