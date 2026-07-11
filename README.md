@@ -117,6 +117,7 @@ Current Chrome, Edge, Firefox, Safari, and iOS Safari. The CSS expects `backgrou
 - Available flags: `250`
 - Missing ISO codes: `0`
 - ISO coverage: `100.0%`
+
 <!-- coverage:end -->
 
 ## Asset Licensing
