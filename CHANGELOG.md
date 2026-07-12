@@ -7,6 +7,13 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-07-12
+
+### Added
+
+- added visual asset regression checks
+- added verification for GitHub Packages installation
+
 ### Changed
 
 - consolidated generated-artifact cleanup roots
@@ -17,6 +24,14 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 - consolidated browser site verification behind one npm script
 - tightened generated and temporary artifact cleanup guards
 - simplified release documentation around manual tag-based publishing
+- aligned the Node.js baseline on version 24
+- updated development dependencies
+- updated GitHub Actions dependencies
+- updated Sharp and hardened pixel asset validation
+
+### Fixed
+
+- corrected pixel flag artwork
 
 ## [1.0.0] - 2026-05-10
 
