@@ -63,7 +63,7 @@ export function removeFileIfExists(filePath) {
     fs.unlinkSync(filePath);
     return true;
   } catch (error) {
-    if (error?.code === "ENOENT") {
+    if (error && typeof error === "object" && "code" in error && error.code === "ENOENT") {
       return false;
     }
 

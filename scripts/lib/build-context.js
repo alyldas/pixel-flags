@@ -20,6 +20,9 @@ export const README_COVERAGE_END = "<!-- coverage:end -->";
  * @typedef {{sourceRoot?: string; outputRoot?: string}} BuildContextOptions
  */
 
+/**
+ * @param {BuildContextOptions} [options]
+ */
 export function createBuildContext({ sourceRoot = PROJECT_ROOT, outputRoot = sourceRoot } = {}) {
   const resolvedSourceRoot = path.resolve(sourceRoot);
   const resolvedOutputRoot = path.resolve(outputRoot);

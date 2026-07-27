@@ -28,8 +28,8 @@ const ISO_CODES = Object.keys(ISO_NAMES).sort((left, right) => left.localeCompar
  * @property {FlagFileEntry[]} entries
  * @property {{ code: string, name: string }[]} missing
  * @property {number} have
- * @property {number} total
- * @property {number} percent
+ * @property {number} isoTotal
+ * @property {number} coverage
  */
 
 function readPngSize(filePath) {
