@@ -7,6 +7,18 @@ and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.ht
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-07-27
+
+### Changed
+
+- grouped npm dependency updates into a single automated pull request
+- switched browser verification to Playwright-managed Chromium
+- updated development dependencies
+
+### Fixed
+
+- updated vulnerable transitive development dependencies
+
 ## [1.0.1] - 2026-07-12
 
 ### Added
