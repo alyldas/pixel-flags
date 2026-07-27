@@ -15,9 +15,14 @@ Pixel-art country flags with a `flag-icons`-style CSS API.
 
 ## Installation
 
-This package is published to GitHub Packages. GitHub Packages requires an access token for npm installs, including public packages.
+Install the public package from npm:
 
-Create or edit `.npmrc` in the consuming project:
+```bash
+npm install @alyldas/pixel-flags
+```
+
+The same version is also mirrored to GitHub Packages. To install that mirror, create or edit
+`.npmrc` in the consuming project:
 
 ```ini
 @alyldas:registry=https://npm.pkg.github.com
@@ -38,17 +43,12 @@ env:
 run: npm install @alyldas/pixel-flags
 ```
 
-For an already authenticated npm setup:
-
-```bash
-npm install @alyldas/pixel-flags
-```
-
 ## Package Registry
 
-- Registry: `https://npm.pkg.github.com`
+- Primary registry: `https://registry.npmjs.org`
+- Mirror registry: `https://npm.pkg.github.com`
 - Package: `@alyldas/pixel-flags`
-- Access: public GitHub package, authenticated npm install
+- Access: public npm package; public GitHub package with authenticated install
 
 ## Usage
 

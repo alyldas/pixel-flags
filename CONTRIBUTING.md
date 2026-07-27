@@ -31,6 +31,8 @@ npm run check:docs
 npm run check:flag-index
 npm run check:package
 npm run check:registry
+npm run check:registry:github
+npm run check:registry:npm
 npm run check:provenance
 npm run generate:flag-index
 npm run generate:provenance
@@ -59,7 +61,9 @@ It also writes ignored local artifacts under `reports/` and `badges/`.
 - `npm run check:flag-index` validates the generated flag drawing index.
 - `npm run check:package` parses `npm pack --json --dry-run` and rejects unexpected packed files.
 - `npm run check:provenance` validates `flags/provenance.json`.
-- `npm run check:registry` installs the published package from GitHub Packages. It requires `NODE_AUTH_TOKEN` or `GITHUB_TOKEN` with `read:packages`.
+- `npm run check:registry` aliases the authenticated GitHub Packages install check.
+- `npm run check:registry:github` installs the published package from GitHub Packages. It requires `NODE_AUTH_TOKEN` or `GITHUB_TOKEN` with `read:packages`.
+- `npm run check:registry:npm` installs the published public package from npm without authentication.
 - `npm run generate:flag-index` regenerates `scripts/flag-art/flags/index.js`.
 - `npm run generate:provenance` regenerates `flags/provenance.json`.
 - `npm run typecheck:build` checks the JavaScript build core with TypeScript.

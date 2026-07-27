@@ -45,7 +45,9 @@
     "check:flag-index": "node scripts/flag-index.js check",
     "check:package": "node scripts/check-package.js",
     "check:provenance": "node scripts/provenance.js check",
-    "check:registry": "node scripts/check-registry-package.js",
+    "check:registry": "npm run check:registry:github",
+    "check:registry:github": "node scripts/check-registry-package.js --registry=github",
+    "check:registry:npm": "node scripts/check-registry-package.js --registry=npm",
     "generate:flag-index": "node scripts/flag-index.js write",
     "generate:provenance": "node scripts/provenance.js write",
     "lint": "eslint scripts test site-src",
@@ -75,7 +77,7 @@
   ],
   "license": "MIT",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "packageManager": "npm@10.9.7",
   "devDependencies": {

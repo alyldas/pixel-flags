@@ -8,6 +8,7 @@
   "include": [
     "scripts/lib/build-context.js",
     "scripts/lib/build.js",
+    "scripts/check-registry-package.js",
     "scripts/lib/config.js",
     "scripts/lib/coverage-report.js",
     "scripts/lib/flag-inventory.js",
