@@ -2,47 +2,66 @@ name: Release
 
 on:
   push:
-    tags:
-      - "v*"
+    branches:
+      - main
 
 permissions:
   contents: write
-  packages: write
+  issues: write
+  pull-requests: write
 
 concurrency:
-  group: release-${{ github.ref }}
+  group: release
   cancel-in-progress: false
 
 jobs:
-  publish:
-    name: Publish package
+  release-please:
+    name: Prepare release
     runs-on: ubuntu-latest
+    outputs:
+      release-created: ${{ steps.release.outputs.release_created }}
+      tag-name: ${{ steps.release.outputs.tag_name }}
+      version: ${{ steps.release.outputs.version }}
+
+    steps:
+      - name: Create or update release
+        id: release
+        uses: googleapis/release-please-action@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  publish:
+    name: Publish release package
+    needs: release-please
+    if: needs.release-please.outputs.release-created == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
+          ref: ${{ needs.release-please.outputs.tag-name }}
 
       - name: Set up project
         uses: ./.github/actions/setup-project
-        with:
-          registry-url: https://npm.pkg.github.com
-          scope: "@alyldas"
 
-      - name: Validate tag version
+      - name: Validate release version
         run: |
           PACKAGE_VERSION=$(node -p "require('./package.json').version")
-          if [ "v${PACKAGE_VERSION}" != "${GITHUB_REF_NAME}" ]; then
-            echo "Tag ${GITHUB_REF_NAME} does not match package.json version v${PACKAGE_VERSION}." >&2
+          if [ "v${PACKAGE_VERSION}" != "${{ needs.release-please.outputs.tag-name }}" ]; then
+            echo "Release tag does not match package.json version v${PACKAGE_VERSION}." >&2
             exit 1
           fi
 
-      - name: Validate tag commit is on main
+      - name: Validate release commit is on main
         run: |
           git fetch origin main
-          if ! git merge-base --is-ancestor "${GITHUB_SHA}" "origin/main"; then
-            echo "Tagged commit ${GITHUB_SHA} is not contained in origin/main." >&2
+          if ! git merge-base --is-ancestor "HEAD" "origin/main"; then
+            echo "Release tag is not contained in origin/main." >&2
             exit 1
           fi
 
@@ -53,8 +72,29 @@ jobs:
           smoke-artifact-dir: reports/smoke-release
           smoke-artifact-name: smoke-artifacts-release-${{ github.run_id }}-${{ github.run_attempt }}
 
-      - name: Check whether version is already published
-        id: published
+      - name: Pack release artifact
+        id: package
+        run: |
+          mkdir -p release-artifacts
+          TARBALL=$(npm pack --pack-destination release-artifacts)
+          echo "tarball=release-artifacts/${TARBALL}" >> "${GITHUB_OUTPUT}"
+
+      - name: Upload release artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: package-${{ needs.release-please.outputs.tag-name }}
+          path: ${{ steps.package.outputs.tarball }}
+          if-no-files-found: error
+
+      - name: Set up GitHub Packages
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+          registry-url: https://npm.pkg.github.com
+          scope: "@alyldas"
+
+      - name: Check GitHub Packages publication
+        id: github-published
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -67,18 +107,12 @@ jobs:
           fi
 
       - name: Publish package to GitHub Packages
-        if: steps.published.outputs.already_published != 'true'
+        if: steps.github-published.outputs.already_published != 'true'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm publish
+        run: npm publish "${{ steps.package.outputs.tarball }}" --registry=https://npm.pkg.github.com
 
       - name: Verify GitHub Packages install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run check:registry
-
-      - name: Create GitHub release
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh release view "${GITHUB_REF_NAME}" >/dev/null 2>&1 || gh release create "${GITHUB_REF_NAME}" --title "${GITHUB_REF_NAME}" --generate-notes
