@@ -11,6 +11,8 @@
     "scripts/lib/config.js",
     "scripts/lib/coverage-report.js",
     "scripts/lib/flag-inventory.js",
+    "scripts/lib/npm.js",
+    "scripts/lib/process.js",
     "scripts/lib/site.js",
     "scripts/lib/stylesheet.js",
     "scripts/lib/utils.js",

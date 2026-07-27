@@ -1,31 +1,18 @@
 import assert from "node:assert/strict";
-import { spawnSync } from "node:child_process";
 import path from "node:path";
 
 import { PROJECT_ROOT } from "./lib/config.js";
 import { getBuildEntries } from "./lib/flag-inventory.js";
+import { createNpmEnvironment, packPackage } from "./lib/npm.js";
 
-const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
 const localCache = path.join(PROJECT_ROOT, ".npm-cache");
 const forbiddenPrefixes = [".github/", "badges/", "reports/", "site/", "scripts/", "test/"];
-
-const result = spawnSync(npmCommand, ["pack", "--json", "--dry-run"], {
+const packInfo = packPackage({
   cwd: PROJECT_ROOT,
-  encoding: "utf8",
-  env: {
-    ...process.env,
-    npm_config_cache: localCache,
-  },
+  dryRun: true,
+  env: createNpmEnvironment(localCache),
 });
-
-if (result.status !== 0) {
-  process.stderr.write(result.stderr || result.stdout || "npm pack failed.\n");
-  process.exit(result.status ?? 1);
-}
-
-const stdout = result.stdout.trim();
-const packInfo = JSON.parse(stdout);
-const files = packInfo[0]?.files?.map((file) => file.path).sort() ?? [];
+const files = packInfo.files?.map((file) => file.path).sort() ?? [];
 const fileSet = new Set(files);
 const expectedFlags = getBuildEntries().map((entry) => `flags/${entry.slug}.png`);
 const requiredExact = [
