@@ -1,13 +1,12 @@
-import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { spawnSync } from "node:child_process";
 
 import { PACKAGE_JSON_PATH } from "./lib/config.js";
+import { createNpmEnvironment, installPackage } from "./lib/npm.js";
+import { runCommand } from "./lib/process.js";
 import { removeOwnedTree } from "./lib/utils.js";
 
-const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
 const packageManifest = JSON.parse(fs.readFileSync(PACKAGE_JSON_PATH, "utf8"));
 const packageName = packageManifest.name;
 const packageVersion = packageManifest.version;
@@ -47,33 +46,17 @@ try {
     "utf8"
   );
 
-  const env = {
-    ...process.env,
+  const env = createNpmEnvironment(localCache, {
     NODE_AUTH_TOKEN: token,
-    npm_config_cache: localCache,
     npm_config_userconfig: userConfigPath,
-  };
+  });
 
-  const installResult = spawnSync(
-    npmCommand,
-    [
-      "install",
-      "--no-package-lock",
-      "--ignore-scripts",
-      "--no-audit",
-      "--no-fund",
-      `${packageName}@${packageVersion}`,
-    ],
-    {
-      cwd: consumerDir,
-      encoding: "utf8",
-      env,
-    }
-  );
+  installPackage(`${packageName}@${packageVersion}`, {
+    cwd: consumerDir,
+    env,
+  });
 
-  assert.equal(installResult.status, 0, installResult.stderr || installResult.stdout);
-
-  const resolveResult = spawnSync(
+  runCommand(
     process.execPath,
     [
       "--input-type=module",
@@ -97,7 +80,6 @@ try {
     }
   );
 
-  assert.equal(resolveResult.status, 0, resolveResult.stderr || resolveResult.stdout);
   console.log(`Installed ${packageName}@${packageVersion} from GitHub Packages.`);
 } finally {
   removeOwnedTree(consumerDir);
