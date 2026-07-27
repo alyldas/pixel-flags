@@ -51,6 +51,7 @@
     "lint": "eslint scripts test site-src",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "typecheck:build": "tsc -p jsconfig.build.json",
     "hooks:install": "husky",
     "commitlint": "commitlint --edit",
     "test": "npm run test:package && npm run test:site",
@@ -58,7 +59,7 @@
     "test:site": "node --test --test-concurrency=4 test/site.test.js test/visual-assets.test.js",
     "test:smoke": "node --test test/smoke.test.js",
     "test:all": "npm test && npm run smoke",
-    "verify:static": "npm run format:check && npm run lint",
+    "verify:static": "npm run format:check && npm run lint && npm run typecheck:build",
     "verify:assets": "npm run check:flag-index && npm run check:assets && npm run check:provenance",
     "verify:package": "npm run verify:static && npm run verify:assets && npm run coverage && npm run check:docs && npm run test:package && npm run check:package",
     "verify:site": "npm run build:site && npm run test:site",
@@ -88,6 +89,7 @@
     "i18n-iso-countries": "^7.14.0",
     "playwright": "^1.62.0",
     "prettier": "^3.9.6",
-    "sharp": "^0.35.3"
+    "sharp": "^0.35.3",
+    "typescript": "^7.0.2"
   }
 }

@@ -37,6 +37,7 @@ npm run generate:provenance
 npm test
 npm run smoke
 npm run test:all
+npm run typecheck:build
 npm run verify:package
 npm run verify:site
 npm run verify:site:smoke
@@ -61,6 +62,7 @@ It also writes ignored local artifacts under `reports/` and `badges/`.
 - `npm run check:registry` installs the published package from GitHub Packages. It requires `NODE_AUTH_TOKEN` or `GITHUB_TOKEN` with `read:packages`.
 - `npm run generate:flag-index` regenerates `scripts/flag-art/flags/index.js`.
 - `npm run generate:provenance` regenerates `flags/provenance.json`.
+- `npm run typecheck:build` checks the JavaScript build core with TypeScript.
 - `npm run verify:package` runs static checks, asset validation, coverage, package tests, and tarball validation.
 - `npm run verify:site` builds and checks generated site artifacts.
 - `npm run verify:site:smoke` runs site verification and then browser smoke without rebuilding the site.
