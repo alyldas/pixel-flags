@@ -72,7 +72,9 @@ It also writes ignored local artifacts under `reports/` and `badges/`.
 
 Release Please opens and updates one release pull request from conventional commits on `main`.
 Do not edit the release version, changelog section, tag, or GitHub release manually.
-The repository Actions settings must allow `GITHUB_TOKEN` workflows to create pull requests.
+Configure the `RELEASE_PLEASE_TOKEN` Actions secret with a fine-grained personal access token
+limited to this repository. Grant it read and write access to contents, issues, and pull requests
+so release pull requests trigger the normal CI workflows.
 
 Before merging the release pull request:
 

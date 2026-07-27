@@ -28,7 +28,7 @@ jobs:
         id: release
         uses: googleapis/release-please-action@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
 
   publish:
     name: Publish release package
@@ -82,7 +82,7 @@ jobs:
       - name: Upload release artifact
         uses: actions/upload-artifact@v7
         with:
-          name: package-${{ needs.release-please.outputs.tag-name }}
+          name: package-${{ needs.release-please.outputs.tag-name }}-${{ github.run_attempt }}
           path: ${{ steps.package.outputs.tarball }}
           if-no-files-found: error
 
