@@ -79,7 +79,7 @@ so release pull requests trigger the normal CI workflows.
 Before merging the release pull request:
 
 1. Confirm it contains every intended change and the expected semantic version.
-2. Review the generated `CHANGELOG.md`, `package.json`, `package-lock.json`, and manifest update.
+2. Review the generated `CHANGELOG.md`, `package.json`, and `package-lock.json` updates.
 3. Run `npm run verify`.
 4. Run `npm run verify:site:smoke` where Playwright can launch a browser.
 5. Confirm the release pull request checks are green for its exact head SHA.
