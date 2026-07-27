@@ -4,7 +4,7 @@ import { createRequire } from "node:module";
 
 import countries from "i18n-iso-countries";
 
-import { FLAG_RATIO, FLAGS_DIR, PROJECT_ROOT } from "./config.js";
+import { DEFAULT_BUILD_CONTEXT, FLAG_RATIO } from "./config.js";
 
 const require = createRequire(import.meta.url);
 const en = require("i18n-iso-countries/langs/en.json");
@@ -48,8 +48,9 @@ function readPngSize(filePath) {
 /**
  * @returns {FlagFileEntry[]}
  */
-export function scanFlagFiles(rootDir = PROJECT_ROOT) {
-  const flagsDir = rootDir === PROJECT_ROOT ? FLAGS_DIR : path.join(rootDir, "flags");
+export function scanFlagFiles(contextValue = DEFAULT_BUILD_CONTEXT) {
+  const context = contextValue;
+  const flagsDir = context.source.flagsDir;
 
   if (!fs.existsSync(flagsDir)) {
     throw new Error(`Flags directory not found: ${flagsDir}`);
@@ -96,8 +97,8 @@ export function scanFlagFiles(rootDir = PROJECT_ROOT) {
 /**
  * @returns {FlagFileEntry[]}
  */
-export function getBuildEntries(rootDir = PROJECT_ROOT) {
-  const entries = scanFlagFiles(rootDir);
+export function getBuildEntries(contextValue = DEFAULT_BUILD_CONTEXT) {
+  const entries = scanFlagFiles(contextValue);
   const unknownEntries = entries.filter((entry) => !entry.knownIso);
 
   if (unknownEntries.length > 0) {
@@ -111,8 +112,8 @@ export function getBuildEntries(rootDir = PROJECT_ROOT) {
 /**
  * @returns {CoverageData}
  */
-export function getCoverageData(rootDir = PROJECT_ROOT) {
-  return getCoverageDataFromEntries(scanFlagFiles(rootDir));
+export function getCoverageData(contextValue = DEFAULT_BUILD_CONTEXT) {
+  return getCoverageDataFromEntries(scanFlagFiles(contextValue));
 }
 
 /**

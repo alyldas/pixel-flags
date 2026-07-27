@@ -1,15 +1,4 @@
-import path from "node:path";
-
-import {
-  BADGES_DIR,
-  COVERAGE_BADGE_PATH,
-  COVERAGE_PATH,
-  PROJECT_ROOT,
-  README_COVERAGE_END,
-  README_COVERAGE_START,
-  README_PATH,
-  REPORTS_DIR,
-} from "./config.js";
+import { DEFAULT_BUILD_CONTEXT, README_COVERAGE_END, README_COVERAGE_START } from "./config.js";
 import { getCoverageData } from "./flag-inventory.js";
 import { ensureDir, escapeXml, formatPercent, readText, writeText } from "./utils.js";
 
@@ -26,9 +15,8 @@ function buildCoverageSummaryBlock(report) {
   ].join("\n");
 }
 
-function syncReadmeCoverage(rootDir, report) {
-  const readmePath = rootDir === PROJECT_ROOT ? README_PATH : path.join(rootDir, "README.md");
-  const readme = readText(readmePath);
+function syncReadmeCoverage(context, report) {
+  const readme = readText(context.source.readmePath);
   const replacement = buildCoverageSummaryBlock(report);
   const pattern = new RegExp(`${README_COVERAGE_START}[\\s\\S]*?${README_COVERAGE_END}`, "m");
 
@@ -36,7 +24,7 @@ function syncReadmeCoverage(rootDir, report) {
     throw new Error("README coverage markers are missing.");
   }
 
-  writeText(readmePath, readme.replace(pattern, replacement));
+  writeText(context.output.readmePath, readme.replace(pattern, replacement));
 }
 
 function buildCoverageMarkdown(report) {
@@ -107,14 +95,15 @@ function buildCoverageBadge(report) {
 `;
 }
 
-export function createCoverageReport(rootDir = PROJECT_ROOT) {
-  const report = getCoverageData(rootDir);
-  const reportsDir = rootDir === PROJECT_ROOT ? REPORTS_DIR : path.join(rootDir, "reports");
-  const badgesDir = rootDir === PROJECT_ROOT ? BADGES_DIR : path.join(rootDir, "badges");
-  const outputPath =
-    rootDir === PROJECT_ROOT ? COVERAGE_PATH : path.join(reportsDir, "coverage.md");
-  const badgePath =
-    rootDir === PROJECT_ROOT ? COVERAGE_BADGE_PATH : path.join(badgesDir, "coverage.svg");
+export function createCoverageReport(contextValue = DEFAULT_BUILD_CONTEXT) {
+  const context = contextValue;
+  const report = getCoverageData(context);
+  const {
+    reportsDir,
+    badgesDir,
+    coveragePath: outputPath,
+    coverageBadgePath: badgePath,
+  } = context.output;
   const markdown = buildCoverageMarkdown(report);
   const badge = buildCoverageBadge(report);
 
@@ -123,7 +112,7 @@ export function createCoverageReport(rootDir = PROJECT_ROOT) {
 
   writeText(outputPath, markdown);
   writeText(badgePath, badge);
-  syncReadmeCoverage(rootDir, report);
+  syncReadmeCoverage(context, report);
 
   return {
     ...report,
@@ -131,6 +120,6 @@ export function createCoverageReport(rootDir = PROJECT_ROOT) {
     markdown,
     badgePath,
     badge,
-    readmePath: rootDir === PROJECT_ROOT ? README_PATH : path.join(rootDir, "README.md"),
+    readmePath: context.output.readmePath,
   };
 }

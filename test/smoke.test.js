@@ -1,6 +1,5 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 import { pathToFileURL } from "node:url";
@@ -8,51 +7,64 @@ import { pathToFileURL } from "node:url";
 import { chromium } from "playwright";
 import sharp from "sharp";
 
-import { CSS_DIR, FLAGS_DIR, HTML_PATH } from "../scripts/lib/config.js";
+import { DEFAULT_BUILD_CONTEXT } from "../scripts/lib/config.js";
 import { getBuildEntries } from "../scripts/lib/flag-inventory.js";
 import { buildProject } from "../scripts/lib/build.js";
 import { removeOwnedTree } from "../scripts/lib/utils.js";
+import { createBuildFixture, createTempWorkspace } from "./helpers/project-fixture.js";
 
 const smokeArtifactDir = process.env.PIXEL_FLAGS_SMOKE_ARTIFACT_DIR?.trim() || "";
 const shouldBuildProject = process.env.PIXEL_FLAGS_SMOKE_SKIP_BUILD !== "1";
 
 test("site smoke test loads and filters flags in a real browser", async () => {
-  if (shouldBuildProject) {
-    await buildProject();
-  }
-
-  assert.ok(fs.existsSync(HTML_PATH));
-  const fixture = stageSmokeFixture();
-  const expectedTotal = String(getBuildEntries().length);
-
-  const browser = await chromium.launch({
-    headless: true,
-  });
-  const context = await browser.newContext({ deviceScaleFactor: 1 });
-  const page = await context.newPage();
+  let buildFixture;
+  let buildContext = DEFAULT_BUILD_CONTEXT;
+  let fixture;
+  let browser;
+  let browserContext;
+  let page;
 
   try {
-    await page.goto(pathToFileURL(fixture.indexPath).href, { waitUntil: "load" });
+    if (shouldBuildProject) {
+      buildFixture = createBuildFixture("pixel-flags-site-");
+      buildContext = buildFixture.context;
+      await buildProject(buildContext);
+    }
 
-    await page.waitForSelector("h1");
-    await expectText(page.title(), "Pixel Flags | CSS Pixel-Art Country Flags");
-    await expectText(page.locator("h1").textContent(), "Pixel Flags");
-    await expectText(page.locator("[data-visible-count]").textContent(), expectedTotal);
+    assert.ok(fs.existsSync(buildContext.output.htmlPath));
+    fixture = stageSmokeFixture(buildContext);
+    const expectedTotal = String(getBuildEntries(buildContext).length);
 
-    await page.getByLabel("Search flags").fill("japan");
-    await waitForVisibleFlagCount(page, "1");
-    await expectText(page.locator("[data-visible-count]").textContent(), "1");
-    await expectText(page.locator(".flag-card:not([hidden]) strong").textContent(), "JP");
+    browser = await chromium.launch({
+      headless: true,
+    });
+    browserContext = await browser.newContext({ deviceScaleFactor: 1 });
+    page = await browserContext.newPage();
 
-    const screenshot = await renderFlagScreenshot(page, "ru");
-    await expectRussianFlagPixels(screenshot);
-  } catch (error) {
-    await captureSmokeArtifacts({ page, fixture, outputDir: smokeArtifactDir });
-    throw error;
+    try {
+      await page.goto(pathToFileURL(fixture.indexPath).href, { waitUntil: "load" });
+
+      await page.waitForSelector("h1");
+      await expectText(page.title(), "Pixel Flags | CSS Pixel-Art Country Flags");
+      await expectText(page.locator("h1").textContent(), "Pixel Flags");
+      await expectText(page.locator("[data-visible-count]").textContent(), expectedTotal);
+
+      await page.getByLabel("Search flags").fill("japan");
+      await waitForVisibleFlagCount(page, "1");
+      await expectText(page.locator("[data-visible-count]").textContent(), "1");
+      await expectText(page.locator(".flag-card:not([hidden]) strong").textContent(), "JP");
+
+      const screenshot = await renderFlagScreenshot(page, "ru");
+      await expectRussianFlagPixels(screenshot);
+    } catch (error) {
+      await captureSmokeArtifacts({ page, fixture, outputDir: smokeArtifactDir });
+      throw error;
+    }
   } finally {
-    await context.close();
-    await browser.close();
-    fixture.cleanup();
+    await browserContext?.close();
+    await browser?.close();
+    fixture?.cleanup();
+    buildFixture?.cleanup();
   }
 });
 
@@ -142,23 +154,22 @@ function formatPixel(pixel) {
   return `rgba(${pixel.r}, ${pixel.g}, ${pixel.b}, ${pixel.a})`;
 }
 
-function stageSmokeFixture() {
-  const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "pixel-flags-smoke-"));
-  const siteDir = path.dirname(HTML_PATH);
+function stageSmokeFixture(buildContext) {
+  const fixture = createTempWorkspace("pixel-flags-smoke-");
+  const fixtureRoot = fixture.rootDir;
+  const siteDir = buildContext.output.siteDir;
 
   for (const entry of fs.readdirSync(siteDir)) {
     fs.cpSync(path.join(siteDir, entry), path.join(fixtureRoot, entry), { recursive: true });
   }
 
-  fs.cpSync(CSS_DIR, path.join(fixtureRoot, "css"), { recursive: true });
-  fs.cpSync(FLAGS_DIR, path.join(fixtureRoot, "flags"), { recursive: true });
+  fs.cpSync(buildContext.output.cssDir, path.join(fixtureRoot, "css"), { recursive: true });
+  fs.cpSync(buildContext.source.flagsDir, path.join(fixtureRoot, "flags"), { recursive: true });
 
   return {
     rootDir: fixtureRoot,
     indexPath: path.join(fixtureRoot, "index.html"),
-    cleanup() {
-      removeOwnedTree(fixtureRoot);
-    },
+    cleanup: fixture.cleanup,
   };
 }
 

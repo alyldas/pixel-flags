@@ -1,8 +1,7 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import os from "node:os";
 import path from "node:path";
-import test from "node:test";
+import test, { after, before } from "node:test";
 
 import sharp from "sharp";
 
@@ -16,13 +15,25 @@ import {
   readPngRgbaData,
   rgbaImageFromPainter,
 } from "../scripts/lib/asset-validation.js";
-import { FAVICON_PATH, SOCIAL_CARD_PNG_PATH } from "../scripts/lib/config.js";
 import { buildProject } from "../scripts/lib/build.js";
+import { createBuildFixture, createTempWorkspace } from "./helpers/project-fixture.js";
+
+let siteFixture;
+let siteResult;
+
+before(async () => {
+  siteFixture = createBuildFixture("pixel-flags-site-");
+  siteResult = await buildProject(siteFixture.context);
+});
+
+after(() => {
+  siteFixture.cleanup();
+});
 
 test("generated favicon keeps the expected pixel flag motif", async () => {
-  await buildProject();
-
-  const { data, info } = await sharp(FAVICON_PATH).raw().toBuffer({ resolveWithObject: true });
+  const { data, info } = await sharp(siteResult.faviconPath)
+    .raw()
+    .toBuffer({ resolveWithObject: true });
 
   assert.equal(info.width, 64);
   assert.equal(info.height, 64);
@@ -35,9 +46,7 @@ test("generated favicon keeps the expected pixel flag motif", async () => {
 });
 
 test("generated social card keeps the Russian flag preview visible", async () => {
-  await buildProject();
-
-  const { data, info } = await sharp(SOCIAL_CARD_PNG_PATH)
+  const { data, info } = await sharp(siteResult.socialCardPngPath)
     .raw()
     .toBuffer({ resolveWithObject: true });
 
@@ -50,36 +59,40 @@ test("generated social card keeps the Russian flag preview visible", async () =>
 });
 
 test("generated preview sheet keeps labels, scale, and flag pixels stable", async () => {
-  const workspace = fs.mkdtempSync(path.join(os.tmpdir(), "pixel-flags-preview-"));
-  const flagDir = path.join(workspace, "flags");
-  const previewPath = path.join(workspace, "preview.png");
+  const workspace = createTempWorkspace("pixel-flags-preview-");
+  const flagDir = path.join(workspace.rootDir, "flags");
+  const previewPath = path.join(workspace.rootDir, "preview.png");
 
-  fs.mkdirSync(flagDir, { recursive: true });
+  try {
+    fs.mkdirSync(flagDir, { recursive: true });
 
-  const entries = [];
-  for (const code of ["ru", "us"]) {
-    const painter = new Painter();
-    flags[code](painter);
-    const outputPath = path.join(flagDir, `${code}.png`);
-    await painter.write(outputPath);
-    entries.push({ code, outputPath });
+    const entries = [];
+    for (const code of ["ru", "us"]) {
+      const painter = new Painter();
+      flags[code](painter);
+      const outputPath = path.join(flagDir, `${code}.png`);
+      await painter.write(outputPath);
+      entries.push({ code, outputPath });
+    }
+
+    await writePreview(entries, previewPath);
+
+    const { data, info } = await sharp(previewPath).raw().toBuffer({ resolveWithObject: true });
+
+    assert.equal(info.width, 8 * WIDTH * 6 + 9 * 8);
+    assert.equal(info.height, HEIGHT * 6 + 14 + 2 * 8);
+    assertLight(getPixel(data, info, 172, 12), "preview label background");
+    assertLight(getPixel(data, info, 24, 28), "preview Russian top stripe");
+    assertBlue(getPixel(data, info, 24, 64), "preview Russian middle stripe");
+    assertRed(getPixel(data, info, 24, 100), "preview Russian bottom stripe");
+  } finally {
+    workspace.cleanup();
   }
-
-  await writePreview(entries, previewPath);
-
-  const { data, info } = await sharp(previewPath).raw().toBuffer({ resolveWithObject: true });
-
-  assert.equal(info.width, 8 * WIDTH * 6 + 9 * 8);
-  assert.equal(info.height, HEIGHT * 6 + 14 + 2 * 8);
-  assertLight(getPixel(data, info, 172, 12), "preview label background");
-  assertLight(getPixel(data, info, 24, 28), "preview Russian top stripe");
-  assertBlue(getPixel(data, info, 24, 64), "preview Russian middle stripe");
-  assertRed(getPixel(data, info, 24, 100), "preview Russian bottom stripe");
 });
 
 test("asset validation compares pixels instead of PNG encoder bytes", async () => {
-  const workspace = fs.mkdtempSync(path.join(os.tmpdir(), "pixel-flags-asset-validation-"));
-  const outputPath = path.join(workspace, "ru.png");
+  const workspace = createTempWorkspace("pixel-flags-asset-validation-");
+  const outputPath = path.join(workspace.rootDir, "ru.png");
   const painter = new Painter();
   flags.ru(painter);
 
@@ -113,7 +126,7 @@ test("asset validation compares pixels instead of PNG encoder bytes", async () =
       /ru\.png is out of sync with scripts\/flag-art\/flags at pixel \(0, 0\), channel 0/
     );
   } finally {
-    fs.rmSync(workspace, { recursive: true, force: true });
+    workspace.cleanup();
   }
 });
 
@@ -130,8 +143,8 @@ test("asset validation rejects animated PNG metadata", () => {
 });
 
 test("asset validation rejects APNG chunks before decoding pixels", async () => {
-  const workspace = fs.mkdtempSync(path.join(os.tmpdir(), "pixel-flags-apng-validation-"));
-  const outputPath = path.join(workspace, "ru.png");
+  const workspace = createTempWorkspace("pixel-flags-apng-validation-");
+  const outputPath = path.join(workspace.rootDir, "ru.png");
   const painter = new Painter();
   flags.ru(painter);
 
@@ -147,7 +160,7 @@ test("asset validation rejects APNG chunks before decoding pixels", async () => 
       /ru\.png is an animated PNG; found acTL chunk/
     );
   } finally {
-    fs.rmSync(workspace, { recursive: true, force: true });
+    workspace.cleanup();
   }
 });
 
