@@ -32,7 +32,7 @@ jobs:
       - name: Set up project
         uses: ./.github/actions/setup-project
 
-      - name: Install Playwright Chrome for Testing
+      - name: Install Playwright browser
         run: npm run playwright:install
 
       - name: Verify package

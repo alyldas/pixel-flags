@@ -13,7 +13,6 @@ import { getBuildEntries } from "../scripts/lib/flag-inventory.js";
 import { buildProject } from "../scripts/lib/build.js";
 import { removeOwnedTree } from "../scripts/lib/utils.js";
 
-const CHROME_FOR_TESTING_CHANNEL = "chrome-for-testing";
 const smokeArtifactDir = process.env.PIXEL_FLAGS_SMOKE_ARTIFACT_DIR?.trim() || "";
 const shouldBuildProject = process.env.PIXEL_FLAGS_SMOKE_SKIP_BUILD !== "1";
 
@@ -27,7 +26,6 @@ test("site smoke test loads and filters flags in a real browser", async () => {
   const expectedTotal = String(getBuildEntries().length);
 
   const browser = await chromium.launch({
-    channel: CHROME_FOR_TESTING_CHANNEL,
     headless: true,
   });
   const context = await browser.newContext({ deviceScaleFactor: 1 });

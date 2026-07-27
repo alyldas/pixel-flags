@@ -73,7 +73,7 @@ Releases are rare and manual. The tag is the release trigger.
 1. Confirm `package.json` version is the intended release version.
 2. Update `CHANGELOG.md` for that version.
 3. Run `npm run verify`.
-4. Run `npm run verify:site:smoke` where Playwright Chrome for Testing can launch.
+4. Run `npm run verify:site:smoke` where Playwright can launch a browser.
 5. Make sure the release commit is on `main`.
 6. Push a matching semver tag such as `v1.0.0`.
 7. After the release workflow finishes, run `npm run check:registry` with a package read token.

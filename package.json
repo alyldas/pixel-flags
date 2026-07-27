@@ -38,7 +38,7 @@
     "draw:flags:preview": "node scripts/draw-pixel-flags.js --draft",
     "coverage": "node scripts/coverage.js",
     "build:pages": "node scripts/assemble-pages.js",
-    "playwright:install": "npx playwright install --with-deps chrome-for-testing",
+    "playwright:install": "npx playwright install --with-deps chromium",
     "smoke": "npm run test:smoke",
     "check:assets": "node scripts/check-assets.js",
     "check:docs": "node scripts/check-docs.js",
