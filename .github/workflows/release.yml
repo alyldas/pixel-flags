@@ -46,26 +46,12 @@ jobs:
             exit 1
           fi
 
-      - name: Install Playwright browser
-        run: npm run playwright:install
-
-      - name: Verify package
-        run: npm run verify:package
-
-      - name: Verify browser site
-        env:
-          PIXEL_FLAGS_SMOKE_ARTIFACT_DIR: reports/smoke-release
-        run: npm run verify:site:smoke
-
-      - name: Upload smoke artifacts on failure
-        if: failure()
-        uses: actions/upload-artifact@v7
+      - name: Verify project
+        uses: ./.github/actions/verify-project
         with:
-          name: smoke-artifacts-release-${{ github.run_id }}-${{ github.run_attempt }}
-          path: |
-            reports/smoke-release
-            site
-          if-no-files-found: ignore
+          verify-browser: "true"
+          smoke-artifact-dir: reports/smoke-release
+          smoke-artifact-name: smoke-artifacts-release-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Check whether version is already published
         id: published

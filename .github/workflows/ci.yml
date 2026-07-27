@@ -6,6 +6,13 @@ on:
       - main
   pull_request:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   fast:
     name: Fast Checks
@@ -19,7 +26,7 @@ jobs:
         uses: ./.github/actions/setup-project
 
       - name: Run package verification
-        run: npm run verify:package
+        uses: ./.github/actions/verify-project
 
   full:
     name: Browser Smoke
@@ -33,20 +40,10 @@ jobs:
       - name: Set up project
         uses: ./.github/actions/setup-project
 
-      - name: Install Playwright browser
-        run: npm run playwright:install
-
       - name: Run browser site verification
-        env:
-          PIXEL_FLAGS_SMOKE_ARTIFACT_DIR: reports/smoke-ci
-        run: npm run verify:site:smoke
-
-      - name: Upload smoke artifacts on failure
-        if: failure()
-        uses: actions/upload-artifact@v7
+        uses: ./.github/actions/verify-project
         with:
-          name: smoke-artifacts-${{ github.run_id }}-${{ github.run_attempt }}
-          path: |
-            reports/smoke-ci
-            site
-          if-no-files-found: ignore
+          verify-package: "false"
+          verify-browser: "true"
+          smoke-artifact-dir: reports/smoke-ci
+          smoke-artifact-name: smoke-artifacts-${{ github.run_id }}-${{ github.run_attempt }}
