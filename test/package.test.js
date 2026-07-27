@@ -81,6 +81,14 @@ test("packed package installs cleanly and exposes documented subpath exports", a
       )
     );
 
+    const installedManifest = JSON.parse(
+      fs.readFileSync(
+        path.join(consumerDir, "node_modules", "@alyldas", "pixel-flags", "package.json"),
+        "utf8"
+      )
+    );
+    assert.equal(installedManifest.engines, undefined);
+
     const resolveResult = spawnSync(
       process.execPath,
       [
