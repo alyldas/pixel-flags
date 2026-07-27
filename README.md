@@ -167,7 +167,9 @@ npm run verify
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full development and release command list.
 
-Releases are manual tag pushes. See [CONTRIBUTING.md](CONTRIBUTING.md#release-checklist).
+Release Please maintains the version, changelog, tag, and GitHub release. The release workflow
+publishes one verified tarball to GitHub Packages. See
+[CONTRIBUTING.md](CONTRIBUTING.md#release-checklist).
 
 ## Changelog
 

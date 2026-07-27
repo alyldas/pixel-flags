@@ -70,14 +70,20 @@ It also writes ignored local artifacts under `reports/` and `badges/`.
 
 ## Release Checklist
 
-Releases are rare and manual. The tag is the release trigger.
+Release Please opens and updates one release pull request from conventional commits on `main`.
+Do not edit the release version, changelog section, tag, or GitHub release manually.
+Configure the `RELEASE_PLEASE_TOKEN` Actions secret with a fine-grained personal access token
+limited to this repository. Grant it read and write access to contents, issues, and pull requests
+so release pull requests trigger the normal CI workflows.
 
-1. Confirm `package.json` version is the intended release version.
-2. Update `CHANGELOG.md` for that version.
+Before merging the release pull request:
+
+1. Confirm it contains every intended change and the expected semantic version.
+2. Review the generated `CHANGELOG.md`, `package.json`, and `package-lock.json` updates.
 3. Run `npm run verify`.
 4. Run `npm run verify:site:smoke` where Playwright can launch a browser.
-5. Make sure the release commit is on `main`.
-6. Push a matching semver tag such as `v1.0.0`.
-7. After the release workflow finishes, run `npm run check:registry` with a package read token.
+5. Confirm the release pull request checks are green for its exact head SHA.
+6. Merge only after explicit release approval.
 
-`.github/workflows/release.yml` validates the tag, publishes to GitHub Packages with `GITHUB_TOKEN`, and creates the GitHub release entry.
+The merge creates the tag and GitHub release, then publishes the verified tarball to GitHub
+Packages. The registry step is idempotent, so a partially failed publish job can be retried safely.
