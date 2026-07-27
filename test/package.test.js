@@ -1,13 +1,11 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import os from "node:os";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import test from "node:test";
 
-import { PROJECT_ROOT } from "../scripts/lib/config.js";
 import { buildPackageArtifacts } from "../scripts/lib/build.js";
-import { removeOwnedTree } from "../scripts/lib/utils.js";
+import { createPackageFixture, createTempWorkspace } from "./helpers/project-fixture.js";
 
 const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
 
@@ -23,15 +21,18 @@ function createNpmTestEnv(localCache) {
 }
 
 test("packed package installs cleanly and exposes documented subpath exports", async () => {
-  buildPackageArtifacts();
-
-  const packDir = fs.mkdtempSync(path.join(os.tmpdir(), "pixel-flags-pack-"));
-  const consumerDir = fs.mkdtempSync(path.join(os.tmpdir(), "pixel-flags-consumer-"));
+  const packageFixture = createPackageFixture();
+  const consumerFixture = createTempWorkspace("pixel-flags-consumer-");
+  const packDir = path.join(packageFixture.rootDir, "packed");
+  const consumerDir = consumerFixture.rootDir;
   const localCache = path.join(consumerDir, ".npm-cache");
 
   try {
+    buildPackageArtifacts(packageFixture.context);
+    fs.mkdirSync(packDir);
+
     const packResult = spawnSync(npmCommand, ["pack", "--json", "--pack-destination", packDir], {
-      cwd: PROJECT_ROOT,
+      cwd: packageFixture.rootDir,
       encoding: "utf8",
       env: createNpmTestEnv(localCache),
     });
@@ -116,7 +117,7 @@ test("packed package installs cleanly and exposes documented subpath exports", a
 
     assert.equal(resolveResult.status, 0, resolveResult.stderr || resolveResult.stdout);
   } finally {
-    removeOwnedTree(packDir);
-    removeOwnedTree(consumerDir);
+    packageFixture.cleanup();
+    consumerFixture.cleanup();
   }
 });

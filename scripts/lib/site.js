@@ -1,59 +1,44 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import {
-  FAVICON_PATH,
-  FLAG_RATIO,
-  HTML_PATH,
-  ISSUES_URL,
-  MANIFEST_PATH,
-  PACKAGE_VERSION,
-  PROJECT_ROOT,
-  REPO_BLOB_MAIN_URL,
-  REPO_URL,
-  ROBOTS_PATH,
-  SITE_HOST_PATH,
-  SITE_PATHNAME,
-  SITE_DIR,
-  SITEMAP_PATH,
-  SOCIAL_CARD_PNG_PATH,
-  SITE_URL,
-} from "./config.js";
+import { DEFAULT_BUILD_CONTEXT } from "./config.js";
 import { ensureDir, writeText, escapeHtml, escapeXml, formatPercent } from "./utils.js";
 
-const SITE_SOURCE_DIR = path.join(PROJECT_ROOT, "site-src");
-const SITE_CLIENT_SOURCE_PATH = path.join(SITE_SOURCE_DIR, "app.js");
-const SITE_STYLE_SOURCE_PATH = path.join(SITE_SOURCE_DIR, "styles.css");
-const TEMPLATE_PATH = path.join(SITE_SOURCE_DIR, "template.html");
 const SITE_TITLE = "Pixel Flags | CSS Pixel-Art Country Flags";
 const SITE_DESCRIPTION =
   "Native 32x18 pixel-art country flags with a flag-icons-like CSS API and generated ISO coverage tracking.";
 
-export async function writeSiteArtifacts(rootDir, entries, coverage, renderSocialCardPng) {
-  const siteDir = rootDir === PROJECT_ROOT ? SITE_DIR : path.join(rootDir, "site");
-  const htmlPath = rootDir === PROJECT_ROOT ? HTML_PATH : path.join(siteDir, "index.html");
-  const robotsPath = rootDir === PROJECT_ROOT ? ROBOTS_PATH : path.join(siteDir, "robots.txt");
-  const sitemapPath = rootDir === PROJECT_ROOT ? SITEMAP_PATH : path.join(siteDir, "sitemap.xml");
-  const faviconPath = rootDir === PROJECT_ROOT ? FAVICON_PATH : path.join(siteDir, "favicon.svg");
-  const socialCardPngPath =
-    rootDir === PROJECT_ROOT ? SOCIAL_CARD_PNG_PATH : path.join(siteDir, "social-card.png");
-  const manifestPath =
-    rootDir === PROJECT_ROOT ? MANIFEST_PATH : path.join(siteDir, "site.webmanifest");
+export async function writeSiteArtifacts(
+  contextValue = DEFAULT_BUILD_CONTEXT,
+  entries,
+  coverage,
+  renderSocialCardPng
+) {
+  const context = contextValue;
+  const {
+    siteDir,
+    htmlPath,
+    robotsPath,
+    sitemapPath,
+    faviconPath,
+    socialCardPngPath,
+    manifestPath,
+  } = context.output;
 
   ensureDir(siteDir);
 
-  writeText(htmlPath, buildSiteHtml(entries, coverage));
+  writeText(htmlPath, buildSiteHtml(context, entries, coverage));
   const appPath = path.join(siteDir, "app.js");
   const stylePath = path.join(siteDir, "style.css");
 
-  writeText(appPath, readSiteSource(SITE_CLIENT_SOURCE_PATH));
-  writeText(stylePath, readSiteSource(SITE_STYLE_SOURCE_PATH));
-  writeText(robotsPath, buildRobotsTxt());
-  writeText(sitemapPath, buildSitemap());
+  writeText(appPath, readSiteSource(context.source.siteClientSourcePath));
+  writeText(stylePath, readSiteSource(context.source.siteStyleSourcePath));
+  writeText(robotsPath, buildRobotsTxt(context));
+  writeText(sitemapPath, buildSitemap(context));
   writeText(faviconPath, buildFavicon());
-  await renderSocialCardPng(buildSocialCardSvg(coverage), socialCardPngPath);
+  await renderSocialCardPng(buildSocialCardSvg(context, coverage), socialCardPngPath);
 
-  writeText(manifestPath, buildWebManifest());
+  writeText(manifestPath, buildWebManifest(context));
 
   return {
     appPath,
@@ -71,8 +56,8 @@ function readSiteSource(sourcePath) {
   return `${fs.readFileSync(sourcePath, "utf8").trimEnd()}\n`;
 }
 
-function buildSiteHtml(entries, coverage) {
-  const template = fs.readFileSync(TEMPLATE_PATH, "utf8");
+function buildSiteHtml(context, entries, coverage) {
+  const template = fs.readFileSync(context.source.siteTemplatePath, "utf8");
 
   return renderTemplate(template, {
     DESCRIPTION: escapeHtml(SITE_DESCRIPTION),
@@ -80,11 +65,11 @@ function buildSiteHtml(entries, coverage) {
     FLAG_COUNT: String(entries.length),
     ISO_COVERAGE: formatPercent(coverage.coverage),
     MISSING_COUNT: String(coverage.missing.length),
-    PIXEL_RATIO: `${FLAG_RATIO.width}:${FLAG_RATIO.height}`,
+    PIXEL_RATIO: `${context.flagRatio.width}:${context.flagRatio.height}`,
     SITE_TITLE: escapeHtml(SITE_TITLE),
-    SITE_URL: escapeHtml(SITE_URL),
-    SOCIAL_IMAGE: escapeHtml(`${SITE_URL}social-card.png`),
-    STRUCTURED_DATA: buildStructuredData(coverage),
+    SITE_URL: escapeHtml(context.siteUrl),
+    SOCIAL_IMAGE: escapeHtml(`${context.siteUrl}social-card.png`),
+    STRUCTURED_DATA: buildStructuredData(context, coverage),
   });
 }
 
@@ -128,21 +113,21 @@ function renderTemplate(template, replacements) {
   return html;
 }
 
-function buildStructuredData(coverage) {
+function buildStructuredData(context, coverage) {
   return JSON.stringify(
     {
       "@context": "https://schema.org",
       "@type": "SoftwareSourceCode",
       name: "Pixel Flags",
       description: "Native 32x18 pixel-art country flags with a flag-icons-like CSS API.",
-      url: SITE_URL,
-      codeRepository: REPO_URL,
-      issueTracker: ISSUES_URL,
-      license: `${REPO_BLOB_MAIN_URL}/LICENSE`,
+      url: context.siteUrl,
+      codeRepository: context.repoUrl,
+      issueTracker: context.issuesUrl,
+      license: `${context.repoBlobMainUrl}/LICENSE`,
       programmingLanguage: ["CSS", "HTML", "JavaScript"],
       runtimePlatform: "Browser",
       keywords: ["css flags", "pixel flags", "country flags", "flag icons"],
-      softwareVersion: PACKAGE_VERSION,
+      softwareVersion: context.packageVersion,
       releaseNotes: `${coverage.have}/${coverage.isoTotal} ISO codes currently available.`,
     },
     null,
@@ -163,7 +148,7 @@ function buildFavicon() {
 `;
 }
 
-function buildSocialCardSvg(report) {
+function buildSocialCardSvg(context, report) {
   const coverage = formatPercent(report.coverage);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -189,7 +174,7 @@ function buildSocialCardSvg(report) {
   </g>
   <text x="110" y="445" fill="#14213d" font-family="DejaVu Sans, Liberation Sans, Arial, Helvetica, sans-serif" font-size="28">Available flags: ${report.have}</text>
   <text x="110" y="490" fill="#14213d" font-family="DejaVu Sans, Liberation Sans, Arial, Helvetica, sans-serif" font-size="28">Missing ISO codes: ${report.missing.length}</text>
-  <text x="110" y="535" fill="#506174" font-family="DejaVu Sans, Liberation Sans, Arial, Helvetica, sans-serif" font-size="24">${escapeXml(SITE_HOST_PATH)}</text>
+  <text x="110" y="535" fill="#506174" font-family="DejaVu Sans, Liberation Sans, Arial, Helvetica, sans-serif" font-size="24">${escapeXml(context.siteHostPath)}</text>
   <g transform="translate(814 366)">
     <rect x="0" y="0" width="280" height="158" rx="18" fill="#ffffff" stroke="#d5d9e2"/>
     <rect x="24" y="24" width="232" height="110" rx="12" fill="#f6f3e8"/>
@@ -200,37 +185,37 @@ function buildSocialCardSvg(report) {
 `;
 }
 
-function buildRobotsTxt() {
+function buildRobotsTxt(context) {
   return `User-agent: *
 Allow: /
 
-Sitemap: ${SITE_URL}sitemap.xml
+Sitemap: ${context.siteUrl}sitemap.xml
 `;
 }
 
-function buildSitemap() {
+function buildSitemap(context) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>${SITE_URL}</loc>
+    <loc>${context.siteUrl}</loc>
   </url>
 </urlset>
 `;
 }
 
-function buildWebManifest() {
+function buildWebManifest(context) {
   return `${JSON.stringify(
     {
       name: "Pixel Flags",
       short_name: "Pixel Flags",
-      start_url: SITE_PATHNAME,
-      scope: SITE_PATHNAME,
+      start_url: context.sitePathname,
+      scope: context.sitePathname,
       display: "standalone",
       background_color: "#f4efe4",
       theme_color: "#14213d",
       icons: [
         {
-          src: `${SITE_URL}favicon.svg`,
+          src: `${context.siteUrl}favicon.svg`,
           sizes: "any",
           type: "image/svg+xml",
         },

@@ -1,46 +1,44 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import path from "node:path";
-import test from "node:test";
+import test, { after, before } from "node:test";
 
-import {
-  CSS_PATH,
-  FAVICON_PATH,
-  HTML_PATH,
-  MANIFEST_PATH,
-  PACKAGE_VERSION,
-  PROJECT_ROOT,
-  ROBOTS_PATH,
-  SITEMAP_PATH,
-  SITE_URL,
-  SOCIAL_CARD_PNG_PATH,
-} from "../scripts/lib/config.js";
 import { getBuildEntries } from "../scripts/lib/flag-inventory.js";
 import { buildProject } from "../scripts/lib/build.js";
+import { createBuildFixture } from "./helpers/project-fixture.js";
 
-const SITE_ARTIFACT_PATHS = [
-  HTML_PATH,
-  ROBOTS_PATH,
-  SITEMAP_PATH,
-  FAVICON_PATH,
-  SOCIAL_CARD_PNG_PATH,
-  MANIFEST_PATH,
-];
+let fixture;
+let result;
 
-test("site build generates expected artifacts", async () => {
-  const result = await buildProject();
+before(async () => {
+  fixture = createBuildFixture("pixel-flags-site-");
+  result = await buildProject(fixture.context);
+});
 
-  assert.equal(result.entries.length, getBuildEntries().length);
-  assert.equal(result.htmlPath, HTML_PATH);
-  assert.equal(result.robotsPath, ROBOTS_PATH);
-  assert.equal(result.sitemapPath, SITEMAP_PATH);
-  assert.equal(result.faviconPath, FAVICON_PATH);
-  assert.equal(result.socialCardPngPath, SOCIAL_CARD_PNG_PATH);
-  assert.equal(result.manifestPath, MANIFEST_PATH);
+after(() => {
+  fixture.cleanup();
+});
+
+test("site build generates expected artifacts", () => {
+  assert.equal(result.entries.length, getBuildEntries(fixture.context).length);
+  assert.equal(result.htmlPath, fixture.context.output.htmlPath);
+  assert.equal(result.robotsPath, fixture.context.output.robotsPath);
+  assert.equal(result.sitemapPath, fixture.context.output.sitemapPath);
+  assert.equal(result.faviconPath, fixture.context.output.faviconPath);
+  assert.equal(result.socialCardPngPath, fixture.context.output.socialCardPngPath);
+  assert.equal(result.manifestPath, fixture.context.output.manifestPath);
   assert.ok(result.appPath.endsWith("app.js"));
   assert.ok(result.stylePath.endsWith("style.css"));
 
-  for (const artifactPath of [...SITE_ARTIFACT_PATHS, result.appPath, result.stylePath]) {
+  for (const artifactPath of [
+    result.htmlPath,
+    result.robotsPath,
+    result.sitemapPath,
+    result.faviconPath,
+    result.socialCardPngPath,
+    result.manifestPath,
+    result.appPath,
+    result.stylePath,
+  ]) {
     const stat = fs.statSync(artifactPath);
 
     assert.ok(stat.isFile(), `Expected generated file: ${artifactPath}`);
@@ -48,15 +46,13 @@ test("site build generates expected artifacts", async () => {
   }
 });
 
-test("generated site keeps the expected static browser contract", async () => {
-  await buildProject();
+test("generated site keeps the expected static browser contract", () => {
+  const html = fs.readFileSync(result.htmlPath, "utf8");
+  const app = fs.readFileSync(result.appPath, "utf8");
+  const style = fs.readFileSync(result.stylePath, "utf8");
 
-  const html = fs.readFileSync(HTML_PATH, "utf8");
-  const app = fs.readFileSync(path.join(PROJECT_ROOT, "site", "app.js"), "utf8");
-  const style = fs.readFileSync(path.join(PROJECT_ROOT, "site", "style.css"), "utf8");
-
-  assert.equal(countMatches(html, "data-flag-card"), getBuildEntries().length);
-  assert.match(html, /data-visible-count>250</);
+  assert.equal(countMatches(html, "data-flag-card"), result.entries.length);
+  assert.ok(html.includes(`data-visible-count>${result.coverage.have}<`));
   assert.match(html, /data-search/);
   assert.match(html, /class="pf pf-ru"/);
   assert.doesNotMatch(html, /v-model|v-for|v-cloak|\{\{/);
@@ -69,30 +65,37 @@ test("generated site keeps the expected static browser contract", async () => {
   assert.match(app, /querySelector\("\[data-search\]"\)/);
   assert.match(app, /card\.hidden = !visible/);
   assert.match(style, /\.flags-grid/);
-  assert.ok(fs.readFileSync(CSS_PATH, "utf8").includes(".pf-ru"));
+  assert.ok(fs.readFileSync(result.cssPath, "utf8").includes(".pf-ru"));
 });
 
-test("generated site metadata artifacts are valid", async () => {
-  await buildProject();
-
-  const html = fs.readFileSync(HTML_PATH, "utf8");
+test("generated site metadata artifacts are valid", () => {
+  const html = fs.readFileSync(result.htmlPath, "utf8");
   const structuredData = JSON.parse(
     html.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/)[1]
   );
 
   assert.equal(structuredData["@type"], "SoftwareSourceCode");
   assert.equal(structuredData.name, "Pixel Flags");
-  assert.equal(structuredData.url, SITE_URL);
-  assert.equal(structuredData.softwareVersion, PACKAGE_VERSION);
-  assert.equal(structuredData.releaseNotes, "250/250 ISO codes currently available.");
+  assert.equal(structuredData.url, fixture.context.siteUrl);
+  assert.equal(structuredData.softwareVersion, fixture.context.packageVersion);
+  assert.equal(
+    structuredData.releaseNotes,
+    `${result.coverage.have}/${result.coverage.isoTotal} ISO codes currently available.`
+  );
 
-  const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf8"));
+  const manifest = JSON.parse(fs.readFileSync(result.manifestPath, "utf8"));
   assert.equal(manifest.name, "Pixel Flags");
   assert.equal(manifest.short_name, "Pixel Flags");
   assert.equal(manifest.icons[0].type, "image/svg+xml");
 
-  assert.ok(fs.readFileSync(ROBOTS_PATH, "utf8").includes(`Sitemap: ${SITE_URL}sitemap.xml`));
-  assert.ok(fs.readFileSync(SITEMAP_PATH, "utf8").includes(`<loc>${SITE_URL}</loc>`));
+  assert.ok(
+    fs
+      .readFileSync(result.robotsPath, "utf8")
+      .includes(`Sitemap: ${fixture.context.siteUrl}sitemap.xml`)
+  );
+  assert.ok(
+    fs.readFileSync(result.sitemapPath, "utf8").includes(`<loc>${fixture.context.siteUrl}</loc>`)
+  );
 });
 
 function countMatches(value, needle) {

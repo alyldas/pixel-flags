@@ -1,34 +1,34 @@
-import fs from "node:fs";
 import os from "node:os";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 
-import { HEIGHT as FLAG_HEIGHT, WIDTH as FLAG_WIDTH } from "../flag-art/constants.js";
+import {
+  createBuildContext,
+  DEFAULT_BUILD_CONTEXT,
+  FLAG_RATIO,
+  PROJECT_ROOT,
+  README_COVERAGE_END,
+  README_COVERAGE_START,
+} from "./build-context.js";
 
-export const PROJECT_ROOT = path.resolve(fileURLToPath(new URL("../..", import.meta.url)));
-export const PACKAGE_JSON_PATH = path.join(PROJECT_ROOT, "package.json");
-/**
- * @typedef {{url?: string}} UrlObject
- * @typedef {{
- *   homepage?: string;
- *   repository?: string | UrlObject;
- *   bugs?: string | UrlObject;
- *   version: string;
- * }} PackageManifest
- */
-const packageJson = /** @type {PackageManifest} */ (
-  JSON.parse(fs.readFileSync(PACKAGE_JSON_PATH, "utf8"))
-);
-export const FLAGS_DIR = path.join(PROJECT_ROOT, "flags");
-export const FLAG_RECIPE_DIR = path.join(PROJECT_ROOT, "scripts/flag-art/flags");
-export const FLAG_INDEX_PATH = path.join(FLAG_RECIPE_DIR, "index.js");
-export const CSS_DIR = path.join(PROJECT_ROOT, "css");
-export const SITE_DIR = path.join(PROJECT_ROOT, "site");
-export const REPORTS_DIR = path.join(PROJECT_ROOT, "reports");
-export const BADGES_DIR = path.join(PROJECT_ROOT, "badges");
-export const PAGES_DIR = path.join(PROJECT_ROOT, "_site");
-export const DRAFT_DIR = path.join(PROJECT_ROOT, "draft");
-export const NPM_CACHE_DIR = path.join(PROJECT_ROOT, ".npm-cache");
+export {
+  createBuildContext,
+  DEFAULT_BUILD_CONTEXT,
+  FLAG_RATIO,
+  PROJECT_ROOT,
+  README_COVERAGE_END,
+  README_COVERAGE_START,
+};
+
+export const PACKAGE_JSON_PATH = DEFAULT_BUILD_CONTEXT.source.packageJsonPath;
+export const FLAGS_DIR = DEFAULT_BUILD_CONTEXT.source.flagsDir;
+export const FLAG_RECIPE_DIR = DEFAULT_BUILD_CONTEXT.source.flagRecipeDir;
+export const FLAG_INDEX_PATH = DEFAULT_BUILD_CONTEXT.source.flagIndexPath;
+export const CSS_DIR = DEFAULT_BUILD_CONTEXT.output.cssDir;
+export const SITE_DIR = DEFAULT_BUILD_CONTEXT.output.siteDir;
+export const REPORTS_DIR = DEFAULT_BUILD_CONTEXT.output.reportsDir;
+export const BADGES_DIR = DEFAULT_BUILD_CONTEXT.output.badgesDir;
+export const PAGES_DIR = DEFAULT_BUILD_CONTEXT.output.pagesDir;
+export const DRAFT_DIR = DEFAULT_BUILD_CONTEXT.output.draftDir;
+export const NPM_CACHE_DIR = DEFAULT_BUILD_CONTEXT.output.npmCacheDir;
 export const GENERATED_ROOTS = [
   BADGES_DIR,
   REPORTS_DIR,
@@ -44,115 +44,29 @@ export const REMOVABLE_TEMP_PREFIXES = [
   "pixel-flags-preview-",
   "pixel-flags-registry-",
   "pixel-flags-smoke-",
+  "pixel-flags-build-",
+  "pixel-flags-coverage-",
+  "pixel-flags-package-",
+  "pixel-flags-site-",
+  "pixel-flags-asset-validation-",
+  "pixel-flags-apng-validation-",
 ];
-export const README_PATH = path.join(PROJECT_ROOT, "README.md");
-export const CSS_PATH = path.join(CSS_DIR, "pixel-flags.css");
-export const MIN_CSS_PATH = path.join(CSS_DIR, "pixel-flags.min.css");
-export const HTML_PATH = path.join(SITE_DIR, "index.html");
-export const ROBOTS_PATH = path.join(SITE_DIR, "robots.txt");
-export const SITEMAP_PATH = path.join(SITE_DIR, "sitemap.xml");
-export const FAVICON_PATH = path.join(SITE_DIR, "favicon.svg");
-export const SOCIAL_CARD_PNG_PATH = path.join(SITE_DIR, "social-card.png");
-export const MANIFEST_PATH = path.join(SITE_DIR, "site.webmanifest");
-export const ASSET_PROVENANCE_PATH = path.join(FLAGS_DIR, "provenance.json");
-export const COVERAGE_PATH = path.join(REPORTS_DIR, "coverage.md");
-export const COVERAGE_BADGE_PATH = path.join(BADGES_DIR, "coverage.svg");
-export const FLAG_RATIO = { width: FLAG_WIDTH, height: FLAG_HEIGHT };
-export const REPO_URL = getRepositoryUrl(packageJson);
-export const SITE_URL = getSiteUrl(packageJson.homepage, REPO_URL);
-export const SITE_PATHNAME = getSitePathname(SITE_URL);
-export const SITE_HOST_PATH = `${new URL(SITE_URL).host}${SITE_PATHNAME}`.replace(/\/$/, "");
-export const REPO_BLOB_MAIN_URL = `${REPO_URL}/blob/main`;
-export const ISSUES_URL = getIssuesUrl(packageJson.bugs, REPO_URL);
-export const PACKAGE_VERSION = packageJson.version;
-export const README_COVERAGE_START = "<!-- coverage:start -->";
-export const README_COVERAGE_END = "<!-- coverage:end -->";
-
-function getRepositoryUrl(manifest) {
-  const repository = manifest.repository;
-  const rawValue =
-    typeof repository === "string"
-      ? repository
-      : typeof repository?.url === "string"
-        ? repository.url
-        : undefined;
-  const normalized = normalizeRepositoryUrl(rawValue);
-
-  if (!normalized) {
-    throw new Error(
-      "Could not determine repository URL from package.json (expected repository.url or repository string)."
-    );
-  }
-
-  return normalized;
-}
-
-function normalizeRepositoryUrl(value) {
-  if (typeof value !== "string" || value.length === 0) {
-    return undefined;
-  }
-
-  let normalized = value
-    .trim()
-    .replace(/^git\+/, "")
-    .replace(/\.git$/, "");
-
-  if (normalized.startsWith("git@github.com:")) {
-    normalized = normalized.replace(/^git@github\.com:/, "https://github.com/");
-  } else if (normalized.startsWith("github:")) {
-    normalized = `https://github.com/${normalized.slice("github:".length)}`;
-  }
-
-  try {
-    const parsed = new URL(normalized);
-    const pathParts = parsed.pathname.split("/").filter(Boolean);
-
-    if (parsed.hostname === "github.com" && pathParts.length >= 2) {
-      return `https://github.com/${pathParts[0]}/${pathParts[1]}`;
-    }
-
-    return `${parsed.origin}${parsed.pathname.replace(/\/$/, "")}`;
-  } catch {
-    return undefined;
-  }
-}
-
-function getIssuesUrl(bugs, repositoryUrl) {
-  if (typeof bugs === "string" && bugs.length > 0) {
-    return bugs;
-  }
-
-  if (typeof bugs?.url === "string" && bugs.url.length > 0) {
-    return bugs.url;
-  }
-
-  return `${repositoryUrl}/issues`;
-}
-
-function getSiteUrl(homepage, repositoryUrl) {
-  if (typeof homepage === "string" && homepage.length > 0) {
-    const normalized = ensureTrailingSlash(homepage);
-    try {
-      return new URL(normalized).toString();
-    } catch {
-      throw new Error(`Invalid homepage URL in package.json: ${homepage}`);
-    }
-  }
-
-  const repoUrl = new URL(repositoryUrl);
-  const pathParts = repoUrl.pathname.split("/").filter(Boolean);
-  if (repoUrl.hostname === "github.com" && pathParts.length >= 2) {
-    return `https://${pathParts[0]}.github.io/${pathParts[1]}/`;
-  }
-
-  throw new Error("Could not infer SITE_URL. Set package.json homepage.");
-}
-
-function getSitePathname(siteUrl) {
-  const pathname = new URL(siteUrl).pathname;
-  return ensureTrailingSlash(pathname.startsWith("/") ? pathname : `/${pathname}`);
-}
-
-function ensureTrailingSlash(value) {
-  return value.endsWith("/") ? value : `${value}/`;
-}
+export const README_PATH = DEFAULT_BUILD_CONTEXT.output.readmePath;
+export const CSS_PATH = DEFAULT_BUILD_CONTEXT.output.cssPath;
+export const MIN_CSS_PATH = DEFAULT_BUILD_CONTEXT.output.minCssPath;
+export const HTML_PATH = DEFAULT_BUILD_CONTEXT.output.htmlPath;
+export const ROBOTS_PATH = DEFAULT_BUILD_CONTEXT.output.robotsPath;
+export const SITEMAP_PATH = DEFAULT_BUILD_CONTEXT.output.sitemapPath;
+export const FAVICON_PATH = DEFAULT_BUILD_CONTEXT.output.faviconPath;
+export const SOCIAL_CARD_PNG_PATH = DEFAULT_BUILD_CONTEXT.output.socialCardPngPath;
+export const MANIFEST_PATH = DEFAULT_BUILD_CONTEXT.output.manifestPath;
+export const ASSET_PROVENANCE_PATH = DEFAULT_BUILD_CONTEXT.output.assetProvenancePath;
+export const COVERAGE_PATH = DEFAULT_BUILD_CONTEXT.output.coveragePath;
+export const COVERAGE_BADGE_PATH = DEFAULT_BUILD_CONTEXT.output.coverageBadgePath;
+export const REPO_URL = DEFAULT_BUILD_CONTEXT.repoUrl;
+export const SITE_URL = DEFAULT_BUILD_CONTEXT.siteUrl;
+export const SITE_PATHNAME = DEFAULT_BUILD_CONTEXT.sitePathname;
+export const SITE_HOST_PATH = DEFAULT_BUILD_CONTEXT.siteHostPath;
+export const REPO_BLOB_MAIN_URL = DEFAULT_BUILD_CONTEXT.repoBlobMainUrl;
+export const ISSUES_URL = DEFAULT_BUILD_CONTEXT.issuesUrl;
+export const PACKAGE_VERSION = DEFAULT_BUILD_CONTEXT.packageVersion;
