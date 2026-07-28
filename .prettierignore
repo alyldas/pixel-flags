@@ -13,3 +13,6 @@ css/
 reports/
 site/
 _site/
+
+# Release Please output
+CHANGELOG.md
