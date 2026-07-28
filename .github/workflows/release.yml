@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing release tag to publish
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -17,6 +23,7 @@ concurrency:
 jobs:
   release-please:
     name: Prepare release
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     outputs:
       release-created: ${{ steps.release.outputs.release_created }}
@@ -35,18 +42,25 @@ jobs:
   publish:
     name: Publish release package
     needs: release-please
-    if: needs.release-please.outputs.release-created == 'true'
+    if: >-
+      ${{
+        always() &&
+        (github.event_name == 'workflow_dispatch' ||
+          needs.release-please.outputs.release-created == 'true')
+      }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
+    env:
+      RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || needs.release-please.outputs.tag-name }}
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
-          ref: ${{ needs.release-please.outputs.tag-name }}
+          ref: ${{ env.RELEASE_TAG }}
 
       - name: Set up project
         uses: ./.github/actions/setup-project
@@ -54,7 +68,7 @@ jobs:
       - name: Validate release version
         run: |
           PACKAGE_VERSION=$(node -p "require('./package.json').version")
-          if [ "v${PACKAGE_VERSION}" != "${{ needs.release-please.outputs.tag-name }}" ]; then
+          if [ "v${PACKAGE_VERSION}" != "${RELEASE_TAG}" ]; then
             echo "Release tag does not match package.json version v${PACKAGE_VERSION}." >&2
             exit 1
           fi
@@ -79,12 +93,12 @@ jobs:
         run: |
           mkdir -p release-artifacts
           TARBALL=$(npm pack --pack-destination release-artifacts)
-          echo "tarball=release-artifacts/${TARBALL}" >> "${GITHUB_OUTPUT}"
+          echo "tarball=./release-artifacts/${TARBALL}" >> "${GITHUB_OUTPUT}"
 
       - name: Upload release artifact
         uses: actions/upload-artifact@v7
         with:
-          name: package-${{ needs.release-please.outputs.tag-name }}-${{ github.run_attempt }}
+          name: package-${{ env.RELEASE_TAG }}-${{ github.run_attempt }}
           path: ${{ steps.package.outputs.tarball }}
           if-no-files-found: error
 
