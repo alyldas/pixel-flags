@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.3](https://github.com/alyldas/pixel-flags/compare/v1.0.2...v1.0.3) (2026-07-28)
+
+
+### Bug Fixes
+
+* excluded generated changelog from formatting ([b2768e4](https://github.com/alyldas/pixel-flags/commit/b2768e4cc253f93fd7bb0977a1df3163bba471a2))
+* removed consumer Node requirement ([#62](https://github.com/alyldas/pixel-flags/issues/62)) ([1f7a7fd](https://github.com/alyldas/pixel-flags/commit/1f7a7fd78302def8101d495084788560b8a08cd1))
+
 ## [Unreleased]
 
 ## [1.0.2] - 2026-07-27
